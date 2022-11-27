@@ -1,0 +1,5 @@
+/.venv
+/.idea
+.python-version
+poetry.lock
+pyproject.toml
