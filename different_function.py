@@ -146,3 +146,30 @@
 # x1, x2 = solve(a, b, c)
 # print(x1, x2)
 
+
+# объявление функции
+# def is_magic(date):
+#     pass
+#
+# # считываем данные
+# date = input()
+#
+# # вызываем функцию
+# print(is_magic(date))
+
+# объявление функции
+def is_pangram(text):
+	s = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+		 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+		 'u', 'v', 'w', 'x', 'y', 'z']
+	text = text.replace(' ', '')
+	text = text.lower()
+	for elt in text:
+		if elt not in s:
+			return False
+	return True
+# считываем данные
+text = input()
+
+# вызываем функцию
+print(is_pangram(text))
