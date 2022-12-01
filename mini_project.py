@@ -46,13 +46,29 @@
 # print(decimal_to_binary(n))
 
 
-def output(digital: int):
-	b = bin(digital)
-	x = hex(digital).upper()
-	o = oct(digital)
-	arr = [int(b[2:]), int(o[2:]), x[2:]]
-	for elt in arr:
-		print(elt)
+# def output(digital: int):
+# 	b = bin(digital)
+# 	x = hex(digital).upper()
+# 	o = oct(digital)
+# 	arr = [int(b[2:]), int(o[2:]), x[2:]]
+# 	for elt in arr:
+# 		print(elt)
+#
+# n = int(input())
+# output(n)
 
-n = int(input())
-output(n)
+
+def index_of_weight_body(weight: float, height: float) -> str:
+	min_weight = 18.5
+	max_weight = 25
+	body_index = weight / (height * height)
+	if body_index >= min_weight and body_index <= max_weight:
+		return 'Оптимальная масса'
+	elif body_index < min_weight:
+		return 'Недостаточная масса'
+	else:
+		return 'Избыточная масса'
+
+weight = float(input())
+height = float(input())
+print(index_of_weight_body(weight, height))
