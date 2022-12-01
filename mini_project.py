@@ -57,18 +57,30 @@
 # n = int(input())
 # output(n)
 
+#
+# def cost_string(text: str) -> str:
+# 	return str(len(text.split()))
+#
+# text = 'Я собираюсь сделать ему предложение, от которого он не сможет отказаться.'
+# print(cost_string(text))
+#
+#
+# def zodiac(year: int) -> str:
+# 	arr = ["Обезьяна", "Петух", "Собака", "Свинья", "Крыса", "Бык", "Тигр", "Заяц", "Дракон", "Змея", "Лошадь", "Овца", ]
+# 	x = year % 12
+# 	return arr[x]
+#
+# dig = 2020
+# print(zodiac(dig))
 
-def index_of_weight_body(weight: float, height: float) -> str:
-	min_weight = 18.5
-	max_weight = 25
-	body_index = weight / (height * height)
-	if body_index >= min_weight and body_index <= max_weight:
-		return 'Оптимальная масса'
-	elif body_index < min_weight:
-		return 'Недостаточная масса'
+
+def revers_nuber(digit: int) -> int:
+	string_of_digit = str(digit)
+	if len(string_of_digit) > 5:
+		sub_string = string_of_digit[1:]
+		new_digit = string_of_digit[0] + sub_string[::-1]
 	else:
-		return 'Избыточная масса'
+		new_digit = string_of_digit[::-1]
+	return int(new_digit)
 
-weight = float(input())
-height = float(input())
-print(index_of_weight_body(weight, height))
+print(revers_nuber(987654))
