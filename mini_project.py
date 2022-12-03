@@ -74,13 +74,59 @@
 # print(zodiac(dig))
 
 
-def revers_nuber(digit: int) -> int:
-	string_of_digit = str(digit)
-	if len(string_of_digit) > 5:
-		sub_string = string_of_digit[1:]
-		new_digit = string_of_digit[0] + sub_string[::-1]
-	else:
-		new_digit = string_of_digit[::-1]
-	return int(new_digit)
+# def revers_nuber(digit: int) -> int:
+# 	string_of_digit = str(digit)
+# 	if len(string_of_digit) > 5:
+# 		sub_string = string_of_digit[1:]
+# 		new_digit = string_of_digit[0] + sub_string[::-1]
+# 	else:
+# 		new_digit = string_of_digit[::-1]
+# 	return int(new_digit)
+#
+# print(revers_nuber(987654))
 
-print(revers_nuber(987654))
+
+# def decimal_separator(digit: int) -> str:
+# 	return '{:,}'.format(digit)
+#
+# x = int(input())
+# print(decimal_separator(x))
+
+
+# def task_flavius(arr: int, digit: int) -> int:
+# 	count = 0
+# 	for elt in range(1, arr +1):
+# 		count = (count + digit) % elt
+# 	return count+1
+#
+# arr = int(input())
+# digit = int(input())
+# print(task_flavius(arr,digit))
+
+
+# def coordinate_quarters(dot_count: int) -> str:
+# 	I = 0
+# 	II = 0
+# 	III = 0
+# 	IV = 0
+# 	count = dot_count
+# 	while count != 0:
+# 		arr = str(input()).split()
+# 		x = int(arr[0])
+# 		y = int(arr[1])
+# 		if x > 0 and y > 0:
+# 			I += 1
+# 		elif x < 0 and y > 0:
+# 			II += 1
+# 		elif x < 0 and y < 0:
+# 			III += 1
+# 		elif x > 0 and y < 0:
+# 			IV += 1
+# 		count -= 1
+# 	return f"Первая четверть: {I} \nВторая четверть: {II} \nТретья четверть: {III} \nЧетвертая четверть: {IV}"
+#
+# dot_count = int(input())
+# print(coordinate_quarters(dot_count))
+
+
+
