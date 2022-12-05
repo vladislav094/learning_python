@@ -233,3 +233,18 @@
 # count_iter = int(input())
 # print(silicon_valley(count_iter))
 
+
+
+def denied_access(word: str):
+    b = ['а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х',
+         'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
+    text = word + ' запретил букву'
+    for elt in range(len(b)):
+        text = ' '.join(text.split())
+        if b[elt] in text:
+            print(text, b[elt])
+            text = text.replace(b[elt], '')
+
+
+text = 'яндекс'
+denied_access(text)
