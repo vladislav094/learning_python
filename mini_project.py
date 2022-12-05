@@ -57,7 +57,7 @@
 # n = int(input())
 # output(n)
 
-#
+
 # def cost_string(text: str) -> str:
 # 	return str(len(text.split()))
 #
@@ -129,4 +129,107 @@
 # print(coordinate_quarters(dot_count))
 
 
+
+# def back_forward_versa(string_1: str) -> str:
+# 	arr = string_1.split()
+# 	if len(arr) % 2 != 0:
+# 		for _ in range(len(arr) - 1):
+# 			if arr.index(arr[_]) % 2 == 0:
+# 				arr[_], arr[_ + 1] = arr[_ + 1], arr[_]
+# 	else:
+# 		for j in range(0, len(arr) - 1, 2):
+# 			arr[j], arr[j + 1] = arr[j + 1], arr[j]
+# 	return ' '.join(arr)
+#
+# string_1 = '216 39 87 0 0 1 0'
+# print(back_forward_versa(string_1))
+
+
+
+# def shift_in_development(string_1: str) -> str:
+# 	arr = string_1.split()
+# 	d = arr[len(arr) -1]
+# 	del arr[len(arr) -1]
+# 	digital = list(d)
+# 	digital += arr
+# 	return ' '.join(digital)
+#
+# string_1 = str(input())
+# print(shift_in_development(string_1))
+
+
+# def different_elements(string_1: str) -> int:
+# 	a = string_1.split()
+# 	count = 1
+# 	for elt in range(len(a) - 1):
+# 		if int(a[elt]) != int(a[elt + 1]):
+# 			count += 1
+# 	return count
+#
+# string_1 = str(input())
+# print(different_elements(string_1))
+
+
+# def product_of_numbers():
+#     arr = [int(input()) for _ in range(int(input()))]
+#     digital = int(input())
+#     true = False
+#     for elt in range(len(arr)):
+#         for j in range(len(arr)):
+#             if arr[elt] * arr[j] == digital and elt != j:
+#                 true = True
+#                 break
+#     if true:
+#         return 'ДА'
+#     else:
+#         return 'НЕТ'
+#
+# print(product_of_numbers())
+
+
+# def rock_scissors(word_1: str, word_2: str):
+#     a = 'ножницыбумагакаменьящерицаСпокножницыящерицабумагаСпоккаменьножницы'
+#     if word_1 == word_2:
+#         return 'ничья'
+#     elif word_1 + word_2 in a:
+#         return 'Тимур'
+#     else:
+#         return 'Руслан'
+# word_1 = str(input())
+# word_2 = str(input())
+# print(rock_scissors(word_1, word_2))
+
+
+# def heads_and_tails(word: str) -> int:
+#     arr = word.split('О')
+#     return len(max(arr))
+#
+# text_1 = 'ООООРРРРОРОРРРРРРРРООРОРОРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРР'
+# print(heads_and_tails(text_1))
+
+
+
+# def silicon_valley(count_iter: int):
+#     arr = []
+#     for _ in range(1, count_iter+1):
+#         word = str(input())
+#         count = len(word)
+#         new_word = ''
+#         for elt in range(count):
+#             if new_word == '' and word[elt] == 'a':
+#                 new_word += word[elt]
+#             if new_word == 'a' and word[elt] == 'n':
+#                 new_word += word[elt]
+#             if new_word == 'an' and word[elt] == 't':
+#                 new_word += word[elt]
+#             if new_word == 'ant' and word[elt] == 'o':
+#                 new_word += word[elt]
+#             if new_word == 'anto' and word[elt] == 'n':
+#                 new_word += word[elt]
+#         if new_word == 'anton':
+#             arr.append(str(_))
+#     return ' '.join(arr)
+#
+# count_iter = int(input())
+# print(silicon_valley(count_iter))
 
