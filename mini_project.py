@@ -235,16 +235,83 @@
 
 
 
-def denied_access(word: str):
-    b = ['а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х',
-         'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
-    text = word + ' запретил букву'
-    for elt in range(len(b)):
-        text = ' '.join(text.split())
-        if b[elt] in text:
-            print(text, b[elt])
-            text = text.replace(b[elt], '')
+# def denied_access(word: str):
+#     b = ['а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х',
+#          'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
+#     text = word + ' запретил букву'
+#     for elt in range(len(b)):
+#         text = ' '.join(text.split())
+#         if b[elt] in text:
+#             print(text, b[elt])
+#             text = text.replace(b[elt], '')
+#
+# text = 'яндекс'
+# denied_access(text)
 
 
-text = 'яндекс'
-denied_access(text)
+# объявление функции
+# def func(num1, num2):
+#     if num1 % num2 == 0:
+#         return True
+#     else:
+#         return False
+#
+# # считываем данные
+# num1, num2 = int(input()), int(input())
+#
+# # вызываем функцию
+# if func(num1, num2):
+#     print('делится')
+# else:
+#     print('не делится')
+
+# list1 = [[1, 7, 8], [9, 7, 102], [6, 106, 105], [100, 99, 98, 103], [1, 2, 3]]
+# maximum = -1
+# for elt in list1:
+# 	d = max(elt)
+# 	if d > maximum:
+# 		maximum = d
+#
+# print(maximum)
+
+
+# list1 = [[1, 7, 8], [9, 7, 102], [102, 106, 105], [100, 99, 98, 103], [1, 2, 3]]
+# total = 0
+# counter = 0
+# for elt in list1:
+# 	counter += len(elt)
+# 	for j in elt:
+# 		total += j
+# print(counter, total)
+
+
+# my_list = []
+# for _ in range(4):
+# 	elem = [int(i) for i in input().split()]
+# 	my_list.append(elem)
+# print(my_list)
+
+
+# def output_list(dig: int):
+# 	arr = [x for x in range(1, dig+1)]
+# 	for _ in range(dig):
+# 		print(arr)
+#
+# digital = int(input())
+# output_list(digital)
+
+# def nested_list(digit: int):
+# 	arr = []
+# 	for elt in range(1, digit+ 1):
+# 		temp = []
+# 		for j in range(elt):
+# 			temp.append(j + 1)
+# 		arr.insert(elt, temp)
+# 	for row in arr:
+# 		print(row, end=' ')
+# 		print()
+# dig = int(input())
+# nested_list(dig)
+
+# arr = [[x for x in range(1, 4)] for _ in range(1,4)]
+
