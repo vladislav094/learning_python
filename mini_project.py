@@ -315,3 +315,19 @@
 
 # arr = [[x for x in range(1, 4)] for _ in range(1,4)]
 
+
+import math
+def pascal(n: int) -> list:
+	arr = []
+	count = 1
+	for i in range(n+1):
+		arr.append(int(math.factorial(n) / (math.factorial(i) * math.factorial(n - i))))
+		# print(arr)
+	return arr
+
+digit = int(input())
+# print(pascal(digit))
+
+for i in range(digit):
+	print(*pascal(i))
+
