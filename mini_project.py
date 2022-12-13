@@ -316,18 +316,66 @@
 # arr = [[x for x in range(1, 4)] for _ in range(1,4)]
 
 
-import math
-def pascal(n: int) -> list:
-	arr = []
-	count = 1
-	for i in range(n+1):
-		arr.append(int(math.factorial(n) / (math.factorial(i) * math.factorial(n - i))))
-		# print(arr)
-	return arr
+# import math
+# def pascal(n: int) -> list:
+# 	arr = []
+# 	count = 1
+# 	for i in range(n+1):
+# 		arr.append(int(math.factorial(n) / (math.factorial(i) * math.factorial(n - i))))
+# 		# print(arr)
+# 	return arr
+#
+# digit = int(input())
+# # print(pascal(digit))
+# for i in range(digit):
+# 	print(*pascal(i))
 
-digit = int(input())
-# print(pascal(digit))
 
-for i in range(digit):
-	print(*pascal(i))
+# def packing_duplicates(text: str) -> list:
+# 	d = []
+# 	tmp = []
+# 	for elt in text:
+# 		if len(tmp) == 0:
+# 			tmp.append(elt)
+# 		else:
+# 			if tmp[-1] == elt:
+# 				tmp.append(elt)
+# 			if tmp[-1] != elt:
+# 				d.append(list(tmp))
+# 				tmp.clear()
+# 				tmp.append(elt)
+# 	if len(tmp) != 0:
+# 		d.append(list(tmp))
+# 	return d
+#
+# string1 = str(input()).replace(' ','')
+# print(packing_duplicates(string1))
 
+
+
+# def chunked(word1: list, digit: int) -> list:
+# 	main_list = []
+# 	for _ in range(len(word1)):
+# 		if len(word1) > 0:
+# 			main_list.append(word1[:digit])
+# 			word1 = word1[digit:]
+# 	return main_list
+#
+# word = str(input()).split()
+# numb = int(input())
+# print(chunked(word, numb))
+
+
+def sub_list(input_list: list) -> list:
+	output_list = [[]]
+	additional_list = []
+	for _ in range(len(input_list)):
+		for __ in range(len(input_list)):
+			additional_list = input_list[__:_ + __ + 1]
+			if len(additional_list) == _ + 1:
+				output_list.append(additional_list)
+	return output_list
+
+
+text = str(input()).split()
+print(sub_list(text))
