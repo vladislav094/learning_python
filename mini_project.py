@@ -366,16 +366,279 @@
 # print(chunked(word, numb))
 
 
-def sub_list(input_list: list) -> list:
-	output_list = [[]]
-	additional_list = []
-	for _ in range(len(input_list)):
-		for __ in range(len(input_list)):
-			additional_list = input_list[__:_ + __ + 1]
-			if len(additional_list) == _ + 1:
-				output_list.append(additional_list)
-	return output_list
+# def sub_list(input_list: list) -> list:
+# 	output_list = [[]]
+# 	additional_list = []
+# 	for _ in range(len(input_list)):
+# 		for __ in range(len(input_list)):
+# 			additional_list = input_list[__:_ + __ + 1]
+# 			if len(additional_list) == _ + 1:
+# 				output_list.append(additional_list)
+# 	return output_list
+#
+#
+# text = str(input()).split()
+# print(sub_list(text))
 
 
-text = str(input()).split()
-print(sub_list(text))
+
+# n = 5
+# matrix = [[0]*n for _ in range(n)]
+#
+# # for r in range(8):
+# # 	for c in range(8):
+# # 		print(matrix[r][c], end=' ')
+# # 	print()
+#
+# for i in range(5):
+# 	matrix[i][i] = 1
+# 	matrix[i][5 - i - 1] = 2
+#
+# for r in range(5):
+# 	for c in range(5):
+# 		print(matrix[r][c], end=' ')
+# 	print()
+
+
+# n = 5
+# a = [[19, 21, 33, 78, 99],
+#      [41, 53, 66, 98, 76],
+#      [79, 80, 90, 60, 20],
+#      [33, 11, 45, 67, 90],
+#      [45, 67, 12, 98, 23]]
+#
+# maximum = -1
+# minimum = 100
+#
+# for i in range(n):
+#     if a[i][i] > maximum:
+#         maximum = a[i][i]
+#     if a[i][n - i - 1] < minimum:
+#         minimum = a[i][n - i - 1]
+# print(minimum + maximum)
+
+
+
+# rows = int(input())
+# cols = int(input())
+# matrix = []
+#
+# for r in range(rows):
+# 	row = []
+# 	for c in range(cols):
+# 		row.append(input())
+# 	matrix.append(row)
+#
+#
+# for j in range(rows):
+# 	for k in range(cols):
+# 		print(matrix[j][k], end=' ')
+# 	print()
+#
+# print()
+#
+# for k in range(cols):
+# 	for j in range(rows):
+# 		print(matrix[j][k], end=' ')
+# 	print()
+
+
+
+# matrix = [[int(input()) for _ in range(digital)] for elt in range(digital)]
+# matrix = [list(map(int, input().split())) for _ in range(digital)]
+# matrix = [[1, 2, 3, 4], [5, 6, 3, 15], [0, 2, 3, 1], [5, 2, 8, 5]]
+
+# def matrix_trace(digital: int) -> int:
+# 	'''
+# 	След матрицы
+#
+# 	3 - int
+# 	1 2 3 - string_1
+# 	4 5 6 - string_2
+# 	7 8 9 - string_3
+#
+# 	https://stepik.org/lesson/416754/step/10?unit=406262
+# 	'''
+# 	matrix = [list(map(int, input().split())) for _ in range(digital)]
+# 	d = 0
+# 	for r in range(digital):
+# 		d += matrix[r][r]
+# 	return d
+#
+# numb = int(input())
+# print(matrix_trace(numb))
+#
+# def more_than_average(digital: int):
+# 	'''
+# 	Больше среднего
+#
+# 	4 - int
+# 	1 2 3 4 - string_1
+# 	5 6 3 15 - string_2
+# 	0 2 3 1 - string_3
+# 	5 2 8 5 - string_4
+#
+# 	https://stepik.org/lesson/416754/step/11?unit=406262
+# 	'''
+# 	matrix = [list(map(int, input().split())) for _ in range(digital)]
+# 	for r in range(digital):
+# 		d = 0
+# 		count = 0
+# 		for c in range(digital):
+# 			d += matrix[r][c]
+# 			l = d / len(matrix[r])
+#
+# 		for _ in range(digital):
+# 			if matrix[r][_] > l:
+# 				count += 1
+# 		print(count)
+#
+# numb = int(input())
+# more_than_average(numb)
+
+
+
+# matrix = [[1, 4, 5],
+# 		  [6, 7, 8],
+# 		  [1, 7, 6]]
+
+# matrix = [[-50, -10, -20],
+# 		  [-19, -78, -70],
+# 		  [-11, -12, -19]]
+
+# matrix = [[1, 9, 5, 8],
+# 		  [6, 7, 8, 6],
+# 		  [1, 1, 6, 2],
+# 		  [2, 7, 4, 6]]
+
+
+
+# def maximum_in_area_1(digital: int) -> int:
+# 	'''
+# 	Максимальный в области 1
+#
+# 	1 - int
+# 	1 4 5 - string_1
+# 	6 7 8 - string_2
+# 	1 1 6 - string_3
+#
+# 	https://stepik.org/lesson/416754/step/12?unit=406262
+# 	'''
+# 	matrix = [list(map(int, input().split())) for _ in range(digital)]
+# 	maximum = -9999
+# 	for j in range(digital):
+# 		if matrix[j][j] > maximum:
+# 			maximum = matrix[j][j]
+#
+# 	for w in range(digital):
+# 		for e in range(digital):
+# 			if w > e:
+# 				if matrix[w][e] > maximum:
+# 					maximum = matrix[w][e]
+#
+# 	return maximum
+# numb = int(input())
+# print(maximum_in_area_1(numb))
+
+
+# def maximum_in_area_2(digital: int) -> int:
+# 	'''
+# 	Максимальный в области 2
+#
+# 	3 - int
+# 	1 4 5 -string_1
+# 	6 7 8 - string_2
+# 	1 1 6 - string_3
+#
+# 	https://stepik.org/lesson/416754/step/13?unit=406262
+# 	'''
+# 	matrix = [list(map(int, input().split())) for _ in range(digital)]
+# 	maximum = -9999
+# 	for j in range(digital):
+# 		if matrix[j][j] > maximum:
+# 			maximum = matrix[j][j]
+# 	for _ in range(digital):
+# 		if matrix[_][digital - 1 - _] > maximum:
+# 			maximum = matrix[_][digital - 1 - _]
+#
+# 	for w in range(digital):
+# 		for e in range(digital):
+# 			if w > e and w < digital - 1 - e:
+# 				if matrix[w][e] > maximum:
+# 					maximum = matrix[w][e]
+# 			if w < e and w > digital - 1 - e:
+# 				if matrix[w][e] > maximum:
+# 					maximum = matrix[w][e]
+# 	return maximum
+#
+#
+# numb = int(input())
+# print(maximum_in_area_2(numb))
+
+
+
+# def sums_of_quarters(digital: int):
+# 	'''
+# 	Суммы четвертей
+#
+# 	4 - int
+# 	1 2 3 4 - string
+# 	5 6 7 8 - string
+# 	3 4 5 6 - string
+# 	1 2 3 4 - string
+#
+# 	https://stepik.org/lesson/416754/step/14?unit=406262
+# 	'''
+# 	matrix = [list(map(int, input().split())) for _ in range(digital)]
+# 	top = 0
+# 	right = 0
+# 	down = 0
+# 	left = 0
+# 	for w in range(digital):
+# 		for e in range(digital):
+# 			if w > e and w < digital - 1 - e:
+# 				left += matrix[w][e]
+# 			if w < e and w > digital - 1 - e:
+# 				right += matrix[w][e]
+# 			if w < e and w < digital - 1 - e:
+# 				top += matrix[w][e]
+# 			if w > e and w > digital -1 - e:
+# 				down += matrix[w][e]
+# 	top_quartes = f"Верхняя четверть: {top}"
+# 	right_quartes = f"Правая четверть: {right}"
+# 	down_quartes = f"Нижняя четверть: {down}"
+# 	left_quartes = f"Левая четверть: {left}"
+# 	temp = [top_quartes, right_quartes, down_quartes, left_quartes]
+# 	for elt in temp:
+# 		print(elt)
+#
+# numb = int(input())
+# sums_of_quarters(numb)
+
+
+# def multiplication_table(rows: int, cols: int):
+# 	'''
+# 	Таблица умножения
+#
+# 	4 - rows
+# 	6 - cols
+#
+# 	0 0 0 0 0 0
+# 	0 1 2 3 4 5
+# 	0 2 4 6 8 10
+# 	0 3 6 9 12 15
+#
+# 	https://stepik.org/lesson/416755/step/1?unit=406263
+# 	'''
+# 	matrix = [[_ for _ in range(cols)] for elt in range(rows)]
+# 	for j in range(rows):
+# 		for k in range(cols):
+# 			matrix[j][k] = j * k
+# 			print(str(matrix[j][k]).ljust(3), end=' ')
+# 		print()
+#
+# digital_1 = int(input())
+# digital_2 = int(input())
+# multiplication_table(digital_1, digital_2)
+
+
