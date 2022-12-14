@@ -642,3 +642,62 @@
 # multiplication_table(digital_1, digital_2)
 
 
+# def maximum_in_the_table(rows_digital: int, cols_digital: int) -> str:
+# 	'''
+# 	Максимум в таблице
+#
+# 	3 - rows int
+# 	4 - cols int
+# 	0 3 2 4
+# 	2 3 5 5
+# 	5 1 2 3
+#
+# 	https://stepik.org/lesson/416755/step/2?unit=406263
+# 	'''
+# 	maximum = -999
+# 	rows = 0
+# 	cols = 0
+# 	matrix = []
+# 	for _ in range(rows_digital):
+# 		tmp = [int(x) for x in input().split()]
+# 		matrix.append(tmp)
+#
+# 	for e in range(rows_digital):
+# 		for j in range(cols_digital):
+# 			if matrix[e][j] > maximum:
+# 				maximum = matrix[e][j]
+# 				rows = e
+# 				cols = j
+#
+# 	return str(rows) + ' ' + str(cols)
+#
+# digital_1 = int(input())
+# digital_2 = int(input())
+# print(maximum_in_the_table(digital_1, digital_2))
+
+
+# def column_swapping(rows: int, cols: int) -> list:
+# 	'''
+# 	Обмен столбцов
+# 	3 - rows int
+# 	4 - cols int
+# 	11 12 13 14
+# 	21 22 23 24
+# 	31 32 33 34
+# 	https://stepik.org/lesson/416755/step/3?unit=406263
+# 	'''
+# 	matrix = []
+# 	for _ in range(rows):
+# 		tmp = [int(x) for x in input().split()]
+# 		matrix.append(tmp)
+# 	digital = str(input()).split()
+#
+# 	for k in range(rows):
+# 		matrix[k][int(digital[0])], matrix[k][int(digital[1])] = matrix[k][int(digital[1])], matrix[k][int(digital[0])]
+#
+# 	for elt in matrix:
+# 		print(*elt)
+#
+# digital_1 = int(input())
+# digital_2 = int(input())
+# column_swapping(digital_1, digital_2)
