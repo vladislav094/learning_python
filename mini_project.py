@@ -704,29 +704,178 @@
 
 
 
-def symmetric_matrix(digit: int) -> bool:
+# def symmetric_matrix(digit: int) -> bool:
+# 	'''
+# 	Симметричная матрица
+#
+# 	3 - int
+# 	0 1 2 - string
+# 	1 2 3 - string
+# 	2 3 4 - string
+#
+# 	https://stepik.org/lesson/416755/step/4?unit=406263
+# 	'''
+# 	matrix = [list(map(int, input().split())) for _ in range(digit)]
+# 	flag = False
+# 	for k in range(digit):
+# 		for j in range(1,digit):
+# 			if matrix[k][j] == matrix[j][k]:
+# 				flag = True
+# 			else:
+# 				flag = False
+# 				break
+# 		if flag == False:
+# 			break
+# 	return flag
+#
+# numb = int(input())
+# print(symmetric_matrix(numb))
+
+
+# def exchange_of_diagonals(digit: int):
+# 	'''
+# 	Обмен диагоналей
+#
+# 	3 - int
+# 	1 2 3 - string
+# 	4 5 6 - string
+# 	7 8 9 - string
+#
+# 	https://stepik.org/lesson/416755/step/5?unit=406263
+# 	'''
+# 	matrix = [list(map(int, input().split())) for _ in range(digit)]
+# 	for k in range(digit):
+# 		matrix[k][digit - 1 - k], matrix[digit - 1 - k][digit - 1 - k] = matrix[digit - 1 - k][digit - 1 - k], matrix[k][digit - 1 - k]
+#
+# 	for elt in range(digit):
+# 		for j in range(digit):
+# 			print(matrix[elt][j], end=' ')
+# 		print()
+#
+# numb = int(input())
+# exchange_of_diagonals(numb)
+
+
+# matrix = [[1, 2, 3],
+# 		  [4, 5, 6],
+# 		  [7, 8, 9]]
+
+# def rot90(digit):
+# 	'''
+# 	Поворот матрицы
+#
+# 	3 - int
+# 	7 4 1 - string
+# 	8 5 2 - string
+# 	9 6 3 - string
+#
+# 	https://stepik.org/lesson/416755/step/7?unit=406263
+# 	'''
+# 	matrix = [list(map(int, input().split())) for _ in range(digit)]
+# 	new_matrix = [list(reversed(col)) for col in zip(*matrix)]
+# 	for elt in range(3):
+# 		for j in range(3):
+# 			print(new_matrix[elt][j], end=' ')
+# 		print()
+# 	# # 2
+# 	# for elt in range(digit):
+# 	# 	for j in range(digit - 1, -1, -1):
+# 	# 		print(matrix[j][elt], end=' ')
+# 	# 	print()
+#
+#
+# digital = int(input())
+# rot90(digital)
+
+# def knights_moves():
+# 	n = 8
+# 	matrix = [[0] * n for _ in range(n)]
+#
+# 	x, y = input()
+# 	x = ord(x) - 97
+# 	y = int(n - int(y))
+#
+# 	matrix[y][x] = 'N'
+#
+# 	for i in range(n):
+# 		for q in range(n):
+# 			matrix[i][q] = '.'
+# 			matrix[y][x] = 'N'
+# 			if abs(i - y) * abs(q - x) == 2:
+# 				matrix[i][q] = '*'
+# 			print(matrix[i][q], end=' ')
+# 		print()
+#
+# knights_moves()
+
+
+# matrix = [[8, 1, 6],
+# 		  [3, 5, 7],
+# 		  [ 4, 9, 2]]
+# matrix = [['.'] * 10 for _ in range(10)]
+# digit = 10
+# for j in range(digit):
+# 	matrix[j][digit - 1 - j] = '2'
+# 	matrix[j][j] = '1'
+# for e in range(digit):
+# 	for k in range(digit):
+# 		print(matrix[e][k], end=' ')
+# 	print()
+
+
+
+def magic_square(digit: int) -> str:
 	'''
-	Симметричная матрица
+	Магический квадрат
+	Магическим квадратом порядка nn называется квадратная таблица размера n \times nn×n,
+	 составленная из всех чисел 1, 2, 3, \ldots, n^21,2,3,…,n 2
+    так, что суммы по каждому столбцу, каждой строке и каждой из двух диагоналей равны между собой.
+    Напишите программу, которая проверяет, является ли заданная квадратная матрица магическим квадратом.
 
-	3 - int
-	0 1 2 - string
-	1 2 3 - string
-	2 3 4 - string
+    3 - int
+    8 1 6 - string
+    3 5 7 - string
+    4 9 2 - string
 
-	https://stepik.org/lesson/416755/step/4?unit=406263
+	https://stepik.org/lesson/416755/step/9?unit=406263
 	'''
 	matrix = [list(map(int, input().split())) for _ in range(digit)]
-	flag = False
-	for k in range(digit):
-		for j in range(1,digit):
-			if matrix[k][j] == matrix[j][k]:
-				flag = True
-			else:
-				flag = False
-				break
-		if flag == False:
-			break
-	return flag
+	digital = [elt for elt in range(1, digit * digit + 1)]
+	new_matrix = []
+	total_arr = []
+	for elt in range(digit):
+		for jei in range(digit):
+			new_matrix.extend([matrix[elt][jei]])
+	new_matrix.sort()
+	if new_matrix == digital:
+		for e in range(digit):
+			total_1 = 0
+			for j in range(digit):
+				total_1 += matrix[e][j]
+			total_arr.append(total_1)
+		total_1 = 0
 
+		for j in range(digit):
+			total_1 += matrix[j][digit - 1- j]
+		total_arr.append(total_1)
+
+		total_1 = 0
+		for j in range(digit):
+			total_1 += matrix[j][j]
+		total_arr.append(total_1)
+
+		for j in range(digit):
+			total_1 = 0
+			for k in range(digit):
+				total_1 += matrix[k][j]
+			total_arr.append(total_1)
+		res = all(x == total_arr[0] for x in total_arr)
+		if res:
+			return 'YES'
+		else:
+			return 'NO'
+	else:
+		return 'NO'
 numb = int(input())
-print(symmetric_matrix(numb))
+print(magic_square(numb))
+
