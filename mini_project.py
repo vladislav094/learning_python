@@ -701,3 +701,32 @@
 # digital_1 = int(input())
 # digital_2 = int(input())
 # column_swapping(digital_1, digital_2)
+
+
+
+def symmetric_matrix(digit: int) -> bool:
+	'''
+	Симметричная матрица
+
+	3 - int
+	0 1 2 - string
+	1 2 3 - string
+	2 3 4 - string
+
+	https://stepik.org/lesson/416755/step/4?unit=406263
+	'''
+	matrix = [list(map(int, input().split())) for _ in range(digit)]
+	flag = False
+	for k in range(digit):
+		for j in range(1,digit):
+			if matrix[k][j] == matrix[j][k]:
+				flag = True
+			else:
+				flag = False
+				break
+		if flag == False:
+			break
+	return flag
+
+numb = int(input())
+print(symmetric_matrix(numb))
