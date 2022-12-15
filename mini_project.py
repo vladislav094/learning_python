@@ -824,58 +824,168 @@
 
 
 
-def magic_square(digit: int) -> str:
+# def magic_square(digit: int) -> str:
+# 	'''
+# 	Магический квадрат
+# 	Магическим квадратом порядка nn называется квадратная таблица размера n \times nn×n,
+# 	 составленная из всех чисел 1, 2, 3, \ldots, n^21,2,3,…,n 2
+#     так, что суммы по каждому столбцу, каждой строке и каждой из двух диагоналей равны между собой.
+#     Напишите программу, которая проверяет, является ли заданная квадратная матрица магическим квадратом.
+#
+#     3 - int
+#     8 1 6 - string
+#     3 5 7 - string
+#     4 9 2 - string
+#
+# 	https://stepik.org/lesson/416755/step/9?unit=406263
+# 	'''
+# 	matrix = [list(map(int, input().split())) for _ in range(digit)]
+# 	digital = [elt for elt in range(1, digit * digit + 1)]
+# 	new_matrix = []
+# 	total_arr = []
+# 	for elt in range(digit):
+# 		for jei in range(digit):
+# 			new_matrix.extend([matrix[elt][jei]])
+# 	new_matrix.sort()
+# 	if new_matrix == digital:
+# 		for e in range(digit):
+# 			total_1 = 0
+# 			for j in range(digit):
+# 				total_1 += matrix[e][j]
+# 			total_arr.append(total_1)
+# 		total_1 = 0
+#
+# 		for j in range(digit):
+# 			total_1 += matrix[j][digit - 1- j]
+# 		total_arr.append(total_1)
+#
+# 		total_1 = 0
+# 		for j in range(digit):
+# 			total_1 += matrix[j][j]
+# 		total_arr.append(total_1)
+#
+# 		for j in range(digit):
+# 			total_1 = 0
+# 			for k in range(digit):
+# 				total_1 += matrix[k][j]
+# 			total_arr.append(total_1)
+# 		res = all(x == total_arr[0] for x in total_arr)
+# 		if res:
+# 			return 'YES'
+# 		else:
+# 			return 'NO'
+# 	else:
+# 		return 'NO'
+# numb = int(input())
+# print(magic_square(numb))
+
+
+# def chess_board():
+# 	'''
+# 	Шахматная доска
+#
+# 	3 4 - input
+#
+# 	:return
+# 	. * . *
+# 	* . * .
+# 	. * . *
+#
+# 	https://stepik.org/lesson/416757/step/1?unit=406265
+# 	'''
+# 	var_1, var_2 = input().split()
+# 	var_1 = int(var_1)
+# 	var_2 = int(var_2)
+# 	matrix = [['.'] * var_2 for _ in range(var_1)]
+# 	for elt in range(var_1):
+# 		for jei in range(var_2):
+# 			if elt % 2 == 0 and jei % 2 != 0:
+# 				matrix[elt][jei] = '*'
+# 			if elt % 2 != 0 and jei % 2 == 0:
+# 				matrix[elt][jei] = '*'
+# 			print(matrix[elt][jei], end=' ')
+# 		print()
+#
+# chess_board()
+
+
+# def side_diagonal(digit: int):
+# 	'''
+# 	Побочная диагональ
+# 	4 - int
+#
+# 	:return
+# 	0 0 0 1
+# 	0 0 1 2
+# 	0 1 2 2
+# 	1 2 2 2
+# 	https://stepik.org/lesson/416757/step/2?unit=406265
+# 	'''
+# 	matrix = [[0] * digit for _ in range(digit)]
+# 	count = 0
+# 	for elt in range(digit):
+# 		for key in range(digit):
+# 			matrix[digit - 1 - key][key] = '1'
+# 			if elt < key and elt > digit - 1 - key or elt > key and elt > digit - 1 - key:
+# 				matrix[elt][key] = '2'
+# 			if count >= digit/2 and elt == key:
+# 				matrix[elt][key] = '2'
+# 			print(matrix[elt][key], end=' ')
+# 		count += 1
+# 		print()
+#
+# numb = int(input())
+# side_diagonal(numb)
+
+# def filling_in_1():
+# 	'''
+# 	Заполнение 1
+#
+# 	3 4 - input
+#
+# 	:return:
+# 	1  2  3  4
+# 	5  6  7  8
+# 	9  10 11 12
+# 	https://stepik.org/lesson/416757/step/3?unit=406265
+# 	'''
+# 	var_1, var_2 = input().split()
+# 	var_1, var_2 = int(var_1), int(var_2)
+# 	matrix = [[0] * var_2 for _ in range(var_1)]
+#
+# 	count = 1
+# 	for elt in range(var_1):
+# 		for key in range(var_2):
+# 			matrix[elt][key] = count
+# 			print(str(matrix[elt][key]).ljust(3), end=' ')
+# 			count += 1
+# 		print()
+#
+# filling_in_1()
+
+
+def filling_in_2():
 	'''
-	Магический квадрат
-	Магическим квадратом порядка nn называется квадратная таблица размера n \times nn×n,
-	 составленная из всех чисел 1, 2, 3, \ldots, n^21,2,3,…,n 2
-    так, что суммы по каждому столбцу, каждой строке и каждой из двух диагоналей равны между собой.
-    Напишите программу, которая проверяет, является ли заданная квадратная матрица магическим квадратом.
+	Заполнение 2
 
-    3 - int
-    8 1 6 - string
-    3 5 7 - string
-    4 9 2 - string
+	3 4 - input
 
-	https://stepik.org/lesson/416755/step/9?unit=406263
+	:return:
+	1  2  3  4
+	5  6  7  8
+	9  10 11 12
+	https://stepik.org/lesson/416757/step/3?unit=406265
 	'''
-	matrix = [list(map(int, input().split())) for _ in range(digit)]
-	digital = [elt for elt in range(1, digit * digit + 1)]
-	new_matrix = []
-	total_arr = []
-	for elt in range(digit):
-		for jei in range(digit):
-			new_matrix.extend([matrix[elt][jei]])
-	new_matrix.sort()
-	if new_matrix == digital:
-		for e in range(digit):
-			total_1 = 0
-			for j in range(digit):
-				total_1 += matrix[e][j]
-			total_arr.append(total_1)
-		total_1 = 0
+	var_1, var_2 = input().split()
+	var_1, var_2 = int(var_1), int(var_2)
+	matrix = [[0] * var_2 for _ in range(var_1)]
 
-		for j in range(digit):
-			total_1 += matrix[j][digit - 1- j]
-		total_arr.append(total_1)
+	count = 1
+	for elt in range(var_1):
+		for key in range(var_2):
+			matrix[elt][key] = key * var_1 + elt + 1
+			print(str(matrix[elt][key]).ljust(3), end=' ')
+			count += 1
+		print()
 
-		total_1 = 0
-		for j in range(digit):
-			total_1 += matrix[j][j]
-		total_arr.append(total_1)
-
-		for j in range(digit):
-			total_1 = 0
-			for k in range(digit):
-				total_1 += matrix[k][j]
-			total_arr.append(total_1)
-		res = all(x == total_arr[0] for x in total_arr)
-		if res:
-			return 'YES'
-		else:
-			return 'NO'
-	else:
-		return 'NO'
-numb = int(input())
-print(magic_square(numb))
-
+filling_in_2()
