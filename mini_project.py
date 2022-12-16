@@ -949,43 +949,176 @@
 # 	9  10 11 12
 # 	https://stepik.org/lesson/416757/step/3?unit=406265
 # 	'''
-# 	var_1, var_2 = input().split()
-# 	var_1, var_2 = int(var_1), int(var_2)
+# 	# var_1, var_2 = input().split()
+# 	# var_1, var_2 = int(var_1), int(var_2)
+# 	var_1, var_2 = 3, 4
 # 	matrix = [[0] * var_2 for _ in range(var_1)]
 #
-# 	count = 1
 # 	for elt in range(var_1):
 # 		for key in range(var_2):
-# 			matrix[elt][key] = count
+# 			matrix[elt][key] = elt * var_2 + key + 1
 # 			print(str(matrix[elt][key]).ljust(3), end=' ')
-# 			count += 1
 # 		print()
 #
 # filling_in_1()
 
 
-def filling_in_2():
-	'''
-	Заполнение 2
+# def filling_in_2():
+# 	'''
+# 	Заполнение 2
+#
+# 	3 4 - input
+#
+# 	:return:
+# 	1  2  3  4
+# 	5  6  7  8
+# 	9  10 11 12
+# 	https://stepik.org/lesson/416757/step/3?unit=406265
+# 	'''
+# 	var_1, var_2 = input().split()
+# 	var_1, var_2 = int(var_1), int(var_2)
+# 	matrix = [[0] * var_2 for _ in range(var_1)]
+#
+# 	# count = 1
+# 	for elt in range(var_1):
+# 		for key in range(var_2):
+# 			matrix[elt][key] = key * var_1 + elt + 1
+# 			print(str(matrix[elt][key]).ljust(3), end=' ')
+# 			# count += 1
+# 		print()
+#
+# filling_in_2()
 
-	3 4 - input
+# def filling_in_5():
+# 	'''
+# 	Заполнение 5
+# 	3 4 - input
+# 	:return:
+# 	1   2   3   4   5   6   7
+# 	2   3   4   5   6   7   1
+# 	3   4   5   6   7   1   2
+# 	https://stepik.org/lesson/416757/step/7?unit=406265
+# 	'''
+# 	digit, digit_1 = input().split()
+# 	digit = int(digit)
+# 	digit_1 = int(digit_1)
+# 	matrix = [[i for i in range(1, digit_1+1)]  for _ in range(digit)]
+#
+# 	for k in range(digit):
+# 		for v in range(digit_1):
+# 			matrix[k][v] = (k+v) % digit_1 + 1
+# 			print(str(matrix[k][v]).ljust(3), end=' ')
+# 		print()
+#
+# filling_in_5()
 
-	:return:
-	1  2  3  4
-	5  6  7  8
-	9  10 11 12
-	https://stepik.org/lesson/416757/step/3?unit=406265
-	'''
-	var_1, var_2 = input().split()
-	var_1, var_2 = int(var_1), int(var_2)
-	matrix = [[0] * var_2 for _ in range(var_1)]
+# def filling_with_snake():
+# 	'''
+# 	Заполнение змейкой
+# 	3 5 - input
+# 	:return:
+# 	1  2  3  4  5
+# 	10 9  8  7  6
+# 	11 12 13 14 15
+# 	https://stepik.org/lesson/416757/step/8?unit=406265
+# 	'''
+# 	digit, digit_1 = input().split()
+# 	digit = int(digit)
+# 	digit_1 = int(digit_1)
+# 	matrix = [[i for i in range(1, digit_1+1)] for _ in range(digit)]
+# 	temp = []
+# 	for k in range(digit):
+# 		for v in range(digit_1):
+# 			matrix[k][v] = k * digit_1 + v + 1
+# 		if k % 2 == 0:
+# 			temp.append(matrix[k])
+# 		else:
+# 			t = list(reversed(matrix[k]))
+# 			temp.append(t)
+#
+# 	for k in range(digit):
+# 		for v in range(digit_1):
+# 			print(str(temp[k][v]).ljust(3), end=' ')
+# 		print()
+# filling_with_snake()
 
-	count = 1
-	for elt in range(var_1):
-		for key in range(var_2):
-			matrix[elt][key] = key * var_1 + elt + 1
-			print(str(matrix[elt][key]).ljust(3), end=' ')
-			count += 1
-		print()
+# def filling_with_diagonals():
+# 	'''
+# 	Заполнение диагоналями
+#
+# 	3 5 - input
+# 	:return:
+# 	1  2  4  7  10
+# 	3  5  8  11 13
+# 	6  9  12 14 15
+# 	https://stepik.org/lesson/416757/step/9?unit=406265
+# 	'''
+# 	digit, digit_1 = input().split()
+# 	digit = int(digit)
+# 	digit_1 = int(digit_1)
+# 	matrix = [[i for i in range(1, digit_1 + 1)] for _ in range(digit)]
+# 	nm = 0
+# 	for j in range(digit * digit_1):
+# 		for k in range(digit):
+# 			for v in range(digit_1):
+# 				if k + v == j:
+# 					nm += 1
+# 					matrix[k][v] = nm
+#
+# 	for k in range(digit):
+# 		for v in range(digit_1):
+# 			print(str(matrix[k][v]).ljust(3), end=' ')
+# 		print()
+#
+# filling_with_diagonals()
 
-filling_in_2()
+
+# def filling_with_spiral():
+# 	'''
+# 	Заполнение спиралью
+# 	4 5 - input
+# 	:return:
+# 	1  2  3  4  5
+# 	14 15 16 17 6
+# 	13 20 19 18 7
+# 	12 11 10 9  8
+# 	https://stepik.org/lesson/416757/step/10?unit=406265
+# 	'''
+# 	digit, digit_1 = input().split()
+# 	digit = int(digit)
+# 	digit_1 = int(digit_1)
+# 	matrix = [[0] * digit_1 for _ in range(digit)]
+# 	i = 1
+# 	x = 0
+# 	y = -1
+# 	d_row = 0 # -1 0 1
+# 	d_column = 1 # -1 0 1
+#
+# 	while i <= digit*digit_1:
+# 		if 0 <= x + d_row < digit and 0<= y + d_column < digit_1 and matrix[x+d_row][y+d_column] == 0:
+# 			x += d_row
+# 			y += d_column
+# 			matrix[x][y] = i
+# 			i += 1
+# 		else:
+# 			if d_column == 1:
+# 				d_column = 0
+# 				d_row = 1
+# 			elif d_row == 1:
+# 				d_row = 0
+# 				d_column = -1
+# 			elif d_column == -1:
+# 				d_column = 0
+# 				d_row = -1
+# 			elif d_row == -1:
+# 				d_row = 0
+# 				d_column =1
+#
+#
+# 	for k in range(digit):
+# 		for v in range(digit_1):
+# 			print(str(matrix[k][v]).ljust(3), end=' ')
+# 		print()
+#
+# filling_with_spiral()
+
