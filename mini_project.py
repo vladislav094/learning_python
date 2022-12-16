@@ -1122,3 +1122,20 @@
 #
 # filling_with_spiral()
 
+
+def matrix_addition(digit: int, digit_2: int):
+	matrix = [list(map(int, input().split())) for _ in range(digit)]
+	input()
+	matrix_2 =[list(map(int, input().split())) for _ in range(digit)]
+	matrix_3 = [[0]* digit_2 for _ in range(digit)]
+
+	for elt in range(digit):
+		for key in range(digit_2):
+			matrix_3[elt][key] = matrix[elt][key] + matrix_2[elt][key]
+			print(matrix_3[elt][key], end=' ')
+		print()
+
+numb, numb_2 = input().split()
+numb, numb_2 = int(numb), int(numb_2)
+matrix_addition(numb, numb_2)
+
