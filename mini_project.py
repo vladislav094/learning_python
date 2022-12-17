@@ -1141,45 +1141,79 @@
 
 
 
-def matrix_multiplication(digit: int,digit_3: int):
-	'''
-	Умножение матриц
-	:param digit: 3 2
-	2 5
-	6 7
-	1 8
+# def matrix_multiplication(digit: int,digit_3: int):
+# 	'''
+# 	Умножение матриц
+# 	:param digit: 3 2
+# 	2 5
+# 	6 7
+# 	1 8
+#
+# 	:param digit_3: 2 3
+# 	1 2 1
+# 	0 1 0
+#
+# 	:return:
+# 	2 9 2
+# 	6 19 6
+# 	1 10 1
+#
+# 	https://stepik.org/lesson/416756/step/10?unit=406264
+# 	'''
+# 	matrix_a = [list(map(int, input().split())) for _ in range(digit)]
+# 	matrix_b = [list(map(int, input().split())) for _ in range(digit_3)]
+#
+# 	matrix_res = [[0] * digit for _ in range(digit)]
+#
+# 	for elt in range(len(matrix_a)):
+# 		for key in range(len(matrix_b[0])):
+# 			f = 0
+# 			for jet in range(len(matrix_a[elt])):
+# 				d = matrix_a[elt][jet] * matrix_b[jet][key]
+# 				f += d
+# 			matrix_res[elt][key] = f
+#
+# 	for elt in range(digit):
+# 		for key in range(digit):
+# 			print(matrix_res[elt][key], end=' ')
+# 		print()
+#
+# numb, numb_2 = input('numb 1 and 2: ').split()
+# numb, numb_2 = int(numb), int(numb_2)
+# numb_3, numb_4 = input('numb 3 and 3: ').split()
+# numb_3, numb_4 = int(numb_3), int(numb_4)
+# matrix_multiplication(numb, numb_3)
 
-	:param digit_3: 2 3
+def exponentiation_of_the_matrix(digit: int, matrix1: list, digit_2: int):
+	'''
+	Возведение матрицы в степень
+	:param digit: 3
+	:param matrix1:
 	1 2 1
-	0 1 0
-
+	3 3 3
+	1 2 1
+	:param digit_2: 5
 	:return:
-	2 9 2
-	6 19 6
-	1 10 1
-
-	https://stepik.org/lesson/416756/step/10?unit=406264
+	1666 2222 1666
+	3333 4443 3333
+	1666 2222 1666
+	https://stepik.org/lesson/416756/step/11?unit=406264
 	'''
-	matrix_a = [list(map(int, input().split())) for _ in range(digit)]
-	matrix_b = [list(map(int, input().split())) for _ in range(digit_3)]
-
-	matrix_res = [[0] * digit for _ in range(digit)]
-
-	for elt in range(len(matrix_a)):
-		for key in range(len(matrix_b[0])):
-			f = 0
-			for jet in range(len(matrix_a[elt])):
-				d = matrix_a[elt][jet] * matrix_b[jet][key]
-				f += d
-			matrix_res[elt][key] = f
+	matrix2 = matrix1
+	for j in range(digit_2 - 1):
+		matrix = [[0] * digit for _ in range(digit)]
+		for elt in range(digit):
+			for key in range(digit):
+				for jet in range(digit):
+					matrix[elt][key] += matrix1[elt][jet] * matrix2[jet][key]
+		matrix1 = matrix
 
 	for elt in range(digit):
 		for key in range(digit):
-			print(matrix_res[elt][key], end=' ')
+			print(matrix[elt][key], end=' ')
 		print()
 
-numb, numb_2 = input('numb 1 and 2: ').split()
-numb, numb_2 = int(numb), int(numb_2)
-numb_3, numb_4 = input('numb 3 and 3: ').split()
-numb_3, numb_4 = int(numb_3), int(numb_4)
-matrix_multiplication(numb, numb_3)
+numb = int(input())
+matrix_list = [[int(x) for x in input().split()] for _ in range(numb)]
+numb2 = int(input())
+exponentiation_of_the_matrix(numb, matrix_list, numb2)
