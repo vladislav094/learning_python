@@ -1184,36 +1184,46 @@
 # numb_3, numb_4 = int(numb_3), int(numb_4)
 # matrix_multiplication(numb, numb_3)
 
-def exponentiation_of_the_matrix(digit: int, matrix1: list, digit_2: int):
-	'''
-	Возведение матрицы в степень
-	:param digit: 3
-	:param matrix1:
-	1 2 1
-	3 3 3
-	1 2 1
-	:param digit_2: 5
-	:return:
-	1666 2222 1666
-	3333 4443 3333
-	1666 2222 1666
-	https://stepik.org/lesson/416756/step/11?unit=406264
-	'''
-	matrix2 = matrix1
-	for j in range(digit_2 - 1):
-		matrix = [[0] * digit for _ in range(digit)]
-		for elt in range(digit):
-			for key in range(digit):
-				for jet in range(digit):
-					matrix[elt][key] += matrix1[elt][jet] * matrix2[jet][key]
-		matrix1 = matrix
+# def exponentiation_of_the_matrix(digit: int, matrix1: list, digit_2: int):
+# 	'''
+# 	Возведение матрицы в степень
+# 	:param digit: 3
+# 	:param matrix1:
+# 	1 2 1
+# 	3 3 3
+# 	1 2 1
+# 	:param digit_2: 5
+# 	:return:
+# 	1666 2222 1666
+# 	3333 4443 3333
+# 	1666 2222 1666
+# 	https://stepik.org/lesson/416756/step/11?unit=406264
+# 	'''
+# 	matrix2 = matrix1
+# 	for j in range(digit_2 - 1):
+# 		matrix = [[0] * digit for _ in range(digit)]
+# 		for elt in range(digit):
+# 			for key in range(digit):
+# 				for jet in range(digit):
+# 					matrix[elt][key] += matrix1[elt][jet] * matrix2[jet][key]
+# 		matrix1 = matrix
+#
+# 	for elt in range(digit):
+# 		for key in range(digit):
+# 			print(matrix[elt][key], end=' ')
+# 		print()
+#
+# numb = int(input())
+# matrix_list = [[int(x) for x in input().split()] for _ in range(numb)]
+# numb2 = int(input())
+# exponentiation_of_the_matrix(numb, matrix_list, numb2)
 
-	for elt in range(digit):
-		for key in range(digit):
-			print(matrix[elt][key], end=' ')
-		print()
 
-numb = int(input())
-matrix_list = [[int(x) for x in input().split()] for _ in range(numb)]
-numb2 = int(input())
-exponentiation_of_the_matrix(numb, matrix_list, numb2)
+import numpy as np
+
+matrix = np.array([[1, 2, 1],
+				  [3, 3, 3],
+				  [1, 2, 1]])
+
+matrixb = np.linalg.matrix_power(matrix, 5)
+print(matrixb)
