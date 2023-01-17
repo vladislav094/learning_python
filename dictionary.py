@@ -21,12 +21,52 @@
 # 		temp.append(elt['name'])
 # print(*sorted(temp))
 
-def string_representation(number: int):
-    dict1 = {0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine'}
-    digit = str(number)
-    new_arr = [int(x) for x in digit]
-    for elt in new_arr:
-        if elt in dict1:
-            print(dict1[elt], end=' ')
-digit = int(input())
-string_representation(digit)
+# def string_representation(number: int):
+#     dict1 = {0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine'}
+#     digit = str(number)
+#     new_arr = [int(x) for x in digit]
+#     for elt in new_arr:
+#         if elt in dict1:
+#             print(dict1[elt], end=' ')
+# digit = int(input())
+# string_representation(digit)
+
+
+def lear_course():
+    dict1 = [
+        {'Номер курса': 'CS101', 'Номер аудитории': '3004', 'Преподаватель': 'Хайнс', 'Время': '8:00'},
+        {'Номер курса': 'CS102', 'Номер аудитории': '4501', 'Преподаватель': 'Альварадо', 'Время': '9:00'},
+        {'Номер курса': 'CS103', 'Номер аудитории': '6755', 'Преподаватель': 'Рич', 'Время': '10:00'},
+        {'Номер курса': 'NT110', 'Номер аудитории': '1244', 'Преподаватель': 'Берк', 'Время': '11:00'},
+        {'Номер курса': 'CM241', 'Номер аудитории': '1411', 'Преподаватель': 'Ли', 'Время': '13:00'}
+    ]
+    number_course = str(input())
+    b = ''
+    for elt in range(len(dict1)):
+        if number_course in dict1[elt].values():
+            a = list(dict1[elt].items())
+            print(a)
+            b = f"{number_course}: {a[1][1]}, {a[2][1]}, {a[3][1]}"
+    print(b)
+# lear_course()
+
+
+def set_of_message(phrase: str):
+    number_keyword = {".":'1', ",":'11', "?":'111', "!":'1111', ":":'11111',
+        "A":'2', "B":'22', "C":'222',
+        "D":'3', "E":'33', "F":'333',
+        "G":'4', "H":'44', "I":'444',
+        "J":'5', "K":'55', "L":'555',
+        "M":'6', "N":'66', "O":'666',
+        "P":'7', "Q":'77', "R":'777', "S": '7777',
+        "T":'8', "U":'88', "V":'888',
+        "W":'9', "X":'99', "Y":'999', "Z": '9999',
+        " ":'0'
+    }
+    my_string = phrase.upper()
+    for elt in my_string:
+        if elt in number_keyword.keys():
+            print(number_keyword[elt], end='')
+
+# word = str(input())
+# set_of_message(word)
