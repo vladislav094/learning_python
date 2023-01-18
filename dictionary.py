@@ -70,3 +70,20 @@ def set_of_message(phrase: str):
 
 # word = str(input())
 # set_of_message(word)
+
+
+def morse_code(word: str):
+    text = word.upper()
+    letters = [c for c in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789']
+    morse = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---',
+             '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..', '-----', '.----', '..---',
+             '...--', '....-', '.....', '-....', '--...', '---..', '----.']
+
+    dict1 = dict(zip(letters, morse))
+    for elt in text:
+        if elt in letters:
+            print(dict1[elt], end=' ')
+
+some_word = str(input())
+morse_code(some_word)
+
