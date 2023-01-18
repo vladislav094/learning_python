@@ -130,5 +130,55 @@ def max_count_duplicate_sorted_by_lexicographic():
         if dict1[elt] < max_duplicate:
             dict1.pop(elt)
     return sorted(dict1.keys())[0]
-print(max_count_duplicate_sorted_by_lexicographic())
+# print(max_count_duplicate_sorted_by_lexicographic())
+
+def count_dog_in_owner():
+    pets = [('Hatiko', 'Parker', 'Wilson', 50),
+            ('Rusty', 'Josh', 'King', 25),
+            ('Fido', 'John', 'Smith', 28),
+            ('Butch', 'Jake', 'Smirnoff', 18),
+            ('Odi', 'Emma', 'Wright', 18),
+            ('Balto', 'Josh', 'King', 25),
+            ('Barry', 'Josh', 'King', 25),
+            ('Snape', 'Hannah', 'Taylor', 40),
+            ('Horry', 'Martha', 'Robinson', 73),
+            ('Giro', 'Alex', 'Martinez', 65),
+            ('Zooma', 'Simon', 'Nevel', 32),
+            ('Lassie', 'Josh', 'King', 25),
+            ('Chase', 'Martha', 'Robinson', 73),
+            ('Ace', 'Martha', 'Williams', 38),
+            ('Rocky', 'Simon', 'Nevel', 32)]
+    result = {}
+
+
+    for elt in range(len(pets)):
+        result[pets[elt][1:]] = result.get(pets[elt][1:], []) + [pets[elt][0]]
+    return result
+# print(count_dog_in_owner())
+
+def the_rarest_word(text: str)-> str:
+    """
+    https://stepik.org/lesson/446696/step/15?unit=437002
+    Самое редкое слово 🌶️
+    На вход программе подается строка текста. Напишите программу, которая выводит слово, которое встречается реже всего,
+    без учета регистра. Если таких слов несколько, выведите то, которое меньше в лексикографическом порядке.
+    :param text: 'home sweet home sweet.'
+    :return: 'home'
+    """
+    new_text = ''
+    for elt in text:
+        if elt.isalpha() or elt == ' ':
+            new_text += elt
+    new_text = list(new_text.split())
+    result = {}
+    for elt in new_text:
+        result[elt] = result.get(elt, 0) + 1
+    min_count = min(result.values())
+    for elt in result.copy():
+        if result[elt] > min_count:
+            result.pop(elt)
+    return sorted(result.keys())[0]
+
+# some_text = str(input()).lower()
+# print(the_rarest_word(some_text))
 
