@@ -182,3 +182,27 @@ def the_rarest_word(text: str)-> str:
 # some_text = str(input()).lower()
 # print(the_rarest_word(some_text))
 
+def fixing_duplicates(letters: list)-> str:
+    """
+    https://stepik.org/lesson/446696/step/16?unit=437002
+    Исправление дубликатов 🌶️
+    На вход программе подается строка, содержащая строки-идентификаторы. Напишите программу, которая исправляет их так,
+     чтобы в результирующей строке не было дубликатов. Для этого необходимо прибавлять к повторяющимся идентификаторам
+     постфикс _n, где n – количество раз, сколько такой идентификатор уже встречался.
+    :param letters: 'a b c a a d c'
+    :return: 'a b c a_1 a_2 d c_1'
+    """
+    result = {}
+    text = ''
+    for elt in letters:
+        if elt not in result:
+            result[elt] = 1
+            text += elt + ' '
+        else:
+            result[elt] += 1
+            text += elt + f'_{result.get(elt)-1}' + ' '
+
+    return text.rstrip()
+
+some_letters = str(input()).split()
+print(fixing_duplicates(some_letters))
