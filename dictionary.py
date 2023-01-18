@@ -84,6 +84,51 @@ def morse_code(word: str):
         if elt in letters:
             print(dict1[elt], end=' ')
 
-some_word = str(input())
-morse_code(some_word)
+# some_word = str(input())
+# morse_code(some_word)
+
+def update_several_dictionaries():
+    dict1 = {'a': 100, 'z': 333, 'b': 200, 'c': 300, 'd': 45, 'e': 98, 't': 76, 'q': 34, 'f': 90, 'm': 230}
+    dict2 = {'a': 300, 'b': 200, 'd': 400, 't': 777, 'c': 12, 'p': 123, 'w': 111, 'z': 666}
+    result = {}
+    dict3 = {}
+    for elt in dict1:
+        if elt in dict2:
+            numb = dict1[elt] + dict2[elt]
+            dict3[elt] = numb
+    dict1.update(dict2)
+    dict1.update(dict3)
+    result.update(dict1)
+    return result
+
+# print(update_several_dictionaries())
+
+def count_duplicate():
+    text = 'footballcyberpunkextraterritorialityconversationalistblockophthalmoscopicinterdependencemamauserfff'
+
+    result = {}
+    for elt in text:
+        result[elt] = result.get(elt, 0) +1
+    return result
+
+# print(count_duplicate())
+
+def max_count_duplicate_sorted_by_lexicographic():
+    s = 'orange strawberry barley gooseberry apple apricot barley currant orange melon pomegranate banana banana orange' \
+        ' barley apricot plum grapefruit banana quince strawberry barley grapefruit banana grapes melon strawberry apricot ' \
+        'currant currant gooseberry raspberry apricot currant orange lime quince grapefruit barley banana melon pomegranate ' \
+        'barley banana orange barley apricot plum banana quince lime grapefruit strawberry gooseberry apple barley apricot ' \
+        'currant orange melon pomegranate banana banana orange apricot barley plum banana grapefruit banana quince currant' \
+        ' orange melon pomegranate barley plum banana quince barley lime grapefruit pomegranate barley'
+    ss = s.split()
+    dict1 = {}
+
+    for elt in ss:
+        dict1[elt] = dict1.get(elt, 0) + 1
+    max_duplicate = max(dict1.values())
+    for elt in dict1.copy():
+        if dict1[elt] < max_duplicate:
+            dict1.pop(elt)
+    return sorted(dict1.keys())[0]
+print(max_count_duplicate_sorted_by_lexicographic())
 
