@@ -24,73 +24,67 @@
 # print(task_2())
 
 
-# digit1 = int(input())
-# digit2 = int(input())
-# arr = [list(map(int, input().split())) for _ in range(2)]
-# arr = []
-# for elt in range(3):
-# 	d = int(input())
-# 	arr.append(list(map(int, input().split())))
-# 	print(d)
-# print(arr)
-# arr1 = [[123, 1, 123133, 44, 123, 55], [1231, 123, 99, 0], [5, 5]]
-# arr1 = [[2, 1, 3, 1, 1, 4], [5, 5], [1, 4, 2, 5, 4, 2, 6, 3]]
-# for elt in range(len(arr1)):
-# 	for jey in range(len(arr1[elt])):
-# 		if jey % 2 == 0:
-# 			print(arr1[elt][jey], arr1[elt][jey+1])
-# 	print()
+# e = [1, 4, 2, 5, 4, 2, 6, 3]
+# aa = [2, 1, 3, 1, 1, 4]
 
-# a = [2, 1, 3, 1, 1, 4]
-position = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-a = [[2, 1, 3, 1, 1, 4], [5, 5], [1, 4, 2, 5, 4, 2, 6, 3]]
 tempt = []
 small_temp = []
 arr = []
-for e in a:
-	# d = int(input())
-	# 	arr.append(list(map(int, input().split())))
-	for i in range(len(e)):
-		# print(e)
-		d_1 = e[i]
-		for j in range(i+1,len(e)):
-			d_2 = e[j]
-			# print(d_1, d_2)
-			print(position[i], position[j])
+position = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+# a = [[2, 1, 3, 1, 1, 4], [5, 5], [1, 4, 2, 5, 4, 2, 6, 3]]
+digit1 = int(input())
+for e in range(digit1):
+	digit2 = int(input())
+	b = (list(map(int, input().split())))
+	a = b.copy()
+	for i in range(len(a)):
+		d_1 = a[i]
+		for j in range(i+1,len(a)):
+			d_2 = a[j]
 			if position[i] in small_temp or position[j] in small_temp:
 				continue
-			if abs(d_1 - d_2) == 1 or abs(d_1 - d_2) == 0:
-				# print(position[i], position[j])
+			if abs(d_1 - d_2) == 0:
 				small_temp.append(position[i])
 				small_temp.append(position[j])
-		if len(small_temp) != 0 and small_temp not in tempt:
-			tempt.append(small_temp)
-		# print(small_temp)
-	# print(tempt)
+				del_1 = a[i]
+				del_2 = a[j]
+				if del_1 in b and del_2 in b:
+					b.remove(del_1)
+					b.remove(del_2)
+			if len(small_temp) == 2 and small_temp not in tempt:
+				tempt.append(small_temp)
+		for j in range(i+1,len(a)):
+			d_2 = a[j]
+			if position[i] in small_temp or position[j] in small_temp:
+				continue
+			if abs(d_1 - d_2) == 1:
+				small_temp.append(position[i])
+				small_temp.append(position[j])
+				del_1 = a[i]
+				del_2 = a[j]
+				if del_1 in b and del_2 in b:
+					b.remove(del_1)
+					b.remove(del_2)
+			if len(small_temp) == 2 and small_temp not in tempt:
+				tempt.append(small_temp)
+		for j in range(i+1, len(a)):
+			d_2 = a[j]
+			if position[i] in small_temp or position[j] in small_temp:
+				continue
+			if abs(d_1 - d_2) >1:
+				small_temp.append(position[i])
+				small_temp.append(position[j])
+				del_1 = a[i]
+				del_2 = a[j]
+				if del_1 in b and del_2 in b:
+					b.remove(del_1)
+					b.remove(del_2)
+			if len(small_temp) == 2 and small_temp not in tempt:
+				tempt.append(small_temp)
 	small_temp = []
-
-# for i in range(len(a)):
-# 	d_1 = a[i]
-# 	for j in range(i+1,len(a)):
-# 		d_2 = a[j]
-# 		if position[i] in small_temp or position[j] in small_temp:
-# 			continue
-# 		if abs(d_1 - d_2) == 1 or abs(d_1 - d_2) == 0:
-# 			small_temp.append(position[i])
-# 			small_temp.append(position[j])
-# 	if len(small_temp) != 0 and small_temp not in tempt:
-# 		tempt.append(small_temp)
-#
-# 	# if len(tempt[i]) == len(arr[i]) and i+1 == len(arr[i]):
-# 	# 	for key in range(len(arr)):
-# 	# 		for jey in range(len(arr[key])):
-# 	# 			if jey % 2 == 0:
-# 	# 				print(arr1[key][jey], arr1[key][jey + 1])
-# 	# 		print()
-
-print(tempt)
-# print(small_temp,tempt)
-
-
-
-
+	for elt in tempt:
+		for jey in range(len(elt)):
+			if jey % 2 == 0:
+				print(elt[jey], elt[jey+1])
+		print()
+	tempt = []
