@@ -25,46 +25,108 @@
 
 
 ## task 2
-def task_3()-> None:
-	"""
-	a = [[2, 1, 3, 1, 1, 4], [5, 5], [1, 4, 2, 5, 4, 2, 6, 3]]
-	position = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, + ...]
-	:return: [[1, 2, 3, 6, 4, 5], [1, 2], [1, 3, 2, 5, 4, 7, 6, 8]]
-	"""
-	tempt = []
-	small_temp = []
-	position = list(range(1,1001))
-	digit1 = int(input('Count iteration: '))
-	for _ in range(digit1):
-		digit2 = int(input('Count numbers in string: '))
-		b = (list(map(int, input('Numbers: ').split())))
-		a = b.copy()
-		for i in range(len(a)):
-			d_1 = a[i]
-			w = 0
-			while w != 100:
-				for j in range(i+1,len(a)):
-					d_2 = a[j]
-					if position[i] in small_temp or position[j] in small_temp:
-						continue
-					if abs(d_1 - d_2) == w:
-						small_temp.append(position[i])
-						small_temp.append(position[j])
-						del_1 = a[i]
-						del_2 = a[j]
-						if del_1 in b and del_2 in b:
-							b.remove(del_1)
-							b.remove(del_2)
-					if len(small_temp) == 2 and small_temp not in tempt:
-						tempt.append(small_temp)
-				w += 1
-		small_temp = []
-	for elt in tempt:
-		for jey in range(len(elt)):
-			if jey % 2 == 0:
-				print(elt[jey], elt[jey+1])
-		print()
-	tempt = []
+# def task_3()-> None:
+# 	# """
+# 	# a = [[2, 1, 3, 1, 1, 4], [5, 5], [1, 4, 2, 5, 4, 2, 6, 3]]
+# 	# position = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, + ...]
+# 	# :return: [[1, 2, 3, 6, 4, 5], [1, 2], [1, 3, 2, 5, 4, 7, 6, 8]]
+# 	# """
+# 	tempt = []
+# 	small_temp = []
+# 	position = list(range(1,1001))
+# 	digit1 = int(input('Count iteration: '))
+# 	for _ in range(digit1):
+# 		digit2 = int(input('Count numbers in string: '))
+# 		b = (list(map(int, input('Numbers: ').split())))
+# 		a = b.copy()
+# 		for i in range(len(a)):
+# 			d_1 = a[i]
+# 			w = 0
+# 			while w != 100:
+# 				for j in range(i+1,len(a)):
+# 					d_2 = a[j]
+# 					if position[i] in small_temp or position[j] in small_temp:
+# 						continue
+# 					if abs(d_1 - d_2) == w:
+# 						small_temp.append(position[i])
+# 						small_temp.append(position[j])
+# 						del_1 = a[i]
+# 						del_2 = a[j]
+# 						if del_1 in b and del_2 in b:
+# 							b.remove(del_1)
+# 							b.remove(del_2)
+# 					if len(small_temp) == 2 and small_temp not in tempt:
+# 						tempt.append(small_temp)
+# 				w += 1
+# 		small_temp = []
+# 	for elt in tempt:
+# 		for jey in range(len(elt)):
+# 			if jey % 2 == 0:
+# 				print(elt[jey], elt[jey+1])
+# 		print()
+# 	tempt = []
 
-task_3()
+# task_3()
 
+## task 4
+def task_4():
+    """
+    count_iteration = int (3 for example)
+    count_int = list: [4, 3] ([0] number of columns; [1] number of rows)
+    arr_input = [[3, 4, 1],
+                    [2, 2, 5],
+                    [2, 4, 2],
+                    [2, 2, 1]]
+
+    count_position = 3 (len of list position)
+    position = list: [2, 1, 3] (position to filter columns with number)
+    :return: [[3, 4, 1],
+              [2, 2, 5],
+              [2, 4, 2],
+              [2, 2, 1]]
+    all flow of sorting: [
+                           [3, 4, 1], [2, 2, 5], [2, 2, 5], [2, 2, 1],
+                           [2, 2, 5], [2, 2, 1], [2, 2, 1], [3, 4, 1],
+                           [2, 4, 2], [3, 4, 1], [2, 4, 2], [2, 4, 2],
+                           [2, 2, 1], [2, 4, 2], [3, 4, 1], [2, 2, 5]
+                        ]
+    """
+    count_iteration = int(input('Count iteration: '))
+    for _ in range(count_iteration):
+        empty_input = str(input('Empty input: '))
+        count_int = (list(map(int, input('Numbers: ').split())))
+        arr_input = [[int(x) for x in input('Lists of numbers: ').split()] for _ in range(count_int[0])]
+        count_position = int(input('Count position: '))
+        position = (list(map(int, input('List with position: ').split())))
+        for elt in position:
+            temp = []
+            result = {}
+            p = elt
+            for elt in range(len(arr_input)):
+                temp.append(arr_input[elt][p-1])
+
+            for elt in range(len(temp)):
+                result[elt] = temp[elt]
+
+            t = []
+            for k, v in result.items():
+                tup = (k, v)
+                t.append(tup)
+
+            for elt in range(len(t)):
+                t[elt] = t[elt][::-1]
+            t = sorted(t)
+
+            b = []
+            for elt in range(len(t)):
+                b.append(t[elt][1])
+
+            new_arr = []
+            for elt in range(len(arr_input)):
+                indx = b[elt]
+                new_arr.append(arr_input[indx])
+            arr_input = new_arr
+
+        for elt in arr_input:
+            print(*elt)
+        print()
