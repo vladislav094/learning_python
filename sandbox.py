@@ -24,67 +24,47 @@
 # print(task_2())
 
 
-# e = [1, 4, 2, 5, 4, 2, 6, 3]
-# aa = [2, 1, 3, 1, 1, 4]
-
-tempt = []
-small_temp = []
-arr = []
-position = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-# a = [[2, 1, 3, 1, 1, 4], [5, 5], [1, 4, 2, 5, 4, 2, 6, 3]]
-digit1 = int(input())
-for e in range(digit1):
-	digit2 = int(input())
-	b = (list(map(int, input().split())))
-	a = b.copy()
-	for i in range(len(a)):
-		d_1 = a[i]
-		for j in range(i+1,len(a)):
-			d_2 = a[j]
-			if position[i] in small_temp or position[j] in small_temp:
-				continue
-			if abs(d_1 - d_2) == 0:
-				small_temp.append(position[i])
-				small_temp.append(position[j])
-				del_1 = a[i]
-				del_2 = a[j]
-				if del_1 in b and del_2 in b:
-					b.remove(del_1)
-					b.remove(del_2)
-			if len(small_temp) == 2 and small_temp not in tempt:
-				tempt.append(small_temp)
-		for j in range(i+1,len(a)):
-			d_2 = a[j]
-			if position[i] in small_temp or position[j] in small_temp:
-				continue
-			if abs(d_1 - d_2) == 1:
-				small_temp.append(position[i])
-				small_temp.append(position[j])
-				del_1 = a[i]
-				del_2 = a[j]
-				if del_1 in b and del_2 in b:
-					b.remove(del_1)
-					b.remove(del_2)
-			if len(small_temp) == 2 and small_temp not in tempt:
-				tempt.append(small_temp)
-		for j in range(i+1, len(a)):
-			d_2 = a[j]
-			if position[i] in small_temp or position[j] in small_temp:
-				continue
-			if abs(d_1 - d_2) >1:
-				small_temp.append(position[i])
-				small_temp.append(position[j])
-				del_1 = a[i]
-				del_2 = a[j]
-				if del_1 in b and del_2 in b:
-					b.remove(del_1)
-					b.remove(del_2)
-			if len(small_temp) == 2 and small_temp not in tempt:
-				tempt.append(small_temp)
+## task 2
+def task_3()-> None:
+	"""
+	a = [[2, 1, 3, 1, 1, 4], [5, 5], [1, 4, 2, 5, 4, 2, 6, 3]]
+	position = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, + ...]
+	:return: [[1, 2, 3, 6, 4, 5], [1, 2], [1, 3, 2, 5, 4, 7, 6, 8]]
+	"""
+	tempt = []
 	small_temp = []
+	position = list(range(1,1001))
+	digit1 = int(input('Count iteration: '))
+	for _ in range(digit1):
+		digit2 = int(input('Count numbers in string: '))
+		b = (list(map(int, input('Numbers: ').split())))
+		a = b.copy()
+		for i in range(len(a)):
+			d_1 = a[i]
+			w = 0
+			while w != 100:
+				for j in range(i+1,len(a)):
+					d_2 = a[j]
+					if position[i] in small_temp or position[j] in small_temp:
+						continue
+					if abs(d_1 - d_2) == w:
+						small_temp.append(position[i])
+						small_temp.append(position[j])
+						del_1 = a[i]
+						del_2 = a[j]
+						if del_1 in b and del_2 in b:
+							b.remove(del_1)
+							b.remove(del_2)
+					if len(small_temp) == 2 and small_temp not in tempt:
+						tempt.append(small_temp)
+				w += 1
+		small_temp = []
 	for elt in tempt:
 		for jey in range(len(elt)):
 			if jey % 2 == 0:
 				print(elt[jey], elt[jey+1])
 		print()
 	tempt = []
+
+task_3()
+
