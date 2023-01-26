@@ -69,64 +69,110 @@
 # task_3()
 
 ## task 4
-def task_4():
-    """
-    count_iteration = int (3 for example)
-    count_int = list: [4, 3] ([0] number of columns; [1] number of rows)
-    arr_input = [[3, 4, 1],
-                    [2, 2, 5],
-                    [2, 4, 2],
-                    [2, 2, 1]]
+# def task_4():
+#     """
+#     count_iteration = int (3 for example)
+#     count_int = list: [4, 3] ([0] number of columns; [1] number of rows)
+#     arr_input = [[3, 4, 1],
+#                     [2, 2, 5],
+#                     [2, 4, 2],
+#                     [2, 2, 1]]
+#
+#     count_position = 3 (len of list position)
+#     position = list: [2, 1, 3] (position to filter columns with number)
+#     :return: [[3, 4, 1],
+#               [2, 2, 5],
+#               [2, 4, 2],
+#               [2, 2, 1]]
+#     all flow of sorting: [
+#                            [3, 4, 1], [2, 2, 5], [2, 2, 5], [2, 2, 1],
+#                            [2, 2, 5], [2, 2, 1], [2, 2, 1], [3, 4, 1],
+#                            [2, 4, 2], [3, 4, 1], [2, 4, 2], [2, 4, 2],
+#                            [2, 2, 1], [2, 4, 2], [3, 4, 1], [2, 2, 5]
+#                         ]
+#     """
+#     count_iteration = int(input('Count iteration: '))
+#     for _ in range(count_iteration):
+#         empty_input = str(input('Empty input: '))
+#         count_int = (list(map(int, input('Numbers: ').split())))
+#         arr_input = [[int(x) for x in input('Lists of numbers: ').split()] for _ in range(count_int[0])]
+#         count_position = int(input('Count position: '))
+#         position = (list(map(int, input('List with position: ').split())))
+#         for elt in position:
+#             temp = []
+#             result = {}
+#             p = elt
+#             for elt in range(len(arr_input)):
+#                 temp.append(arr_input[elt][p-1])
+#
+#             for elt in range(len(temp)):
+#                 result[elt] = temp[elt]
+#
+#             t = []
+#             for k, v in result.items():
+#                 tup = (k, v)
+#                 t.append(tup)
+#
+#             for elt in range(len(t)):
+#                 t[elt] = t[elt][::-1]
+#             t = sorted(t)
+#
+#             b = []
+#             for elt in range(len(t)):
+#                 b.append(t[elt][1])
+#
+#             new_arr = []
+#             for elt in range(len(arr_input)):
+#                 indx = b[elt]
+#                 new_arr.append(arr_input[indx])
+#             arr_input = new_arr
+#
+#         for elt in arr_input:
+#             print(*elt)
+#         print()
 
-    count_position = 3 (len of list position)
-    position = list: [2, 1, 3] (position to filter columns with number)
-    :return: [[3, 4, 1],
-              [2, 2, 5],
-              [2, 4, 2],
-              [2, 2, 1]]
-    all flow of sorting: [
-                           [3, 4, 1], [2, 2, 5], [2, 2, 5], [2, 2, 1],
-                           [2, 2, 5], [2, 2, 1], [2, 2, 1], [3, 4, 1],
-                           [2, 4, 2], [3, 4, 1], [2, 4, 2], [2, 4, 2],
-                           [2, 2, 1], [2, 4, 2], [3, 4, 1], [2, 2, 5]
-                        ]
-    """
-    count_iteration = int(input('Count iteration: '))
-    for _ in range(count_iteration):
-        empty_input = str(input('Empty input: '))
-        count_int = (list(map(int, input('Numbers: ').split())))
-        arr_input = [[int(x) for x in input('Lists of numbers: ').split()] for _ in range(count_int[0])]
-        count_position = int(input('Count position: '))
-        position = (list(map(int, input('List with position: ').split())))
-        for elt in position:
-            temp = []
-            result = {}
-            p = elt
-            for elt in range(len(arr_input)):
-                temp.append(arr_input[elt][p-1])
 
-            for elt in range(len(temp)):
-                result[elt] = temp[elt]
+## task 5
 
-            t = []
-            for k, v in result.items():
-                tup = (k, v)
-                t.append(tup)
+# arr = [1, 2, 3, 4, 5]
+# arr = [1, 2, 3, 1]
+# arr = [2, 3, 4, 8, 5, 5, 5, 5]
+# arr = [1, 1, 3, 2, 2]
+# arr = [1, 1, 2, 3, 2]
+# arr = [1, 1, 1, 1, 1, 1, 1, 11, 1, 1, 1, 1]
+# arr = [3, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+# arr = [5, 5, 5, 5, 5, 5, 6]
+# arr = [8, 10, 10, 4, 1, 5, 7, 2, 1, 3]
 
-            for elt in range(len(t)):
-                t[elt] = t[elt][::-1]
-            t = sorted(t)
+def task_5():
+	flag = bool
+	d1 = 0
+	d2 = 1
+	count_iteration = int(input())
+	for _ in range(count_iteration):
+		temp = []
+		count_numbers = int(input())
+		arr = (list(map(int, input().split())))
+		while len(arr) > 2:
+			if arr[d1] == arr[d2]:
+				del arr[d1]
+			if arr[d1] != arr[d2]:
+				temp.append(arr[d1])
+				del arr[d1]
 
-            b = []
-            for elt in range(len(t)):
-                b.append(t[elt][1])
+		if len(arr) == 1:
+			temp.append(arr[0])
+		elif len(arr) == 2 and arr[0] == arr[1]:
+			temp.append(arr[0])
+		else:
+			temp.extend(arr)
 
-            new_arr = []
-            for elt in range(len(arr_input)):
-                indx = b[elt]
-                new_arr.append(arr_input[indx])
-            arr_input = new_arr
+		for elt in temp:
+			if temp.count(elt) > 1:
+				flag = 'NO'
+				break
+			else:
+				flag = 'YES'
+		print(flag)
+task_5()
 
-        for elt in arr_input:
-            print(*elt)
-        print()
