@@ -197,8 +197,8 @@
 # 			[0, 0, 0, 23, 59, 58]]
 #
 ####    3
-# temp_test = [[23, 59, 58, 23, 59, 59],
-# 			   [0, 0, 0, 23, 59, 58]]
+temp_test = [[23, 59, 58, 23, 59, 59],
+			   [0, 0, 0, 23, 59, 58]]
 #
 ###    4
 # temp_test = [[23, 59, 59, 23, 59, 58],
@@ -259,12 +259,6 @@
 # 		s1 = list(range(temp_test[0][2], temp_test[0][5]+1))
 # 		if len(s1) == 0:
 # 			s1 = [temp_test[0][2]]
-# 		# flag = bool
-# 		# for elt in temp_test:
-# 		# 	print(elt, end='\n')
-# 		# print('hours: ', h1)
-# 		# print('min: ', m1)
-# 		# print('sec: ', s1)
 # 		answer = ''
 # 		if len(temp_test) > 1:
 # 			for elt in range(1,len(temp_test)):
@@ -338,145 +332,276 @@
 # 	print(answer)
 
 
-count_iteration = int(input('Count interations: '))
-for elt in range(count_iteration):
-	# temp = []
-	count_times = int(input('Count times: '))
-	answer = ''
-	count = 0
-	for elt in range(count_times):
-		temp_test = []
-		temp = (list(map(int, input().replace('-', ':').split(':'))))
-		temp_test.append(temp)
-		# print(temp, temp_test)
-		flag = bool
-		first_less_second = bool
-		valid_numbers = True
-		for elt in range(len(temp_test)):
-			# print(temp_test[elt])
-			# first_less_second = bool
-			# valid_numbers = bool
-			if temp_test[0][0] > 23 or temp_test[0][3] > 23 or temp_test[0][1] > 59 or temp_test[0][4] > 59 or temp_test[0][
-				2] > 59 or temp_test[0][5] > 59:
-				valid_numbers = False
-				flag = False
-				count += 1
-				# break
-			# print(valid_numbers)
-			if valid_numbers == True:
-				for elt in temp_test:
-					if elt[0] > elt[3]:
-						first_less_second = False
-						# break
-						count += 1
-					if elt[0] == elt[3] and elt[1] > elt[4]:
-						first_less_second = False
-						# break
-						count +=1
-					if elt[0] == elt[3] and elt[1] == elt[4] and elt[2] > elt[5]:
-						first_less_second = False
-						# break
-						count += 1
+# count_iteration = int(input('Count interations: '))
+# for elt in range(count_iteration):
+# 	# temp = []
+# 	count_times = int(input('Count times: '))
+# 	answer = ''
+# 	count = 0
+# 	for elt in range(count_times):
+# 		temp_test = []
+# 		temp = (list(map(int, input().replace('-', ':').split(':'))))
+# 		temp_test.append(temp)
+# 		# print(temp, temp_test)
+# 		flag = bool
+# 		first_less_second = bool
+# 		valid_numbers = True
+# 		for elt in range(len(temp_test)):
+# 			# print(temp_test[elt])
+# 			# first_less_second = bool
+# 			# valid_numbers = bool
+# 			if temp_test[0][0] > 23 or temp_test[0][3] > 23 or temp_test[0][1] > 59 or temp_test[0][4] > 59 or temp_test[0][
+# 				2] > 59 or temp_test[0][5] > 59:
+# 				valid_numbers = False
+# 				flag = False
+# 				count += 1
+# 				# break
+# 			# print(valid_numbers)
+# 			if valid_numbers == True:
+# 				for elt in temp_test:
+# 					if elt[0] > elt[3]:
+# 						first_less_second = False
+# 						# break
+# 						count += 1
+# 					if elt[0] == elt[3] and elt[1] > elt[4]:
+# 						first_less_second = False
+# 						# break
+# 						count +=1
+# 					if elt[0] == elt[3] and elt[1] == elt[4] and elt[2] > elt[5]:
+# 						first_less_second = False
+# 						# break
+# 						count += 1
+#
+# 			else:
+# 				# print('NO')
+# 				flag = False
+# 				count += 1
+# 				# break
+# 			# print('first_less_second:', first_less_second, ';', 'valid_numbers:', valid_numbers)
+#
+# 			if first_less_second == False:
+# 				# print('NO')
+# 				flag = False
+# 				count += 1
+# 				# break
+#
+# 			h1 = list(range(temp_test[0][0], temp_test[0][3] + 1))
+# 			if len(h1) == 0:
+# 				h1 = [temp_test[0][0]]
+# 			m1 = list(range(temp_test[0][1], temp_test[0][4] +1))
+# 			if len(m1) == 0:
+# 				m1 = [temp_test[0][1]]
+# 			s1 = list(range(temp_test[0][2], temp_test[0][5] + 1))
+# 			if len(s1) == 0:
+# 				s1 = [temp_test[0][2]]
+#
+# 			print(h1)
+# 			print(m1)
+# 			print(s1)
+#
+# 			# answer = ''
+# 			if len(temp_test) > 1:
+# 				for elt in range(1, len(temp_test)):
+# 					print(temp_test[elt])
+# 					if temp_test[elt][0] in h1 and temp_test[elt][0] > h1[0]:
+# 						flag = False
+# 						count += 1
+# 						# break
+# 					if temp_test[elt][0] == h1[0] and temp_test[elt][1] in m1 and temp_test[elt][1] > m1[0]:
+# 						flag = False
+# 						count += 1
+# 						# break
+# 					if temp_test[elt][1] == m1[0] and temp_test[elt][2] in s1:
+# 						flag = False
+# 						count +=1
+# 						# break
+#
+# 					if temp_test[elt][3] in h1 and temp_test[elt][3] > h1[0]:
+# 						flag = False
+# 						count +=1
+# 						# break
+# 					if temp_test[elt][3] == h1[0] and temp_test[elt][4] in m1 and temp_test[elt][4] > m1[0]:
+# 						flag = False
+# 						count +=1
+# 						# break
+# 					if temp_test[elt][4] == m1[0] and temp_test[elt][5] in s1:
+# 						flag = False
+# 						count += 1
+# 						# break
+#
+# 			else:
+# 				for elt in range(len(temp_test)):
+# 					print(temp_test[elt])
+# 					if temp_test[elt][0] in h1 and temp_test[elt][0] > h1[0]:
+# 						flag = False
+# 						print('1')
+# 						count +=1
+# 							# break
+# 					if temp_test[elt][0] == h1[0] and temp_test[elt][1] in m1 and temp_test[elt][1] > m1[0]:
+# 						flag = False
+# 						count +=1
+# 						print('2')
+# 						# break
+# 					if temp_test[elt][0] == h1[0] and temp_test[elt][1] == m1[0] and temp_test[elt][2] in s1:
+# 						flag = False
+# 						count +=1
+# 						# break
+# 						print('3')
+# 					if temp_test[elt][3] in h1 and temp_test[elt][3] > h1[0]:
+# 						flag = False
+# 						count +=1
+# 						# break
+# 						print('4')
+# 					if temp_test[elt][3] == h1[0] and temp_test[elt][4] in m1 and temp_test[elt][4] > m1[0]:
+# 						flag = False
+# 						count +=1
+# 						# break
+# 						print('5')
+# 					if temp_test[elt][4] == m1[0] and temp_test[elt][5] in s1:
+# 						flag = False
+# 						count +=1
+# 						# break
+# 						print('6')
+# 		print(temp_test)
+# 		if first_less_second == False or valid_numbers == False:
+# 			# print('NO')
+# 			answer = 'NO'
+# 			count += 1
+# 			# break
+# 		else:
+# 			if flag:
+# 				answer = 'YESs'
+# 			else:
+# 				answer = 'NOs'
+# 	if count == 0:
+# 		print('YES')
+# 	else:
+# 		print('NO')
+	# print(answer)
 
-			else:
-				# print('NO')
-				flag = False
-				count += 1
-				# break
-			# print('first_less_second:', first_less_second, ';', 'valid_numbers:', valid_numbers)
 
-			if first_less_second == False:
-				# print('NO')
-				flag = False
-				count += 1
-				# break
 
-			h1 = list(range(temp_test[0][0], temp_test[0][3] + 1))
+
+
+
+
+for elt in range(int(input('Count iteration: '))):
+	flag = bool
+	first_less_second = bool
+	valid_numbers = True
+	temp_test = []
+	for _ in range(int(input('Count input with times: '))):
+		arr = (list(map(int, input().replace('-', ':').split(':'))))
+		temp_test.append(arr)
+	for elt in range(len(temp_test)):
+		# print(temp_test[elt])
+		# first_less_second = bool
+		# valid_numbers = bool
+		if temp_test[0][0] > 23 or temp_test[0][3] > 23 or temp_test[0][1] > 59 or temp_test[0][4] > 59 or temp_test[0][2] > 59 or temp_test[0][5] > 59:
+			valid_numbers = False
+			flag = False
+			break
+		# print(valid_numbers)
+		if valid_numbers == True:
+			for elt in temp_test:
+				if elt[0] > elt[3]:
+					first_less_second = False
+					break
+				if elt[0] == elt[3] and elt[1] > elt[4]:
+					first_less_second = False
+					# break
+				if elt[0] == elt[3] and elt[1] == elt[4] and elt[2] > elt[5]:
+					first_less_second = False
+					break
+		else:
+			# print('NO')
+			flag = False
+			break
+		# print('first_less_second:', first_less_second, ';', 'valid_numbers:', valid_numbers)
+
+		if first_less_second == False:
+			# print('NO')
+			flag = False
+			break
+		else:
+
+			h1 = list(range(temp_test[0][0], temp_test[0][3]+1))
 			if len(h1) == 0:
 				h1 = [temp_test[0][0]]
-			m1 = list(range(temp_test[0][1], temp_test[0][4] +1))
+			m1 = list(range(temp_test[0][1], temp_test[0][4]))
 			if len(m1) == 0:
 				m1 = [temp_test[0][1]]
-			s1 = list(range(temp_test[0][2], temp_test[0][5] + 1))
+			s1 = list(range(temp_test[0][2], temp_test[0][5]+1))
 			if len(s1) == 0:
 				s1 = [temp_test[0][2]]
-
-			# answer = ''
+			answer = ''
 			if len(temp_test) > 1:
-				print('1')
-				for elt in range(1, len(temp_test)):
-					print(temp_test[elt])
-					if temp_test[elt][0] in h1 and temp_test[elt][0] > h1[0]:
-						flag = False
-						count += 1
-						# break
-					if temp_test[elt][0] == h1[0] and temp_test[elt][1] in m1 and temp_test[elt][1] > m1[0]:
-						flag = False
-						count += 1
-						# break
-					if temp_test[elt][1] == m1[0] and temp_test[elt][2] in s1:
-						flag = False
-						count +=1
-						# break
-
-					if temp_test[elt][3] in h1 and temp_test[elt][3] > h1[0]:
-						flag = False
-						count +=1
-						# break
-					if temp_test[elt][3] == h1[0] and temp_test[elt][4] in m1 and temp_test[elt][4] > m1[0]:
-						flag = False
-						count +=1
-						# break
-					if temp_test[elt][4] == m1[0] and temp_test[elt][5] in s1:
-						flag = False
-						count += 1
-						# break
-
-			else:
-				for elt in range(len(temp_test)):
-					print(temp_test[elt])
+				for elt in range(1,len(temp_test)):
+					# print(temp_test[elt])
 					if temp_test[elt][0] in h1:
 						if temp_test[elt][0] > h1[0]:
 							flag = False
-							count +=1
-							# break
-						if temp_test[elt][0] == h1[0] and temp_test[elt][1] in m1:
-							if temp_test[elt][1] > m1[0]:
-								flag = False
-								count +=1
-								# break
-						if temp_test[elt][1] == m1[0] and temp_test[elt][2] in s1:
-							flag = False
-							count +=1
-							# break
+							break
+						if temp_test[elt][0] == h1[0]:
+							if temp_test[elt][1] in m1:
+								if temp_test[elt][1] > m1[0]:
+									flag = False
+									break
+								if temp_test[elt][1] == m1[0]:
+									if temp_test[elt][2] in s1:
+										flag = False
+										break
 
 					if temp_test[elt][3] in h1:
 						if temp_test[elt][3] > h1[0]:
 							flag = False
-							count +=1
-							# break
-						if temp_test[elt][3] == h1[0] and temp_test[elt][4] in m1:
-							if temp_test[elt][4] > m1[0]:
-								flag = False
-								count +=1
-								# break
-							if temp_test[elt][4] == m1[0] and temp_test[elt][5] in s1:
-								flag = False
-								count +=1
-								# break
-		print(temp_test)
-		if first_less_second == False or valid_numbers == False:
-			# print('NO')
-			answer = 'NO'
-			count += 1
-			# break
-		else:
-			if flag:
-				answer = 'YESs'
+							break
+						if temp_test[elt][3] == h1[0]:
+							if temp_test[elt][4] in m1:
+								if temp_test[elt][4] > m1[0]:
+									flag = False
+									break
+								if temp_test[elt][4] == m1[0]:
+									if temp_test[elt][5] in s1:
+										flag = False
+										break
+
 			else:
-				answer = 'NOs'
-	if count == 0:
-		print('YES')
-	else:
+				for elt in range(1, len(temp_test)):
+					print(temp_test[elt])
+					if temp_test[elt][0] in h1:
+						if temp_test[elt][0] > h1[0]:
+							flag = False
+							break
+						if temp_test[elt][0] == h1[0]:
+							if temp_test[elt][1] in m1:
+								if temp_test[elt][1] > m1[0]:
+									flag = False
+									break
+								if temp_test[elt][1] == m1[0]:
+									if temp_test[elt][2] in s1:
+										flag = False
+										break
+
+					if temp_test[elt][3] in h1:
+						if temp_test[elt][3] > h1[0]:
+							flag = False
+							break
+						if temp_test[elt][3] == h1[0]:
+							if temp_test[elt][4] in m1:
+								if temp_test[elt][4] > m1[0]:
+									flag = False
+									break
+								if temp_test[elt][4] == m1[0]:
+									if temp_test[elt][5] in s1:
+										flag = False
+										break
+
+	if first_less_second == False or valid_numbers == False:
 		print('NO')
-	# print(answer)
+	else:
+		if flag:
+			answer = 'YES'
+		else:
+			answer = 'NO'
+		print(answer)
