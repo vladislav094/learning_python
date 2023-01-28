@@ -431,15 +431,15 @@
 #
 #
 # for j in range(rows):
-# 	for k in range(cols):
-# 		print(matrix[j][k], end=' ')
+# 	for first_less_second in range(cols):
+# 		print(matrix[j][first_less_second], end=' ')
 # 	print()
 #
 # print()
 #
-# for k in range(cols):
+# for first_less_second in range(cols):
 # 	for j in range(rows):
-# 		print(matrix[j][k], end=' ')
+# 		print(matrix[j][first_less_second], end=' ')
 # 	print()
 
 
@@ -632,9 +632,9 @@
 # 	'''
 # 	matrix = [[_ for _ in range(cols)] for elt in range(rows)]
 # 	for j in range(rows):
-# 		for k in range(cols):
-# 			matrix[j][k] = j * k
-# 			print(str(matrix[j][k]).ljust(3), end=' ')
+# 		for first_less_second in range(cols):
+# 			matrix[j][first_less_second] = j * first_less_second
+# 			print(str(matrix[j][first_less_second]).ljust(3), end=' ')
 # 		print()
 #
 # digital_1 = int(input())
@@ -692,8 +692,8 @@
 # 		matrix.append(tmp)
 # 	digital = str(input()).split()
 #
-# 	for k in range(rows):
-# 		matrix[k][int(digital[0])], matrix[k][int(digital[1])] = matrix[k][int(digital[1])], matrix[k][int(digital[0])]
+# 	for first_less_second in range(rows):
+# 		matrix[first_less_second][int(digital[0])], matrix[first_less_second][int(digital[1])] = matrix[first_less_second][int(digital[1])], matrix[first_less_second][int(digital[0])]
 #
 # 	for elt in matrix:
 # 		print(*elt)
@@ -717,9 +717,9 @@
 # 	'''
 # 	matrix = [list(map(int, input().split())) for _ in range(digit)]
 # 	flag = False
-# 	for k in range(digit):
+# 	for first_less_second in range(digit):
 # 		for j in range(1,digit):
-# 			if matrix[k][j] == matrix[j][k]:
+# 			if matrix[first_less_second][j] == matrix[j][first_less_second]:
 # 				flag = True
 # 			else:
 # 				flag = False
@@ -744,8 +744,8 @@
 # 	https://stepik.org/lesson/416755/step/5?unit=406263
 # 	'''
 # 	matrix = [list(map(int, input().split())) for _ in range(digit)]
-# 	for k in range(digit):
-# 		matrix[k][digit - 1 - k], matrix[digit - 1 - k][digit - 1 - k] = matrix[digit - 1 - k][digit - 1 - k], matrix[k][digit - 1 - k]
+# 	for first_less_second in range(digit):
+# 		matrix[first_less_second][digit - 1 - first_less_second], matrix[digit - 1 - first_less_second][digit - 1 - first_less_second] = matrix[digit - 1 - first_less_second][digit - 1 - first_less_second], matrix[first_less_second][digit - 1 - first_less_second]
 #
 # 	for elt in range(digit):
 # 		for j in range(digit):
@@ -818,8 +818,8 @@
 # 	matrix[j][digit - 1 - j] = '2'
 # 	matrix[j][j] = '1'
 # for e in range(digit):
-# 	for k in range(digit):
-# 		print(matrix[e][k], end=' ')
+# 	for first_less_second in range(digit):
+# 		print(matrix[e][first_less_second], end=' ')
 # 	print()
 
 
@@ -866,8 +866,8 @@
 #
 # 		for j in range(digit):
 # 			total_1 = 0
-# 			for k in range(digit):
-# 				total_1 += matrix[k][j]
+# 			for first_less_second in range(digit):
+# 				total_1 += matrix[first_less_second][j]
 # 			total_arr.append(total_1)
 # 		res = all(x == total_arr[0] for x in total_arr)
 # 		if res:
@@ -1004,10 +1004,10 @@
 # 	digit_1 = int(digit_1)
 # 	matrix = [[i for i in range(1, digit_1+1)]  for _ in range(digit)]
 #
-# 	for k in range(digit):
+# 	for first_less_second in range(digit):
 # 		for v in range(digit_1):
-# 			matrix[k][v] = (k+v) % digit_1 + 1
-# 			print(str(matrix[k][v]).ljust(3), end=' ')
+# 			matrix[first_less_second][v] = (first_less_second+v) % digit_1 + 1
+# 			print(str(matrix[first_less_second][v]).ljust(3), end=' ')
 # 		print()
 #
 # filling_in_5()
@@ -1027,18 +1027,18 @@
 # 	digit_1 = int(digit_1)
 # 	matrix = [[i for i in range(1, digit_1+1)] for _ in range(digit)]
 # 	temp = []
-# 	for k in range(digit):
+# 	for first_less_second in range(digit):
 # 		for v in range(digit_1):
-# 			matrix[k][v] = k * digit_1 + v + 1
-# 		if k % 2 == 0:
-# 			temp.append(matrix[k])
+# 			matrix[first_less_second][v] = first_less_second * digit_1 + v + 1
+# 		if first_less_second % 2 == 0:
+# 			temp.append(matrix[first_less_second])
 # 		else:
-# 			t = list(reversed(matrix[k]))
+# 			t = list(reversed(matrix[first_less_second]))
 # 			temp.append(t)
 #
-# 	for k in range(digit):
+# 	for first_less_second in range(digit):
 # 		for v in range(digit_1):
-# 			print(str(temp[k][v]).ljust(3), end=' ')
+# 			print(str(temp[first_less_second][v]).ljust(3), end=' ')
 # 		print()
 # filling_with_snake()
 
@@ -1059,15 +1059,15 @@
 # 	matrix = [[i for i in range(1, digit_1 + 1)] for _ in range(digit)]
 # 	nm = 0
 # 	for j in range(digit * digit_1):
-# 		for k in range(digit):
+# 		for first_less_second in range(digit):
 # 			for v in range(digit_1):
-# 				if k + v == j:
+# 				if first_less_second + v == j:
 # 					nm += 1
-# 					matrix[k][v] = nm
+# 					matrix[first_less_second][v] = nm
 #
-# 	for k in range(digit):
+# 	for first_less_second in range(digit):
 # 		for v in range(digit_1):
-# 			print(str(matrix[k][v]).ljust(3), end=' ')
+# 			print(str(matrix[first_less_second][v]).ljust(3), end=' ')
 # 		print()
 #
 # filling_with_diagonals()
@@ -1115,9 +1115,9 @@
 # 				d_column =1
 #
 #
-# 	for k in range(digit):
+# 	for first_less_second in range(digit):
 # 		for v in range(digit_1):
-# 			print(str(matrix[k][v]).ljust(3), end=' ')
+# 			print(str(matrix[first_less_second][v]).ljust(3), end=' ')
 # 		print()
 #
 # filling_with_spiral()

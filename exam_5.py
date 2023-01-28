@@ -53,9 +53,9 @@
 #     matrix = [list(map(int, input().split())) for _ in range(digit)]
 #     matrix = matrix[::-1]
 #     flag = ''
-#     for k in range(digit):
+#     for first_less_second in range(digit):
 #         for j in range(1,digit):
-#             if matrix[k][j] == matrix[j][k]:
+#             if matrix[first_less_second][j] == matrix[j][first_less_second]:
 #                 flag = 'YES'
 #             else:
 #                 flag = 'NO'
