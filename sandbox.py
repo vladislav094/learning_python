@@ -258,23 +258,27 @@ temp_test = [[18, 12, 49, 18, 22, 0],
 			[0, 17, 48, 0, 22, 34]]
 
 
-arr = [[12, 49, 38, 13, 50, 41],
+arr = [[12, 50, 38, 12, 50, 41],
 	   [11, 30, 00, 12, 51, 38],
-	   [10, 30, 00, 11, 31, 00]
+	   [10, 30, 22, 11, 31, 00]
 	   ]
 # for elt in reversed(range(len(arr))):
 hours_1 = []
 minutes_1 = []
 seconds_1 = []
 
+hours_2 = []
+minutes_2 = []
+seconds_2 = []
+
 for lst in range(len(arr)):
-	if arr[lst][0] == arr[0][3]:
-		hours_1 += [[arr[0][0]]]
+	if arr[lst][0] == arr[lst][3]:
+		hours_1 += [[arr[lst][0]]]
 	else:
 		hours_1 += [list(range(arr[lst][0], arr[lst][3] + 1))]
 
 	if arr[lst][0] == arr[lst][3] and arr[lst][1] == arr[lst][4]:
-		minutes_1 += [[arr[0][1]]]
+		minutes_1 += [[arr[lst][1]]]
 	elif arr[lst][0] == arr[lst][3] and arr[lst][1] < arr[lst][4]:
 		minutes_1 += [list(range(arr[lst][1], arr[lst][4] + 1))]
 	else:
@@ -287,19 +291,68 @@ for lst in range(len(arr)):
 	else:
 		seconds_1 += [list(range(arr[lst][2], 60))]
 
-print(hours_1)
-print(minutes_1)
-print(seconds_1)
-for elt in range(len(hours_1)):
-	print(hours_1[0], minutes_1[0], seconds_1[0])
 
-# for elt in range(len(arr)):
+
+for lst in range(len(arr)):
+	if arr[lst][0] == arr[lst][3]:
+		hours_2 += [[arr[lst][0]]]
+	else:
+		hours_2 += [list(range(arr[lst][0],arr[lst][3] + 1))]
+
+	if arr[lst][0] == arr[lst][3] and arr[lst][1] == arr[lst][4]:
+		minutes_2 += [[arr[lst][1]]]
+	elif arr[lst][0] == arr[lst][3] and arr[lst][1] < arr[lst][4]:
+		minutes_2 += [list(range(arr[lst][1], arr[lst][4] + 1))]
+	elif arr[lst][0] < arr[lst][3]:
+		minutes_2 += [list(range(1, arr[lst][4] + 1))]
+	# else:
+	# 	minutes_2 += [list(range(arr[lst][1], 60))]
+
+	if arr[lst][0] == arr[lst][3] and arr[lst][1] == arr[lst][4] and arr[lst][2] == arr[lst][5]:
+		seconds_2 += [[arr[lst][2]]]
+	elif arr[lst][0] == arr[lst][3] and arr[lst][1] == arr[lst][4] and arr[lst][2] < arr[lst][5]:
+		seconds_2 += [list(range(arr[lst][2], arr[lst][5] + 1))]
+	elif arr[lst][0] == arr[lst][3] and arr[lst][1] < arr[lst][4]:
+		seconds_2 += [list(range(1, arr[lst][5]+1))]
+	elif arr[lst][5] == 0:
+		seconds_2 += [[0]]
+	else:
+		seconds_2 += [list(range(1, arr[lst][5]+1))]
+
+for elt in arr:
+	print(elt)
+
+for h in hours_1:
+	print('Hours_1:', h)
+print()
+for m in minutes_1:
+	print('Minutes_1:', m)
+print()
+for s in seconds_1:
+	print('Seconds_1:', s)
+
+print()
+for h in hours_2:
+	print('Hours_2:', h)
+print()
+for m in minutes_2:
+	print('Minutes_2:', m)
+print()
+for s in seconds_2:
+	print('Seconds_2:', s)
+
+
+# for elt in range(len(hours_1)):
+# 	print(hours_1[0], minutes_1[0], seconds_1[0])
+
+# for elt in reversed(range(len(arr))):
+# # for elt in range(len(arr)):
 # 	first_part = [arr[-1][0], arr[-1][1], arr[-1][2]]
 # 	second_part = [arr[-1][3], arr[-1][4], arr[-1][5]]
 # 	# print(first_part, second_part)
 # 	if arr[-1] != arr[elt]:
 # 		print(arr[-1], arr[elt])
-# 		print(first_part, second_part)
+# 		print('first part: ',first_part, 'second part: ', second_part)
 
 
 
