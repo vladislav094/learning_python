@@ -258,40 +258,74 @@ temp_test = [[18, 12, 49, 18, 22, 0],
 			[0, 17, 48, 0, 22, 34]]
 
 
-arr = [[12, 49, 38, 12, 50, 41],
+arr = [[12, 49, 38, 13, 50, 41],
 	   [11, 30, 00, 12, 51, 38],
 	   [10, 30, 00, 11, 31, 00]
 	   ]
-for elt in reversed(range(len(arr))):
-	if arr[-1] != arr[elt]:
-		print(arr[-1], arr[elt])
+# for elt in reversed(range(len(arr))):
+hours_1 = []
+minutes_1 = []
+seconds_1 = []
 
-	# for jey in reversed(range(elt, (len(arr)))):
-	# 	print(arr[jey], arr[elt-1])
+for lst in range(len(arr)):
+	if arr[lst][0] == arr[0][3]:
+		hours_1 += [[arr[0][0]]]
+	else:
+		hours_1 += [list(range(arr[lst][0], arr[lst][3] + 1))]
+
+	if arr[lst][0] == arr[lst][3] and arr[lst][1] == arr[lst][4]:
+		minutes_1 += [[arr[0][1]]]
+	elif arr[lst][0] == arr[lst][3] and arr[lst][1] < arr[lst][4]:
+		minutes_1 += [list(range(arr[lst][1], arr[lst][4] + 1))]
+	else:
+		minutes_1 += [list(range(arr[lst][1], 60))]
+
+	if arr[lst][0] == arr[lst][3] and arr[lst][1] == arr[lst][4] and arr[lst][2] == arr[lst][5]:
+		seconds_1 += [[arr[lst][2]]]
+	elif arr[lst][0] == arr[lst][3] and arr[lst][1] == arr[lst][4] and arr[lst][2] < arr[lst][5]:
+		seconds_1 += [list(range(arr[lst][2], arr[lst][5] + 1))]
+	else:
+		seconds_1 += [list(range(arr[lst][2], 60))]
+
+print(hours_1)
+print(minutes_1)
+print(seconds_1)
+for elt in range(len(hours_1)):
+	print(hours_1[0], minutes_1[0], seconds_1[0])
+
+# for elt in range(len(arr)):
+# 	first_part = [arr[-1][0], arr[-1][1], arr[-1][2]]
+# 	second_part = [arr[-1][3], arr[-1][4], arr[-1][5]]
+# 	# print(first_part, second_part)
+# 	if arr[-1] != arr[elt]:
+# 		print(arr[-1], arr[elt])
+# 		print(first_part, second_part)
 
 
-if arr[0][0] == arr[0][3]:
-	h1 = [arr[0][0]]
-else:
-	h1 = list(range(arr[0][0], arr[0][3]+1))
 
-if arr[0][0] == arr[0][3] and arr[0][1] == arr[0][4]:
-	m1 = [arr[0][1]]
-elif arr[0][0] == arr[0][3] and arr[0][1] < arr[0][4]:
-	m1 = list(range(arr[0][1], arr[0][4]+1))
-else:
-	m1 = list(range(arr[0][1], 60))
+# if arr[0][0] == arr[0][3]:
+# 	h1 = [arr[0][0]]
+# else:
+# 	h1 = list(range(arr[0][0], arr[0][3]+1))
+#
+# if arr[0][0] == arr[0][3] and arr[0][1] == arr[0][4]:
+# 	m1 = [arr[0][1]]
+# elif arr[0][0] == arr[0][3] and arr[0][1] < arr[0][4]:
+# 	m1 = list(range(arr[0][1], arr[0][4]+1))
+# else:
+# 	m1 = list(range(arr[0][1], 60))
+#
+# if arr[0][0] == arr[0][3] and arr[0][1] == arr[0][4] and arr[0][2] == arr[0][5]:
+# 	s1 = [arr[0][2]]
+# elif arr[0][0] == arr[0][3] and arr[0][1] == arr[0][4] and arr[0][2] < arr[0][5]:
+# 	s1 = list(range(arr[0][2], arr[0][5]+1))
+# else:
+# 	s1 = list(range(arr[0][2], 60))
 
-if arr[0][0] == arr[0][3] and arr[0][1] == arr[0][4] and arr[0][2] == arr[0][5]:
-	s1 = [arr[0][2]]
-elif arr[0][0] == arr[0][3] and arr[0][1] == arr[0][4] and arr[0][2] < arr[0][5]:
-	s1 = list(range(arr[0][2], arr[0][5]+1))
-else:
-	s1 = list(range(arr[0][2], 60))
 
-print(h1)
-print(m1)
-print(s1)
+# print(h1)
+# print(m1)
+# print(s1)
 
 
 # flag = bool
