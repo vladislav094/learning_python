@@ -348,11 +348,15 @@ for lst in range(len(arr)):
 		seconds_2 += [list(range(0, arr[lst][5]+1))]
 
 flag = bool
+# print(hours_1)
+# print(minutes_1)
+# print(seconds_1)
 for elt in reversed(range(len(arr))):
 	first_part = [arr[elt][0], arr[elt][1], arr[elt][2]]
 	second_part = [arr[elt][3], arr[elt][4], arr[elt][5]]
 	flag = bool
 	for jey in range(len(hours_1)):
+		print(elt, jey, arr[elt], arr[jey])
 		if jey != elt:
 			if arr[elt][0] in hours_1[jey] and hours_1[jey][1] == arr[elt][0] and arr[elt][1] in minutes_2[jey] and arr[elt][2] in seconds_2[jey]:
 				print(arr[elt][0], hours_1[jey])
