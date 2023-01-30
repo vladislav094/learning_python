@@ -260,9 +260,9 @@ temp_test = [[18, 12, 49, 18, 22, 0],
 
 arr = [[12, 50, 38, 12, 50, 41],
 	   [11, 30, 00, 12, 51, 38],
-	   [10, 30, 22, 11, 31, 00]
+	   [10, 30, 22, 11, 31, 1]
 	   ]
-# for elt in reversed(range(len(arr))):
+
 hours_1 = []
 minutes_1 = []
 seconds_1 = []
@@ -317,29 +317,70 @@ for lst in range(len(arr)):
 	elif arr[lst][5] == 0:
 		seconds_2 += [[0]]
 	else:
-		seconds_2 += [list(range(1, arr[lst][5]+1))]
+		seconds_2 += [list(range(0, arr[lst][5]+1))]
 
-for elt in arr:
-	print(elt)
+# for elt in arr:
+# 	print(elt)
 
-for h in hours_1:
-	print('Hours_1:', h)
-print()
-for m in minutes_1:
-	print('Minutes_1:', m)
-print()
-for s in seconds_1:
-	print('Seconds_1:', s)
+# for h in hours_1:
+# 	print('Hours_1:', h)
+# print()
+# for m in minutes_1:
+# 	print('Minutes_1:', m)
+# print()
+# for s in seconds_1:
+# 	print('Seconds_1:', s)
+#
+# print()
+# for h in hours_2:
+# 	print('Hours_2:', h)
+# print()
+# for m in minutes_2:
+# 	print('Minutes_2:', m)
+# print()
+# for s in seconds_2:
+# 	print('Seconds_2:', s)
 
-print()
-for h in hours_2:
-	print('Hours_2:', h)
-print()
-for m in minutes_2:
-	print('Minutes_2:', m)
-print()
-for s in seconds_2:
-	print('Seconds_2:', s)
+
+for elt in reversed(range(len(arr))):
+	first_part = [arr[elt][0], arr[elt][1], arr[elt][2]]
+	second_part = [arr[elt][3], arr[elt][4], arr[elt][5]]
+	# print('first_part:', first_part, 'second_part:', second_part)
+	# print('elt: ',elt)
+	for jey in range(len(hours_1)):
+		if jey != elt:
+			if arr[elt][0] in hours_1[jey] and hours_1[jey][1] == arr[elt][0] and arr[elt][1] in minutes_2[jey] and arr[elt][2] in seconds_2[jey]:
+				print('elt:', elt, arr[elt])
+				print('jey:', jey, hours_1[jey])
+				print('h:', arr[elt][0])
+				print('m:',arr[elt][1],)
+				print('hours_1:', hours_1[jey])
+				print('minures_1:', minutes_1[jey])
+				print(hours_1[jey].index(arr[elt][0]))
+				# print(arr[elt][0])
+
+#
+# for elt in arr:
+# 	print(elt)
+#
+# for h in hours_1:
+# 	print('Hours_1:', h)
+# print()
+# for m in minutes_1:
+# 	print('Minutes_1:', m)
+# print()
+# for s in seconds_1:
+# 	print('Seconds_1:', s)
+#
+# print()
+# for h in hours_2:
+# 	print('Hours_2:', h)
+# print()
+# for m in minutes_2:
+# 	print('Minutes_2:', m)
+# print()
+# for s in seconds_2:
+# 	print('Seconds_2:', s)
 
 
 # for elt in range(len(hours_1)):
