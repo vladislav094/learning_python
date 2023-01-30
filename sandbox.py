@@ -188,6 +188,49 @@
 # for _ in temp:
 # 	print(_, end='\n')
 
+
+# temp_test = [[18, 12, 49, 18, 22, 0],
+# 			[10, 4, 37, 10, 15, 21],
+# 			[22, 18, 53, 22, 39, 39],
+# 			[16, 29, 56, 16, 31, 34],
+# 			[14, 18, 22, 14, 28, 15],
+# 			[11, 30, 57, 11, 57, 13],
+# 			[2, 42, 35, 2, 48, 36],
+# 			[3, 38, 22, 4, 21, 26],
+# 			[16, 7, 27, 16, 26, 43],
+# 			[7, 58, 10, 8, 0, 21],
+# 			[0, 33, 25, 0, 35, 36],
+# 			[1, 18, 27, 2, 32, 19],
+# 			[18, 22, 19, 18, 40, 13],
+# 			[6, 21, 43, 6, 59, 50],
+# 			[7, 12, 36, 7, 14, 43],
+# 			[1, 10, 54, 1, 16, 5],
+# 			[5, 57, 44, 6, 20, 29],
+# 			[4, 55, 2, 5, 2, 36],
+# 			[17, 45, 1, 18, 6, 50],
+# 			[23, 20, 45, 23, 57, 49],
+# 			[5, 11, 24, 5, 11, 24],
+# 			[21, 30, 47, 21, 42, 10],
+# 			[14, 38, 54, 14, 40, 59],
+# 			[13, 48, 1, 13, 48, 1],
+# 			[11, 14, 32, 23, 43, 48],
+# 			[8, 4, 16, 8, 16, 6],
+# 			[19, 11, 13, 19, 22, 34],
+# 			[11, 24, 23, 11, 26, 42],
+# 			[17, 0, 18, 17, 7, 22],
+# 			[13, 41, 4, 13, 41, 16],
+# 			[12, 22, 21, 12, 51, 26],
+# 			[22, 49, 40, 23, 10, 15],
+# 			[4, 29, 27, 4, 46, 34],
+# 			[14, 42, 36, 14, 42, 50],
+# 			[14, 52, 57, 15, 49, 8],
+# 			[20, 49, 8, 21, 25, 8],
+# 			[9, 12, 28, 9, 16, 7],
+# 			[10, 49, 23, 11, 22, 40],
+# 			[18, 45, 41, 18, 59, 4],
+# 			[0, 17, 48, 0, 22, 34]]
+
+
 ####    1
 # temp_test = [[2, 46, 0, 3, 14, 59]]
 #
@@ -197,7 +240,7 @@
 # 			[0, 0, 0, 23, 59, 58]]
 #
 ####    3
-temp_test = [[23, 59, 58, 23, 59, 59],
+arr = [[23, 59, 58, 23, 59, 59],
 			   [0, 0, 0, 23, 59, 58]]
 #
 ###    4
@@ -205,63 +248,48 @@ temp_test = [[23, 59, 58, 23, 59, 59],
 # 			 [0, 0, 0, 23, 59, 57]]
 #
 ###    5
-# temp_test = [[17, 53, 39, 20, 20, 2],
+# arr = [[17, 53, 39, 18, 20, 2],
 # 	[10, 39, 17, 11, 0, 52],
 # 	[8, 42, 47, 9, 2, 14],
 # 	[9, 44, 26, 10, 21, 41],
 # 	[0, 46, 17, 2, 7, 19],
 # 	[22, 42, 50, 23, 17, 46]]
-#
+# #
 
 ####    6
-# temp_test = [[24, 0, 0, 23, 59, 59]]
+# arr = [[24, 0, 0, 23, 59, 59]]
 
-temp_test = [[18, 12, 49, 18, 22, 0],
-			[10, 4, 37, 10, 15, 21],
-			[22, 18, 53, 22, 39, 39],
-			[16, 29, 56, 16, 31, 34],
-			[14, 18, 22, 14, 28, 15],
-			[11, 30, 57, 11, 57, 13],
-			[2, 42, 35, 2, 48, 36],
-			[3, 38, 22, 4, 21, 26],
-			[16, 7, 27, 16, 26, 43],
-			[7, 58, 10, 8, 0, 21],
-			[0, 33, 25, 0, 35, 36],
-			[1, 18, 27, 2, 32, 19],
-			[18, 22, 19, 18, 40, 13],
-			[6, 21, 43, 6, 59, 50],
-			[7, 12, 36, 7, 14, 43],
-			[1, 10, 54, 1, 16, 5],
-			[5, 57, 44, 6, 20, 29],
-			[4, 55, 2, 5, 2, 36],
-			[17, 45, 1, 18, 6, 50],
-			[23, 20, 45, 23, 57, 49],
-			[5, 11, 24, 5, 11, 24],
-			[21, 30, 47, 21, 42, 10],
-			[14, 38, 54, 14, 40, 59],
-			[13, 48, 1, 13, 48, 1],
-			[11, 14, 32, 23, 43, 48],
-			[8, 4, 16, 8, 16, 6],
-			[19, 11, 13, 19, 22, 34],
-			[11, 24, 23, 11, 26, 42],
-			[17, 0, 18, 17, 7, 22],
-			[13, 41, 4, 13, 41, 16],
-			[12, 22, 21, 12, 51, 26],
-			[22, 49, 40, 23, 10, 15],
-			[4, 29, 27, 4, 46, 34],
-			[14, 42, 36, 14, 42, 50],
-			[14, 52, 57, 15, 49, 8],
-			[20, 49, 8, 21, 25, 8],
-			[9, 12, 28, 9, 16, 7],
-			[10, 49, 23, 11, 22, 40],
-			[18, 45, 41, 18, 59, 4],
-			[0, 17, 48, 0, 22, 34]]
+flag_1 = True
+valid_numbers = True
+first_less_second = True
+for elt in range(len(arr)):
+	if arr[0][0] > 23 or arr[0][3] > 23 or arr[0][1] > 59 or arr[0][4] > 59 or arr[0][2] > 59 or arr[0][5] > 59:
+		valid_numbers = False
+		flag_1 = False
+		break
+	if valid_numbers == True:
+		for elt in arr:
+			if elt[0] > elt[3]:
+				print('1')
+				first_less_second = False
+				break
+			if elt[0] == elt[3] and elt[1] > elt[4]:
+				print('2')
+				first_less_second = False
+			if elt[0] == elt[3] and elt[1] == elt[4] and elt[2] > elt[5]:
+				first_less_second = False
+				print('3')
+				break
+	else:
+		flag_1 = False
+		break
+
+	if first_less_second == False:
+		flag_1 = False
+		break
+print(flag_1, valid_numbers, first_less_second)
 
 
-arr = [[12, 50, 38, 12, 50, 41],
-	   [11, 30, 00, 12, 51, 38],
-	   [10, 30, 22, 11, 31, 1]
-	   ]
 
 hours_1 = []
 minutes_1 = []
@@ -319,47 +347,26 @@ for lst in range(len(arr)):
 	else:
 		seconds_2 += [list(range(0, arr[lst][5]+1))]
 
-# for elt in arr:
-# 	print(elt)
-
-# for h in hours_1:
-# 	print('Hours_1:', h)
-# print()
-# for m in minutes_1:
-# 	print('Minutes_1:', m)
-# print()
-# for s in seconds_1:
-# 	print('Seconds_1:', s)
-#
-# print()
-# for h in hours_2:
-# 	print('Hours_2:', h)
-# print()
-# for m in minutes_2:
-# 	print('Minutes_2:', m)
-# print()
-# for s in seconds_2:
-# 	print('Seconds_2:', s)
-
-
+flag = bool
 for elt in reversed(range(len(arr))):
 	first_part = [arr[elt][0], arr[elt][1], arr[elt][2]]
 	second_part = [arr[elt][3], arr[elt][4], arr[elt][5]]
-	# print('first_part:', first_part, 'second_part:', second_part)
-	# print('elt: ',elt)
+	flag = bool
 	for jey in range(len(hours_1)):
 		if jey != elt:
 			if arr[elt][0] in hours_1[jey] and hours_1[jey][1] == arr[elt][0] and arr[elt][1] in minutes_2[jey] and arr[elt][2] in seconds_2[jey]:
-				print('elt:', elt, arr[elt])
-				print('jey:', jey, hours_1[jey])
-				print('h:', arr[elt][0])
-				print('m:',arr[elt][1],)
-				print('hours_1:', hours_1[jey])
-				print('minures_1:', minutes_1[jey])
-				print(hours_1[jey].index(arr[elt][0]))
-				# print(arr[elt][0])
+				print(arr[elt][0], hours_1[jey])
+				print('1')
+				flag = False
+				break
+			if arr[elt][0] in hours_1[jey] and hours_1[jey][0] == arr[elt][0] and arr[elt][1] in minutes_1[jey] and arr[elt][2] in seconds_1[jey]:
+				print('2')
+				flag = False
+				break
+	if flag == False:
+		break
+print(flag)
 
-#
 # for elt in arr:
 # 	print(elt)
 #
@@ -382,44 +389,6 @@ for elt in reversed(range(len(arr))):
 # for s in seconds_2:
 # 	print('Seconds_2:', s)
 
-
-# for elt in range(len(hours_1)):
-# 	print(hours_1[0], minutes_1[0], seconds_1[0])
-
-# for elt in reversed(range(len(arr))):
-# # for elt in range(len(arr)):
-# 	first_part = [arr[-1][0], arr[-1][1], arr[-1][2]]
-# 	second_part = [arr[-1][3], arr[-1][4], arr[-1][5]]
-# 	# print(first_part, second_part)
-# 	if arr[-1] != arr[elt]:
-# 		print(arr[-1], arr[elt])
-# 		print('first part: ',first_part, 'second part: ', second_part)
-
-
-
-# if arr[0][0] == arr[0][3]:
-# 	h1 = [arr[0][0]]
-# else:
-# 	h1 = list(range(arr[0][0], arr[0][3]+1))
-#
-# if arr[0][0] == arr[0][3] and arr[0][1] == arr[0][4]:
-# 	m1 = [arr[0][1]]
-# elif arr[0][0] == arr[0][3] and arr[0][1] < arr[0][4]:
-# 	m1 = list(range(arr[0][1], arr[0][4]+1))
-# else:
-# 	m1 = list(range(arr[0][1], 60))
-#
-# if arr[0][0] == arr[0][3] and arr[0][1] == arr[0][4] and arr[0][2] == arr[0][5]:
-# 	s1 = [arr[0][2]]
-# elif arr[0][0] == arr[0][3] and arr[0][1] == arr[0][4] and arr[0][2] < arr[0][5]:
-# 	s1 = list(range(arr[0][2], arr[0][5]+1))
-# else:
-# 	s1 = list(range(arr[0][2], 60))
-
-
-# print(h1)
-# print(m1)
-# print(s1)
 
 
 # flag = bool
@@ -742,14 +711,11 @@ for elt in reversed(range(len(arr))):
 # 		arr = (list(map(int, input().replace('-', ':').split(':'))))
 # 		temp_test.append(arr)
 # 	for elt in range(len(temp_test)):
-# 		# print(temp_test[elt])
-# 		# first_less_second = bool
-# 		# valid_numbers = bool
 # 		if temp_test[0][0] > 23 or temp_test[0][3] > 23 or temp_test[0][1] > 59 or temp_test[0][4] > 59 or temp_test[0][2] > 59 or temp_test[0][5] > 59:
 # 			valid_numbers = False
 # 			flag = False
 # 			break
-# 		# print(valid_numbers)
+#
 # 		if valid_numbers == True:
 # 			for elt in temp_test:
 # 				if elt[0] > elt[3]:
@@ -762,13 +728,10 @@ for elt in reversed(range(len(arr))):
 # 					first_less_second = False
 # 					break
 # 		else:
-# 			# print('NO')
 # 			flag = False
 # 			break
-# 		# print('first_less_second:', first_less_second, ';', 'valid_numbers:', valid_numbers)
 #
 # 		if first_less_second == False:
-# 			# print('NO')
 # 			flag = False
 # 			break
 # 		else:
@@ -785,7 +748,7 @@ for elt in reversed(range(len(arr))):
 # 			answer = ''
 # 			if len(temp_test) > 1:
 # 				for elt in range(1,len(temp_test)):
-# 					# print(temp_test[elt])
+#
 # 					if temp_test[elt][0] in h1:
 # 						if temp_test[elt][0] > h1[0]:
 # 							flag = False
