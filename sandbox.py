@@ -264,6 +264,7 @@ for _ in range(int(input('Count iterations: '))):
 			valid_numbers = False
 			flag_1 = False
 			break
+
 	if valid_numbers == True:
 		for elt in temp_test:
 			dig_1 = (elt[0] * 60 + elt[1]) * 60 + elt[2]
