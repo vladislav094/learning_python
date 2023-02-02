@@ -176,125 +176,55 @@
 # 		print(flag)
 # task_5()
 
+### task 6
+def task_6():
+	"""
+	1 input - count iteration
+	2 input - count times
+	3 input (list) - times
+	17:53:39-20:20:02
+	10:39:17-11:00:52
+	08:42:47-09:02:14
+	09:44:26-10:21:41
+	00:46:17-02:07:19
+	22:42:50-23:17:46
+	:return:
+	YES
+	"""
+	for _ in range(int(input())):
+		flag_1 = True
+		valid_numbers = True
+		t_range = []
+		temp_test = []
+		for _ in range(int(input())):
+			arr = (list(map(int, input().replace('-', ':').split(':'))))
+			temp_test.append(arr)
 
-# temp_test = [[18, 12, 49, 18, 22, 0],
-# 			[10, 4, 37, 10, 15, 21],
-# 			[22, 18, 53, 22, 39, 39],
-# 			[16, 29, 56, 16, 31, 34],
-# 			[14, 18, 22, 14, 28, 15],
-# 			[11, 30, 57, 11, 57, 13],
-# 			[2, 42, 35, 2, 48, 36],
-# 			[3, 38, 22, 4, 21, 26],
-# 			[16, 7, 27, 16, 26, 43],
-# 			[7, 58, 10, 8, 0, 21],
-# 			[0, 33, 25, 0, 35, 36],
-# 			[1, 18, 27, 2, 32, 19],
-# 			[18, 22, 19, 18, 40, 13],
-# 			[6, 21, 43, 6, 59, 50],
-# 			[7, 12, 36, 7, 14, 43],
-# 			[1, 10, 54, 1, 16, 5],
-# 			[5, 57, 44, 6, 20, 29],
-# 			[4, 55, 2, 5, 2, 36],
-# 			[17, 45, 1, 18, 6, 50],
-# 			[23, 20, 45, 23, 57, 49],
-# 			[5, 11, 24, 5, 11, 24],
-# 			[21, 30, 47, 21, 42, 10],
-# 			[14, 38, 54, 14, 40, 59],
-# 			[13, 48, 1, 13, 48, 1],
-# 			[11, 14, 32, 23, 43, 48],
-# 			[8, 4, 16, 8, 16, 6],
-# 			[19, 11, 13, 19, 22, 34],
-# 			[11, 24, 23, 11, 26, 42],
-# 			[17, 0, 18, 17, 7, 22],
-# 			[13, 41, 4, 13, 41, 16],
-# 			[12, 22, 21, 12, 51, 26],
-# 			[22, 49, 40, 23, 10, 15],
-# 			[4, 29, 27, 4, 46, 34],
-# 			[14, 42, 36, 14, 42, 50],
-# 			[14, 52, 57, 15, 49, 8],
-# 			[20, 49, 8, 21, 25, 8],
-# 			[9, 12, 28, 9, 16, 7],
-# 			[10, 49, 23, 11, 22, 40],
-# 			[18, 45, 41, 18, 59, 4],
-# 			[0, 17, 48, 0, 22, 34]]
-
-
-####    1
-arr = [[2, 46, 0, 3, 14, 59]]
-#
-
-####    2
-# arr = [[23, 59, 59, 23, 59, 59],
-# 			[0, 0, 0, 23, 59, 58]]
-#
-####    3
-# arr = [[23, 59, 58, 23, 59, 59],
-# 			   [0, 0, 0, 23, 59, 58]]
-#
-###    4
-arr = [[23, 59, 59, 23, 59, 58],
-			 [0, 0, 0, 23, 59, 57]]
-#
-###    5
-# arr = [[17, 53, 39, 18, 20, 2],
-# 	[10, 39, 17, 11, 0, 52],
-# 	[8, 42, 47, 9, 2, 14],
-# 	[9, 44, 26, 10, 21, 41],
-# 	[0, 46, 17, 2, 7, 19],
-# 	[22, 42, 50, 23, 17, 46]]
-# #
-
-####    6
-# arr = [[24, 0, 0, 23, 59, 59]]
-
-
-
-for _ in range(int(input('Count iterations: '))):
-	flag_1 = True
-	valid_numbers = True
-	first_less_second = True
-	t_range = []
-	temp_test = []
-	for _ in range(int(input('Count input with times: '))):
-		arr = (list(map(int, input().replace('-', ':').split(':'))))
-		temp_test.append(arr)
-
-	for elt in range(len(temp_test)):
-		if temp_test[elt][0] > 23 or temp_test[elt][3] > 23 or temp_test[elt][1] > 59 or temp_test[elt][4] > 59 or temp_test[elt][2] > 59 or temp_test[elt][5] > 59:
-			valid_numbers = False
-			flag_1 = False
-			break
-
-	if valid_numbers == True:
-		for elt in temp_test:
-			dig_1 = (elt[0] * 60 + elt[1]) * 60 + elt[2]
-			dig_2 = (elt[3] * 60 + elt[4]) * 60 + elt[5]
-			if dig_2 >= dig_1:
-				arr_1 = [dig_1, dig_2]
-				t_range.append(arr_1)
-			else:
+		for elt in range(len(temp_test)):
+			if temp_test[elt][0] > 23 or temp_test[elt][3] > 23 or temp_test[elt][1] > 59 or temp_test[elt][4] > 59 or \
+					temp_test[elt][2] > 59 or temp_test[elt][5] > 59:
+				valid_numbers = False
 				flag_1 = False
-				first_less_second = False
-				break                                               
-	else:
-		flag_1 = False
-
-
-	for elt in reversed(range(len(t_range))):
-		for j in range(len(t_range)):
-			if elt != j:
-				if t_range[elt][0] >= t_range[j][0] and t_range[elt][0] <= t_range[j][1] or t_range[elt][1] >= t_range[j][0] and t_range[elt][1] <= t_range[j][1]:
+				break
+		if valid_numbers == True:
+			for elt in temp_test:
+				dig_1 = (elt[0] * 60 + elt[1]) * 60 + elt[2]
+				dig_2 = (elt[3] * 60 + elt[4]) * 60 + elt[5]
+				if dig_2 >= dig_1:
+					arr_1 = [dig_1, dig_2]
+					t_range.append(arr_1)
+				else:
 					flag_1 = False
 					break
-				else:
-					flag_1 = True
-		if flag_1 == False:
-			break
 
-	if flag_1:
-		print('YES')
-	else:
-		print('NO')
+		t_range = sorted(t_range)
 
-
-
+		for lst in range(len(t_range) - 1):
+			if t_range[lst][1] >= t_range[lst + 1][0]:
+				flag_1 = False
+				break
+		if flag_1:
+			print('YES')
+		else:
+			print('NO')
+task_6()
