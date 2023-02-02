@@ -133,47 +133,27 @@
 
 
 ## task 5
-
-# arr = [1, 2, 3, 4, 5]
-# arr = [1, 2, 3, 1]
-# arr = [2, 3, 4, 8, 5, 5, 5, 5]
-# arr = [1, 1, 3, 2, 2]
-# arr = [1, 1, 2, 3, 2]
-# arr = [1, 1, 1, 1, 1, 1, 1, 11, 1, 1, 1, 1]
-# arr = [3, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-# arr = [5, 5, 5, 5, 5, 5, 6]
-# arr = [8, 10, 10, 4, 1, 5, 7, 2, 1, 3]
-
 # def task_5():
-# 	flag = bool
-# 	d1 = 0
-# 	d2 = 1
-# 	count_iteration = int(input())
-# 	for _ in range(count_iteration):
-# 		temp = []
-# 		count_numbers = int(input())
-# 		arr = (list(map(int, input().split())))
-# 		while len(arr) > 2:
-# 			if arr[d1] == arr[d2]:
-# 				del arr[d1]
-# 			if arr[d1] != arr[d2]:
-# 				temp.append(arr[d1])
-# 				del arr[d1]
-#
-# 		if len(arr) == 1:
-# 			temp.append(arr[0])
-# 		elif len(arr) == 2 and arr[0] == arr[1]:
-# 			temp.append(arr[0])
-# 		else:
-# 			temp.extend(arr)
-#
-# 		for elt in temp:
-# 			if temp.count(elt) > 1:
-# 				flag = 'NO'
-# 				break
-# 			else:
-# 				flag = 'YES'
-# 		print(flag)
+#     count_iteration = int(input())
+#     for _ in range(count_iteration):
+#         count_numbers = int(input())
+#         temp = (list(map(int, input().split())))
+#         count_no = 0
+#         my_set = set()
+#         first = 0
+#         second = 1
+#         for _ in range(len(temp)-1):
+#             if temp[first] == temp[second]:
+#                 second += 1
+#             else:
+#                 if temp[second] in my_set:
+#                     count_no += 1
+#                 my_set.add(temp[first])
+#                 first, second = second, second + 1
+#         if count_no == 0:
+#             print('YES')
+#         else:
+#             print('NO')
 # task_5()
 
 ### task 6
