@@ -157,54 +157,80 @@
 # task_5()
 
 ### task 6
-def task_6():
-	"""
-	1 input - count iteration
-	2 input - count times
-	3 input (list) - times
-	17:53:39-20:20:02
-	10:39:17-11:00:52
-	08:42:47-09:02:14
-	09:44:26-10:21:41
-	00:46:17-02:07:19
-	22:42:50-23:17:46
-	:return:
-	YES
-	"""
-	for _ in range(int(input())):
-		flag_1 = True
-		valid_numbers = True
-		t_range = []
-		temp_test = []
-		for _ in range(int(input())):
-			arr = (list(map(int, input().replace('-', ':').split(':'))))
-			temp_test.append(arr)
+# def task_6():
+# 	"""
+# 	1 input - count iteration
+# 	2 input - count times
+# 	3 input (list) - times
+# 	17:53:39-20:20:02
+# 	10:39:17-11:00:52
+# 	08:42:47-09:02:14
+# 	09:44:26-10:21:41
+# 	00:46:17-02:07:19
+# 	22:42:50-23:17:46
+# 	:return:
+# 	YES
+# 	"""
+# 	for _ in range(int(input())):
+# 		flag_1 = True
+# 		valid_numbers = True
+# 		t_range = []
+# 		temp_test = []
+# 		for _ in range(int(input())):
+# 			arr = (list(map(int, input().replace('-', ':').split(':'))))
+# 			temp_test.append(arr)
+#
+# 		for elt in range(len(temp_test)):
+# 			if temp_test[elt][0] > 23 or temp_test[elt][3] > 23 or temp_test[elt][1] > 59 or temp_test[elt][4] > 59 or \
+# 					temp_test[elt][2] > 59 or temp_test[elt][5] > 59:
+# 				valid_numbers = False
+# 				flag_1 = False
+# 				break
+# 		if valid_numbers == True:
+# 			for elt in temp_test:
+# 				dig_1 = (elt[0] * 60 + elt[1]) * 60 + elt[2]
+# 				dig_2 = (elt[3] * 60 + elt[4]) * 60 + elt[5]
+# 				if dig_2 >= dig_1:
+# 					arr_1 = [dig_1, dig_2]
+# 					t_range.append(arr_1)
+# 				else:
+# 					flag_1 = False
+# 					break
+#
+# 		t_range = sorted(t_range)
+#
+# 		for lst in range(len(t_range) - 1):
+# 			if t_range[lst][1] >= t_range[lst + 1][0]:
+# 				flag_1 = False
+# 				break
+# 		if flag_1:
+# 			print('YES')
+# 		else:
+# 			print('NO')
+# task_6()
 
-		for elt in range(len(temp_test)):
-			if temp_test[elt][0] > 23 or temp_test[elt][3] > 23 or temp_test[elt][1] > 59 or temp_test[elt][4] > 59 or \
-					temp_test[elt][2] > 59 or temp_test[elt][5] > 59:
-				valid_numbers = False
-				flag_1 = False
-				break
-		if valid_numbers == True:
-			for elt in temp_test:
-				dig_1 = (elt[0] * 60 + elt[1]) * 60 + elt[2]
-				dig_2 = (elt[3] * 60 + elt[4]) * 60 + elt[5]
-				if dig_2 >= dig_1:
-					arr_1 = [dig_1, dig_2]
-					t_range.append(arr_1)
-				else:
-					flag_1 = False
-					break
 
-		t_range = sorted(t_range)
+general_arr = []
+# test_arr = [['R.R.R.G'], ['.Y.G.G.'], ['B.Y.V.V']]
+# test_arr = [['R', 'R', 'R', 'G'], ['', 'Y', 'G', 'G', ''], ['B', 'Y', 'V', 'V']]
+# for _ in range(4):
+# 	# arr = [str(x) for x in input().split('.')]
+# 	arr = [ord(x) for x in input() if x != '.']
+# 	general_arr.append(arr)
+# print(general_arr)
 
-		for lst in range(len(t_range) - 1):
-			if t_range[lst][1] >= t_range[lst + 1][0]:
-				flag_1 = False
-				break
-		if flag_1:
-			print('YES')
-		else:
-			print('NO')
-task_6()
+valid_test_arr_ascii = [[82, 82, 82, 71],
+						[89, 71, 71],
+						[66, 89, 86, 86]]
+
+invalid_test_arr_ascii = [[89, 82, 66, 66],
+						  [82, 82, 66, 86],
+						  [66, 82, 66, 82],
+						  [66, 66, 82, 82]]
+
+for lst in valid_test_arr_ascii:
+	print(lst, end='\n')
+print()
+for lst in valid_test_arr_ascii:
+	# x = set(lst)
+	print(set(lst))
