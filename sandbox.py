@@ -219,6 +219,7 @@ general_arr = []
 # 	general_arr.append(arr)
 # print(general_arr)
 
+
 valid_test_arr_ascii = [[82, 82, 82, 71],
 						[89, 71, 71],
 						[66, 89, 86, 86]]
@@ -232,5 +233,4 @@ for lst in valid_test_arr_ascii:
 	print(lst, end='\n')
 print()
 for lst in valid_test_arr_ascii:
-	# x = set(lst)
 	print(set(lst))
