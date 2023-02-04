@@ -240,26 +240,54 @@
 # programmer_dictionary(quantity_iterations, quantity_keys)
 
 
-def anagrams(word_1: str, word_2: str) -> str:
-	"""
-	https://stepik.org/lesson/488831/step/2?unit=480067
-	:param word_1: thing
-	:param word_2: night
-	:return: YES
-	"""
-	result_1 = {}
-	result_2 = {}
-	for elt in word_1:
-		result_1[elt] = result_1.get(elt, 0) + 1
+# def anagrams(word_1: str, word_2: str) -> str:
+# 	"""
+# 	https://stepik.org/lesson/488831/step/2?unit=480067
+# 	:param word_1: thing
+# 	:param word_2: night
+# 	:return: YES
+# 	"""
+# 	result_1 = {}
+# 	result_2 = {}
+# 	for elt in word_1:
+# 		result_1[elt] = result_1.get(elt, 0) + 1
+#
+# 	for elt in word_2:
+# 		result_2[elt] = result_2.get(elt, 0) + 1
+#
+# 	if result_1 == result_2:
+# 		return 'YES'
+# 	else:
+# 		return 'NO'
+#
+# input_1 = str(input())
+# input_2 = str(input())
+# print(anagrams(input_1, input_2))
 
-	for elt in word_2:
-		result_2[elt] = result_2.get(elt, 0) + 1
+# word_1 = 'Когда увидимся'.split(' ')
+# word_2 = 'тогда и свидимся'.split(' ')
+word_1 = 'С мая весной'.split(' ')
+word_2 = 'сам я не свой'.split(' ')
 
-	if result_1 == result_2:
-		return 'YES'
-	else:
-		return 'NO'
+w1 = word_1[0].lower() +word_1[1].lower()
+w2 = word_2[0].lower() +word_1[1].lower()
+result_1 = {}
+result_2 = {}
+for elt in w1:
+	result_1[elt] = result_1.get(elt, 0) + 1
 
-input_1 = str(input())
-input_2 = str(input())
-print(anagrams(input_1, input_2))
+for elt in w2:
+	result_2[elt] = result_2.get(elt, 0) + 1
+
+print(result_1)
+print(result_2)
+
+if result_1 == result_2:
+	print('YES')
+else:
+	print('NO')
+
+# if result_1 == result_2:
+# 	return 'YES'
+# else:
+# 	return 'NO'
