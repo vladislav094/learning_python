@@ -207,6 +207,59 @@
 # some_letters = str(input()).split()
 # print(fixing_duplicates(some_letters))
 
+# def programmer_dictionary(digit_1: int, digit_2: int):
+# 	"""
+# 	https://stepik.org/lesson/488831/step/1?unit=480067
+# 	:param digit_1: 5
+# 	Змея: язык программирования Python
+# 	Баг: от англ. bug — жучок, клоп, ошибка в программе
+# 	Конфа: конференция
+# 	Костыль: код, который нужен, чтобы исправить несовершенство ранее написанного кода
+# 	Бета: бета-версия, приложение на стадии публичного тестирования
+#
+# 	:param digit_2: 3
+# 	Змея
+# 	Жаба
+# 	костыль
+# 	:return:
+# 	язык программирования Python
+# 	Не найдено
+# 	код, который нужен, чтобы исправить несовершенство ранее написанного кода
+# 	"""
+# 	temp_dict = {}
+# 	for _ in range(digit_1):
+# 		temp_input = str(input()).split(':')
+# 		temp_dict[temp_input[0].lower()] = temp_input[1].lstrip()
+#
+# 	for _ in range(digit_2):
+# 		key = str(input().lower())
+# 		print(temp_dict.get(key, 'не найдено'))
+#
+# quantity_iterations = int(input())
+# quantity_keys = int(input())
+# programmer_dictionary(quantity_iterations, quantity_keys)
 
 
+def anagrams(word_1: str, word_2: str) -> str:
+	"""
+	https://stepik.org/lesson/488831/step/2?unit=480067
+	:param word_1: thing
+	:param word_2: night
+	:return: YES
+	"""
+	result_1 = {}
+	result_2 = {}
+	for elt in word_1:
+		result_1[elt] = result_1.get(elt, 0) + 1
 
+	for elt in word_2:
+		result_2[elt] = result_2.get(elt, 0) + 1
+
+	if result_1 == result_2:
+		return 'YES'
+	else:
+		return 'NO'
+
+input_1 = str(input())
+input_2 = str(input())
+print(anagrams(input_1, input_2))
