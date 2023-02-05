@@ -304,7 +304,7 @@
 # print(anagrams_2(first_word, second_word))
 
 
-def dictionary_synonyms():
+def dictionary_synonyms() -> str:
 	"""
 	https://stepik.org/lesson/488831/step/4?unit=480067
 	dict_synonyms:  Awful Terrible
@@ -321,6 +321,8 @@ def dictionary_synonyms():
 	word = str(input())
 	for k, v in dict_synonyms.items():
 		if word == v:
-			print(k)
+			return k
 		if word == k:
-			print(v)
+			return v
+
+print(dictionary_synonyms())
