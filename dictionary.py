@@ -303,107 +303,112 @@
 # second_word = str(input()).lower().replace(' ', '')
 # print(anagrams_2(first_word, second_word))
 
+#
+# def dictionary_synonyms() -> str:
+# 	"""
+# 	https://stepik.org/lesson/488831/step/4?unit=480067
+# 	dict_synonyms:  Awful Terrible
+# 					Beautiful Pretty
+# 					Great Excellent
+# 					Generous Bountiful
+# 	word: 			Pretty
+# 	:return:		Beautiful
+# 	"""
+# 	dict_synonyms = {}
+# 	for _ in range(int(input())):
+# 		line = str(input()).split()
+# 		dict_synonyms[line[0]] = line[1]
+# 	word = str(input())
+# 	for k, v in dict_synonyms.items():
+# 		if word == v:
+# 			return k
+# 		if word == k:
+# 			return v
+#
+# # print(dictionary_synonyms())
+#
+# # dict_country = {'Германия': ['Берлин', 'Мюнхен', 'Гамбург', 'Дортмунд'], 'Нидерланды': ['Амстердам', 'Гаага', 'Роттердам', 'Алкмар']}
+# def country_and_cities() -> str:
+# 	"""
+# 	https://stepik.org/lesson/488831/step/5?unit=480067
+# 	country_and_city: Германия Берлин Мюнхен Гамбург Дортмунд
+# 					  Нидерланды Амстердам Гаага Роттердам Алкмар
+# 	city:			  Амстердам
+# 					  Алкмар
+# 					  Гамбург
+# 					  Гаага
+# 	:return:		  Нидерланды
+# 					  Нидерланды
+# 					  Германия
+# 					  Нидерланды
+# 	"""
+# 	dict_country = {}
+# 	for _ in range(int(input())):
+# 		country_and_city = str(input()).split()
+# 		dict_country[country_and_city[0]] = country_and_city[1:]
+#
+# 	for _ in range(int(input())):
+# 		city = str(input())
+# 		for k, v in dict_country.items():
+# 			if city in v:
+# 				return k
+# # print(country_and_cities())
+#
+# def phone_book():
+# 	"""
+# 	https://stepik.org/lesson/488831/step/6?unit=480067
+# 	3
+# 	79184219577 Женя
+# 	79194249271 Руслан
+# 	79281234567 Женя
+# 	3
+# 	Руслан
+# 	женя
+# 	Рустам
+# 	:return:
+# 	"""
+# 	s = {i: j.lower() for _ in range(int(input())) for i, j in [input().split()]}
+# 	f = {}
+# 	a = [input().lower() for _ in range(int(input()))]
+# 	for j in a:
+# 		if j not in f:
+# 			for key, val in s.items():
+# 				if j == val:
+# 					f.setdefault(val, []).append(key)
+# 	for i in a:
+# 		if i not in f:
+# 			print('абонент не найден')
+# 		else:
+# 			print(*f[i])
+# phone_book()
+#
+# def secret_word(code: list, dict_encoding: dict) -> str:
+# 	"""
+# 	https://stepik.org/lesson/488831/step/7?unit=480067
+# 	:param code: *!*!*?
+# 	:param dict_encoding: а: 3
+# 						  н: 2
+# 						  с: 1
+# 	:return: ананас
+# 	"""
+# 	new_word = ''
+# 	for elt in code:
+# 		letter = code.count(elt)
+# 		for k, v in dict_encoding.items():
+# 			if letter == int(v):
+# 				new_word += k
+# 	return new_word
+#
+# my_input = str(input())
+# arr_input = list(my_input)
+# my_dict = {}
+# for _ in range(int(input())):
+# 	key_value = str(input().replace(':', '')).split()
+# 	my_dict[key_value[0]] = key_value[1]
+#
+# print(secret_word(arr_input,my_dict))
 
-def dictionary_synonyms() -> str:
-	"""
-	https://stepik.org/lesson/488831/step/4?unit=480067
-	dict_synonyms:  Awful Terrible
-					Beautiful Pretty
-					Great Excellent
-					Generous Bountiful
-	word: 			Pretty
-	:return:		Beautiful
-	"""
-	dict_synonyms = {}
-	for _ in range(int(input())):
-		line = str(input()).split()
-		dict_synonyms[line[0]] = line[1]
-	word = str(input())
-	for k, v in dict_synonyms.items():
-		if word == v:
-			return k
-		if word == k:
-			return v
-
-# print(dictionary_synonyms())
-
-# dict_country = {'Германия': ['Берлин', 'Мюнхен', 'Гамбург', 'Дортмунд'], 'Нидерланды': ['Амстердам', 'Гаага', 'Роттердам', 'Алкмар']}
-def country_and_cities() -> str:
-	"""
-	https://stepik.org/lesson/488831/step/5?unit=480067
-	country_and_city: Германия Берлин Мюнхен Гамбург Дортмунд
-					  Нидерланды Амстердам Гаага Роттердам Алкмар
-	city:			  Амстердам
-					  Алкмар
-					  Гамбург
-					  Гаага
-	:return:		  Нидерланды
-					  Нидерланды
-					  Германия
-					  Нидерланды
-	"""
-	dict_country = {}
-	for _ in range(int(input())):
-		country_and_city = str(input()).split()
-		dict_country[country_and_city[0]] = country_and_city[1:]
-
-	for _ in range(int(input())):
-		city = str(input())
-		for k, v in dict_country.items():
-			if city in v:
-				return k
-# print(country_and_cities())
-
-def phone_book():
-	"""
-	https://stepik.org/lesson/488831/step/6?unit=480067
-	3
-	79184219577 Женя
-	79194249271 Руслан
-	79281234567 Женя
-	3
-	Руслан
-	женя
-	Рустам
-	:return:
-	"""
-	s = {i: j.lower() for _ in range(int(input())) for i, j in [input().split()]}
-	f = {}
-	a = [input().lower() for _ in range(int(input()))]
-	for j in a:
-		if j not in f:
-			for key, val in s.items():
-				if j == val:
-					f.setdefault(val, []).append(key)
-	for i in a:
-		if i not in f:
-			print('абонент не найден')
-		else:
-			print(*f[i])
-phone_book()
-
-def secret_word(code: list, dict_encoding: dict) -> str:
-	"""
-	https://stepik.org/lesson/488831/step/7?unit=480067
-	:param code: *!*!*?
-	:param dict_encoding: а: 3
-						  н: 2
-						  с: 1
-	:return: ананас
-	"""
-	new_word = ''
-	for elt in code:
-		letter = code.count(elt)
-		for k, v in dict_encoding.items():
-			if letter == int(v):
-				new_word += k
-	return new_word
-
-my_input = str(input())
-arr_input = list(my_input)
-my_dict = {}
-for _ in range(int(input())):
-	key_value = str(input().replace(':', '')).split()
-	my_dict[key_value[0]] = key_value[1]
-
-print(secret_word(arr_input,my_dict))
+s = '1:men 2:kind 90:number 0:sun 34:book 56:mountain 87:wood 54:car 3:island 88:power 7:box 17:star 101:ice'
+arr = s.split()
+result = {int(k): v for k, v in [a.split(':') for a in s.split()]}
+print(result)
