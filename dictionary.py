@@ -264,30 +264,41 @@
 # input_2 = str(input())
 # print(anagrams(input_1, input_2))
 
-# word_1 = 'Когда увидимся'.split(' ')
-# word_2 = 'тогда и свидимся'.split(' ')
-word_1 = 'С мая весной'.split(' ')
-word_2 = 'сам я не свой'.split(' ')
 
-w1 = word_1[0].lower() +word_1[1].lower()
-w2 = word_2[0].lower() +word_1[1].lower()
-result_1 = {}
-result_2 = {}
-for elt in w1:
-	result_1[elt] = result_1.get(elt, 0) + 1
+def anagrams_2(word_1: str, word_2: str) -> str:
+	"""
+	https://stepik.org/lesson/488831/step/3?unit=480067
+	:param word_1: Вижу зверей	| Когда увидимся
+	:param word_2: Живу резвей	| тогда и свидимся
+	:return: YES				| NO
+	"""
+	spec_character = ['.', ',', '!', '?', ':', ';', '-']
+	new_word_1 = ''
+	new_word_2 = ''
+	for elt in word_1:
+		if elt in spec_character:
+			new_word_1 += ''
+		else:
+			new_word_1 += elt
 
-for elt in w2:
-	result_2[elt] = result_2.get(elt, 0) + 1
+	for elt in word_2:
+		if elt in spec_character:
+			new_word_2 += ''
+		else:
+			new_word_2 += elt
+	result_1 = {}
+	result_2 = {}
+	for elt in new_word_1:
+		result_1[elt] = result_1.get(elt, 0) + 1
 
-print(result_1)
-print(result_2)
+	for elt in new_word_2:
+		result_2[elt] = result_2.get(elt, 0) + 1
 
-if result_1 == result_2:
-	print('YES')
-else:
-	print('NO')
+	if result_1 == result_2:
+		return 'YES'
+	else:
+		return 'NO'
 
-# if result_1 == result_2:
-# 	return 'YES'
-# else:
-# 	return 'NO'
+first_word = str(input()).lower().replace(' ', '')
+second_word = str(input()).lower().replace(' ', '')
+print(anagrams_2(first_word, second_word))
