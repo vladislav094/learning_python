@@ -354,20 +354,33 @@ def country_and_cities() -> str:
 				return k
 # print(country_and_cities())
 
-
-# s = {i: j.lower() for _ in range(int(input())) for i, j in [input().split()]}
-# f = {}
-# a = [input().lower() for _ in range(int(input()))]
-# for j in a:
-# 	if j not in f:
-# 		for key, val in s.items():
-# 			if j == val:
-# 				f.setdefault(val, []).append(key)
-# for i in a:
-# 	if i not in f:
-# 		print('абонент не найден')
-# 	else:
-# 		print(*f[i])
+def phone_book():
+	"""
+	https://stepik.org/lesson/488831/step/6?unit=480067
+	3
+	79184219577 Женя
+	79194249271 Руслан
+	79281234567 Женя
+	3
+	Руслан
+	женя
+	Рустам
+	:return:
+	"""
+	s = {i: j.lower() for _ in range(int(input())) for i, j in [input().split()]}
+	f = {}
+	a = [input().lower() for _ in range(int(input()))]
+	for j in a:
+		if j not in f:
+			for key, val in s.items():
+				if j == val:
+					f.setdefault(val, []).append(key)
+	for i in a:
+		if i not in f:
+			print('абонент не найден')
+		else:
+			print(*f[i])
+phone_book()
 
 def secret_word(code: list, dict_encoding: dict) -> str:
 	"""
