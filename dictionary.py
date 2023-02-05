@@ -325,4 +325,31 @@ def dictionary_synonyms() -> str:
 		if word == k:
 			return v
 
-print(dictionary_synonyms())
+# print(dictionary_synonyms())
+
+# dict_country = {'Германия': ['Берлин', 'Мюнхен', 'Гамбург', 'Дортмунд'], 'Нидерланды': ['Амстердам', 'Гаага', 'Роттердам', 'Алкмар']}
+def country_and_cities() -> str:
+	"""
+	https://stepik.org/lesson/488831/step/5?unit=480067
+	country_and_city: Германия Берлин Мюнхен Гамбург Дортмунд
+					  Нидерланды Амстердам Гаага Роттердам Алкмар
+	city:			  Амстердам
+					  Алкмар
+					  Гамбург
+					  Гаага
+	:return:		  Нидерланды
+					  Нидерланды
+					  Германия
+					  Нидерланды
+	"""
+	dict_country = {}
+	for _ in range(int(input())):
+		country_and_city = str(input()).split()
+		dict_country[country_and_city[0]] = country_and_city[1:]
+
+	for _ in range(int(input())):
+		city = str(input())
+		for k, v in dict_country.items():
+			if city in v:
+				return k
+print(country_and_cities())
