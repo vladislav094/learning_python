@@ -352,4 +352,22 @@ def country_and_cities() -> str:
 		for k, v in dict_country.items():
 			if city in v:
 				return k
-print(country_and_cities())
+# print(country_and_cities())
+
+phone_book = {}
+phone_book = {'79184219577': 'Женя', '79194249271': 'Руслан', '79281234567': 'Женя'}
+# for _ in range(3):
+# 	contact = str(input()).split()
+# 	phone_book[contact[0]] = contact[1]
+# print(phone_book)
+
+# name = 'женя'
+for _ in range(int(input())):
+	name = str(input()).lower()
+	for k, v in phone_book.items():
+		if name == v.lower():
+			print(k, end='\t')
+			continue
+		else:
+			print('абонент не найден')
+			continue
