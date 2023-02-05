@@ -265,40 +265,62 @@
 # print(anagrams(input_1, input_2))
 
 
-def anagrams_2(word_1: str, word_2: str) -> str:
+# def anagrams_2(word_1: str, word_2: str) -> str:
+# 	"""
+# 	https://stepik.org/lesson/488831/step/3?unit=480067
+# 	:param word_1: Вижу зверей	| Когда увидимся
+# 	:param word_2: Живу резвей	| тогда и свидимся
+# 	:return: YES				| NO
+# 	"""
+# 	spec_character = ['.', ',', '!', '?', ':', ';', '-']
+# 	new_word_1 = ''
+# 	new_word_2 = ''
+# 	for elt in word_1:
+# 		if elt in spec_character:
+# 			new_word_1 += ''
+# 		else:
+# 			new_word_1 += elt
+#
+# 	for elt in word_2:
+# 		if elt in spec_character:
+# 			new_word_2 += ''
+# 		else:
+# 			new_word_2 += elt
+# 	result_1 = {}
+# 	result_2 = {}
+# 	for elt in new_word_1:
+# 		result_1[elt] = result_1.get(elt, 0) + 1
+#
+# 	for elt in new_word_2:
+# 		result_2[elt] = result_2.get(elt, 0) + 1
+#
+# 	if result_1 == result_2:
+# 		return 'YES'
+# 	else:
+# 		return 'NO'
+#
+# first_word = str(input()).lower().replace(' ', '')
+# second_word = str(input()).lower().replace(' ', '')
+# print(anagrams_2(first_word, second_word))
+
+
+def dictionary_synonyms():
 	"""
-	https://stepik.org/lesson/488831/step/3?unit=480067
-	:param word_1: Вижу зверей	| Когда увидимся
-	:param word_2: Живу резвей	| тогда и свидимся
-	:return: YES				| NO
+	https://stepik.org/lesson/488831/step/4?unit=480067
+	dict_synonyms:  Awful Terrible
+					Beautiful Pretty
+					Great Excellent
+					Generous Bountiful
+	word: 			Pretty
+	:return:		Beautiful
 	"""
-	spec_character = ['.', ',', '!', '?', ':', ';', '-']
-	new_word_1 = ''
-	new_word_2 = ''
-	for elt in word_1:
-		if elt in spec_character:
-			new_word_1 += ''
-		else:
-			new_word_1 += elt
-
-	for elt in word_2:
-		if elt in spec_character:
-			new_word_2 += ''
-		else:
-			new_word_2 += elt
-	result_1 = {}
-	result_2 = {}
-	for elt in new_word_1:
-		result_1[elt] = result_1.get(elt, 0) + 1
-
-	for elt in new_word_2:
-		result_2[elt] = result_2.get(elt, 0) + 1
-
-	if result_1 == result_2:
-		return 'YES'
-	else:
-		return 'NO'
-
-first_word = str(input()).lower().replace(' ', '')
-second_word = str(input()).lower().replace(' ', '')
-print(anagrams_2(first_word, second_word))
+	dict_synonyms = {}
+	for _ in range(int(input())):
+		line = str(input()).split()
+		dict_synonyms[line[0]] = line[1]
+	word = str(input())
+	for k, v in dict_synonyms.items():
+		if word == v:
+			print(k)
+		if word == k:
+			print(v)

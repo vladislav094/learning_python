@@ -209,28 +209,10 @@
 # 			print('NO')
 # task_6()
 
+for _ in range(int(input())):
+	arr = (list(map(int, input().split())))
+	if arr.count(1) == 4 and arr.count(2) == 3 and arr.count(3) == 2 and arr.count(4) == 1:
+		print('YES')
+	else:
+		print('NO')
 
-general_arr = []
-# test_arr = [['R.R.R.G'], ['.Y.G.G.'], ['B.Y.V.V']]
-# test_arr = [['R', 'R', 'R', 'G'], ['', 'Y', 'G', 'G', ''], ['B', 'Y', 'V', 'V']]
-# for _ in range(4):
-# 	# arr = [str(x) for x in input().split('.')]
-# 	arr = [ord(x) for x in input() if x != '.']
-# 	general_arr.append(arr)
-# print(general_arr)
-
-
-valid_test_arr_ascii = [[82, 82, 82, 71],
-						[89, 71, 71],
-						[66, 89, 86, 86]]
-
-invalid_test_arr_ascii = [[89, 82, 66, 66],
-						  [82, 82, 66, 86],
-						  [66, 82, 66, 82],
-						  [66, 66, 82, 82]]
-
-for lst in valid_test_arr_ascii:
-	print(lst, end='\n')
-print()
-for lst in valid_test_arr_ascii:
-	print(set(lst))
