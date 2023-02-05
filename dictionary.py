@@ -354,20 +354,36 @@ def country_and_cities() -> str:
 				return k
 # print(country_and_cities())
 
-phone_book = {}
-phone_book = {'79184219577': 'Женя', '79194249271': 'Руслан', '79281234567': 'Женя'}
-# for _ in range(3):
-# 	contact = str(input()).split()
-# 	phone_book[contact[0]] = contact[1]
-# print(phone_book)
-
+# phone_book = {}
+# phone_book = {'79184219577': 'Женя', '79194249271': 'Руслан', '79281234567': 'Женя'}
+# # for _ in range(3):
+# # 	contact = str(input()).split()
+# # 	phone_book[contact[0]] = contact[1]
+# # print(phone_book)
+#
 # name = 'женя'
-for _ in range(int(input())):
-	name = str(input()).lower()
-	for k, v in phone_book.items():
-		if name == v.lower():
-			print(k, end='\t')
-			continue
-		else:
-			print('абонент не найден')
-			continue
+# name = 'Руслан'.lower()
+# # for _ in range(int(input())):
+# # name = str(input()).lower()
+# name_arr = ['Руслан', 'женя', 'Рустам']
+# for elt in name_arr:
+# 	for k, v in phone_book.items():
+# 		if elt.lower() == v.lower():
+# 			print(k, end='\t')
+# 	else:
+# 		print('абонент не найден')
+
+
+s = {i: j.lower() for _ in range(int(input())) for i, j in [input().split()]}
+f = {}
+a = [input().lower() for i in range(int(input()))]
+for j in a:
+	if j not in f:
+		for key, val in s.items():
+			if j == val:
+				f.setdefault(val, []).append(key)
+for i in a:
+	if i not in f:
+		print('абонент не найден')
+	else:
+		print(*f[i])
