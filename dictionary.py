@@ -354,36 +354,43 @@ def country_and_cities() -> str:
 				return k
 # print(country_and_cities())
 
-# phone_book = {}
-# phone_book = {'79184219577': 'Женя', '79194249271': 'Руслан', '79281234567': 'Женя'}
-# # for _ in range(3):
-# # 	contact = str(input()).split()
-# # 	phone_book[contact[0]] = contact[1]
-# # print(phone_book)
-#
-# name = 'женя'
-# name = 'Руслан'.lower()
-# # for _ in range(int(input())):
-# # name = str(input()).lower()
-# name_arr = ['Руслан', 'женя', 'Рустам']
-# for elt in name_arr:
-# 	for k, v in phone_book.items():
-# 		if elt.lower() == v.lower():
-# 			print(k, end='\t')
-# 	else:
+
+# s = {i: j.lower() for _ in range(int(input())) for i, j in [input().split()]}
+# f = {}
+# a = [input().lower() for _ in range(int(input()))]
+# for j in a:
+# 	if j not in f:
+# 		for key, val in s.items():
+# 			if j == val:
+# 				f.setdefault(val, []).append(key)
+# for i in a:
+# 	if i not in f:
 # 		print('абонент не найден')
+# 	else:
+# 		print(*f[i])
 
+def secret_word(code: list, dict_encoding: dict) -> str:
+	"""
+	https://stepik.org/lesson/488831/step/7?unit=480067
+	:param code: *!*!*?
+	:param dict_encoding: а: 3
+						  н: 2
+						  с: 1
+	:return: ананас
+	"""
+	new_word = ''
+	for elt in code:
+		letter = code.count(elt)
+		for k, v in dict_encoding.items():
+			if letter == int(v):
+				new_word += k
+	return new_word
 
-s = {i: j.lower() for _ in range(int(input())) for i, j in [input().split()]}
-f = {}
-a = [input().lower() for i in range(int(input()))]
-for j in a:
-	if j not in f:
-		for key, val in s.items():
-			if j == val:
-				f.setdefault(val, []).append(key)
-for i in a:
-	if i not in f:
-		print('абонент не найден')
-	else:
-		print(*f[i])
+my_input = str(input())
+arr_input = list(my_input)
+my_dict = {}
+for _ in range(int(input())):
+	key_value = str(input().replace(':', '')).split()
+	my_dict[key_value[0]] = key_value[1]
+
+print(secret_word(arr_input,my_dict))
