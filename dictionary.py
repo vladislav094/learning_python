@@ -473,20 +473,129 @@
 # print(my_dict)
 
 
-emails = {'nosu.edu': ['timyr', 'joseph', 'svetlana.gaeva', 'larisa.mamuk'],
-          'gmail.com': ['ruslan.chaika', 'rustam.mini', 'stepik-best'],
-          'msu.edu': ['apple.fruit', 'beegeek', 'beegeek.school'],
-          'yandex.ru': ['surface', 'google'],
-          'hse.edu': ['tomas-henders', 'cream.soda', 'zivert'],
-          'mail.ru': ['angel.down', 'joanne', 'the.fame.moster']}
+# emails = {'nosu.edu': ['timyr', 'joseph', 'svetlana.gaeva', 'larisa.mamuk'],
+#           'gmail.com': ['ruslan.chaika', 'rustam.mini', 'stepik-best'],
+#           'msu.edu': ['apple.fruit', 'beegeek', 'beegeek.school'],
+#           'yandex.ru': ['surface', 'google'],
+#           'hse.edu': ['tomas-henders', 'cream.soda', 'zivert'],
+#           'mail.ru': ['angel.down', 'joanne', 'the.fame.moster']}
+#
+# new_email = []
+# for k, v in emails.items():
+# 	for _ in v:
+# 		if v == emails[k]:
+# 			email = str(_) + '@' + str(k)
+# 			new_email.append(email)
+#
+# new_email.sort()
+# for _ in new_email:
+# 	print(_)
 
-new_email = []
-for k, v in emails.items():
-	for _ in v:
-		if v == emails[k]:
-			email = str(_) + '@' + str(k)
-			new_email.append(email)
 
-new_email.sort()
-for _ in new_email:
-	print(_)
+# a = list(str(input()))
+# # print(a)
+# a = ['A', 'C', 'T', 'G']
+# dnk = {'A': 'U', 'C': 'G', 'G': 'C', 'T': 'A'}
+# new_dnk = ''
+# for _ in a:
+# 	new_dnk += dnk[_]
+# print(new_dnk)
+
+
+# line = 'прием Хьюстон Хьюстон как слышно прием меня слышно прием хьюстон'.split()
+# print(line)
+#
+# my_dict = {}
+# answer = ''
+# for elt in line:
+# 	my_dict[elt] = my_dict.get(elt, 0) +1
+# 	print(my_dict[elt])
+# 	answer += str(my_dict[elt]) + ' '
+# print(answer.rstrip())
+
+
+
+# a = 'DANSER'
+#
+# dict1 = {
+#     1: "AEILNORSTU",
+#     2: "DG",
+#     3: "BCMP",
+#     4: "FHVWY",
+#     5: "K",
+#     8: "JX",
+#     10: "QZ"
+# }
+#
+#
+# count = 0
+# for elt in a:
+# 	for k, v in dict1.items():
+# 		for _ in v:
+# 			if elt == _:
+# 				count += k
+# print(count)
+
+
+# d1 = {'sport': 'hockey', 'game': 2, 'time': 17}
+#
+# def build_query_string(params):
+# 	arr = []
+# 	for k,v in params.items():
+# 		n = str(k) + '=' + str(v)
+# 		arr.append(n)
+# 	arr.sort()
+# 	return '&'.join(arr)
+#
+# print(build_query_string(d1))
+
+
+#
+# def merge(values):      # values - это список словарей
+# 	result = {}
+# 	for elt in values:
+# 		for k, v in elt.items():
+# 			result.setdefault(k, set()).add(v)
+# 	return result
+# result = merge([{'a': 1, 'b': 2}, {'b': 10, 'c': 100}, {'a': 1, 'b': 17, 'c': 50}, {'a': 5, 'd': 777}])
+# temp = []
+# for _ in range(int(input())):
+# 	arr = str(input())
+# 	temp.append(arr.split())
+# print(temp)
+# temp_comand = []
+# for _ in range(int(input())):
+# 	arr = str(input())
+# 	temp_comand.append(arr.split())
+# print(temp_comand)
+
+
+
+# temp_file = [['my_pycode.exe', 'W', 'X'], ['log_n', 'X', 'W', 'R'], ['ave', 'R'], ['lucky_m', 'W', 'R'], ['dnsss.py', 'W']]
+# temp_comand = [['execute', 'ave'], ['read', 'dnsss.py'], ['write', 'log_n'], ['execute', 'log_n'], ['read', 'ave'], ['write', 'my_pycode.exe']]
+# # result = {}
+# # dict_operations = {'X': 'execute', 'R': 'read', 'W': 'write'}
+# # for _ in range(int(input())):
+# # 	x = input().split()
+# # 	result[x[0]] = [dict_operations[i] for i in x[1:]]
+# #
+# # for _ in range(int(input())):
+# # 	x = input().split()
+# # 	if x[0] in result[x[1]]:
+# # 		print('OK')
+# # 	else:
+# # 		print('Access denied')
+
+
+
+
+result = {}
+for _ in range(int(input())):
+	name, product, count = input().split()
+	result.setdefault(name, {})
+	result[name][product] = result[name].get(product, 0) + int(count)
+
+for key, value in sorted(result.items()):
+	print(f"{key}:")
+	for i in sorted(value):
+		print(i, value[i])
