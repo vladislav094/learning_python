@@ -588,14 +588,32 @@
 
 
 
+# result = {}
+# for _ in range(int(input())):
+# 	name, product, count = input().split()
+# 	result.setdefault(name, {})
+# 	result[name][product] = result[name].get(product, 0) + int(count)
+#
+# for key, value in sorted(result.items()):
+# 	print(f"{key}:")
+# 	for i in sorted(value):
+# 		print(i, value[i])
+#
 
-result = {}
-for _ in range(int(input())):
-	name, product, count = input().split()
-	result.setdefault(name, {})
-	result[name][product] = result[name].get(product, 0) + int(count)
+table = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+count = 0
 
-for key, value in sorted(result.items()):
-	print(f"{key}:")
-	for i in sorted(value):
-		print(i, value[i])
+difference = 0
+s = "MCMXCIV"
+for _ in s:
+	count += table[_]
+
+
+if 'CM' in s or 'CD' in s:
+	count -= table['C'] * 2
+if 'IV' in s or 'IX' in s:
+	count -= table['I'] * 2
+if 'XL' in s or 'XC' in s:
+	count -= table['X'] * 2
+
+print(count)
