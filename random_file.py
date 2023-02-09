@@ -53,22 +53,20 @@ import string
 # 	print(word, type(word))
 # anagramms()
 
-a = [x for x in range(1, 76)]
-print(a)
-b = random.sample(a, 25)
-b[13] = 0
-print(b)
-for elt in range(5):
-	print(b[elt])
-# arr = []
-# while len(arr) < 5:
-# 	tmp = []
-# 	while len(tmp) < 5:
-# 		rnd_dig = random.randint(1, 75)
-# 		if rnd_dig not in tmp:
-# 			tmp.append(rnd_dig)
-# 	arr.append(tmp)
-# arr[2][2] = 0
-# for _ in range(len(arr)):
-# 	d = arr[_]
-# 	print(*d)
+arr = [random.sample(list(range(1, 76)), 25)[i:i +5] for i in range(0, 21, 5)]
+arr[2][2] = 0
+for i in arr:
+	for j in i:
+		print(str(j).ljust(3), end='')
+	print()
+
+
+
+# arr = [*range(1, 76)]
+# random.shuffle(arr)
+# arr = random.sample(arr, 25)
+# bingo = [[str(arr.pop()).ljust(3) for _ in range(5)] for _ in range(5)]
+# bingo[2][2] = '0'
+# print(bingo)
+# [print(*_, sep='') for _ in arr]
+
