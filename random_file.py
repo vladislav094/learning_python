@@ -53,12 +53,28 @@ import string
 # 	print(word, type(word))
 # anagramms()
 
-arr = [*range(1, 76)]
-random.shuffle(arr)
-arr = random.sample(arr, 25)
-bingo = [[str(arr.pop()).ljust(3) for _ in range(5)] for _ in range(5)]
-bingo[2][2] = str(0)
-for i in bingo:
-	for j in i:
-		print(str(j).ljust(3), end='')
-	print()
+# arr = [*range(1, 76)]
+# random.shuffle(arr)
+# arr = random.sample(arr, 25)
+# bingo = [[str(arr.pop()).ljust(3) for _ in range(5)] for _ in range(5)]
+# bingo[2][2] = str(0)
+# for i in bingo:
+# 	for j in i:
+# 		print(str(j).ljust(3), end='')
+# 	print()
+
+
+
+general_list = ['Djaja Bings', 'Tom Brankock', 'Ada Swarovsky']
+# general_list = []
+# for _ in range(int(input('Iter:'))):
+# 	general_list.append(str(input()))
+
+my_dict = {x:'' for x in general_list}
+print(my_dict)
+for elt in range(len(general_list.copy())):
+	for k, v in my_dict.items():
+		if general_list[elt] != k:
+			my_dict[k] = general_list[elt]
+			general_list.remove(general_list[elt])
+print(my_dict)
