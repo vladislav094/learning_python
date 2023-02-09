@@ -64,17 +64,17 @@ import string
 # 	print()
 
 
+def sattolo_cycle():
+	general_list = ['Djaja Bings', 'Tom Brankock', 'Ada Swarovsky']
+	# general_list = []
+	# for _ in range(int(input())):
+	# 	general_list.append(str(input()))
+	general_list_copy = general_list.copy()
+	i = len(general_list_copy)
+	while i > 1:
+		i = i - 1
+		j = random.randrange(i)
+		general_list_copy[j], general_list_copy[i] = general_list_copy[i], general_list_copy[j]
+	for elt in range(len(general_list_copy)):
+		print(f"{general_list[elt]} - {general_list_copy[elt]}")
 
-general_list = ['Djaja Bings', 'Tom Brankock', 'Ada Swarovsky']
-# general_list = []
-# for _ in range(int(input('Iter:'))):
-# 	general_list.append(str(input()))
-
-my_dict = {x:'' for x in general_list}
-print(my_dict)
-for elt in range(len(general_list.copy())):
-	for k, v in my_dict.items():
-		if general_list[elt] != k:
-			my_dict[k] = general_list[elt]
-			general_list.remove(general_list[elt])
-print(my_dict)
