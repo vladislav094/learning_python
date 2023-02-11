@@ -80,30 +80,43 @@ import string
 
 
 
-cc = int(input())
-ll = int(input())
-def generate_password(l: int):
-	up_alpha = string.ascii_uppercase
-	low_alpha = string.ascii_lowercase
-	digits = string.digits
-	chracters_to_delet = ['l', 'I', '1', 'o', 'O', '0']
-	for elt in chracters_to_delet:
-		if elt in up_alpha:
-			up_alpha = up_alpha.replace(elt, '')
-		if elt in low_alpha:
-			low_alpha = low_alpha.replace(elt, '')
-		if elt in digits:
-			digits = digits.replace(elt, '')
-
-	password = list(random.choice(up_alpha) + ''.join(random.sample(low_alpha, l-2)) + random.choice(digits))
-	random.shuffle(password)
-	password = ''.join(password)
-	return password
-
-def generate_passwords(count, length):
-	arr = [generate_password(length) for _ in range(count)]
-	for x in arr:
-		print(x)
+# cc = int(input())
+# ll = int(input())
+# def generate_password(l: int):
+# 	up_alpha = string.ascii_uppercase
+# 	low_alpha = string.ascii_lowercase
+# 	digits = string.digits
+# 	chracters_to_delet = ['l', 'I', '1', 'o', 'O', '0']
+# 	for elt in chracters_to_delet:
+# 		if elt in up_alpha:
+# 			up_alpha = up_alpha.replace(elt, '')
+# 		if elt in low_alpha:
+# 			low_alpha = low_alpha.replace(elt, '')
+# 		if elt in digits:
+# 			digits = digits.replace(elt, '')
 #
-generate_passwords(cc, ll)
+# 	password = list(random.choice(up_alpha) + ''.join(random.sample(low_alpha, l-2)) + random.choice(digits))
+# 	random.shuffle(password)
+# 	password = ''.join(password)
+# 	return password
+#
+# def generate_passwords(count, length):
+# 	arr = [generate_password(length) for _ in range(count)]
+# 	for x in arr:
+# 		print(x)
+# #
+# generate_passwords(cc, ll)
 
+
+
+n = 10**6       # количество испытаний
+k = 0
+s0 = 16
+for _ in range(n):
+    x = random.uniform(-2, 2)     # случайное число с плавающей точкой от 0 до 1
+    y = random.uniform(-2, 2)     # случайное число с плавающей точкой от 0 до 1
+
+    if x ** 3 + y ** 4 + 2 >= 0 and (3 * x) + y ** 2 <= 2:                # если попадает в нужную область
+        k += 1
+
+print((k/n)*s0)
