@@ -138,11 +138,14 @@ from decimal import *
 
 
 
-num = str(Decimal(input())).replace('.', '')
-new_num = ''
-for elt in num:
-	if elt.isdigit():
-		new_num += elt
-arr = list(' '.join(new_num).split())
-print(int(max(arr)) + int(min(arr)))
+# num = str(Decimal(input())).replace('.', '')
+# new_num = ''
+# for elt in num:
+# 	if elt.isdigit():
+# 		new_num += elt
+# arr = list(' '.join(new_num).split())
+# print(int(max(arr)) + int(min(arr)))
 
+# d = Decimal(1.1)
+d = Decimal(input())
+print(Decimal.exp(d) + Decimal.ln(d) + Decimal.log10(d) + Decimal.sqrt(d))
