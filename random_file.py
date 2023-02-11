@@ -122,16 +122,27 @@ import string
 # print((k/n)*s0)
 
 from decimal import *
-s = '0.77 4.03 9.06 3.80 7.08 5.88 0.23 4.65 2.79 0.90 4.23 2.15 3.24 8.57 ' \
-	'0.10 8.57 1.49 5.64 3.63 8.36 1.56 6.67 1.46 5.26 4.83 7.23 1.22 1.02 ' \
-	'7.82 9.97 5.40 9.79 9.82 2.78 2.96 0.07 1.72 7.24 7.84 9.23 1.71 6.24 ' \
-	'5.78 5.37 0.03 9.60 8.86 2.73 5.83 6.50'
+# s = '0.77 4.03 9.06 3.80 7.08 5.88 0.23 4.65 2.79 0.90 4.23 2.15 3.24 8.57 ' \
+# 	'0.10 8.57 1.49 5.64 3.63 8.36 1.56 6.67 1.46 5.26 4.83 7.23 1.22 1.02 ' \
+# 	'7.82 9.97 5.40 9.79 9.82 2.78 2.96 0.07 1.72 7.24 7.84 9.23 1.71 6.24 ' \
+# 	'5.78 5.37 0.03 9.60 8.86 2.73 5.83 6.50'
+#
+# arr = [Decimal(x) for x in s.split()]
+# print(Decimal(sum(arr)))
+# arr.sort()
+#
+# iteration = 0
+# while iteration < 5:
+# 	print(arr.pop(), end=' ')
+# 	iteration += 1
 
-arr = [Decimal(x) for x in s.split()]
-print(Decimal(sum(arr)))
-arr.sort()
 
-iteration = 0
-while iteration < 5:
-	print(arr.pop(), end=' ')
-	iteration += 1
+
+num = str(Decimal(input())).replace('.', '')
+new_num = ''
+for elt in num:
+	if elt.isdigit():
+		new_num += elt
+arr = list(' '.join(new_num).split())
+print(int(max(arr)) + int(min(arr)))
+
