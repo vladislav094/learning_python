@@ -64,17 +64,46 @@ import string
 # 	print()
 
 
-def sattolo_cycle():
-	general_list = ['Djaja Bings', 'Tom Brankock', 'Ada Swarovsky']
-	# general_list = []
-	# for _ in range(int(input())):
-	# 	general_list.append(str(input()))
-	general_list_copy = general_list.copy()
-	i = len(general_list_copy)
-	while i > 1:
-		i = i - 1
-		j = random.randrange(i)
-		general_list_copy[j], general_list_copy[i] = general_list_copy[i], general_list_copy[j]
-	for elt in range(len(general_list_copy)):
-		print(f"{general_list[elt]} - {general_list_copy[elt]}")
+# def sattolo_cycle():
+# 	general_list = ['Djaja Bings', 'Tom Brankock', 'Ada Swarovsky']
+# 	# general_list = []
+# 	# for _ in range(int(input())):
+# 	# 	general_list.append(str(input()))
+# 	general_list_copy = general_list.copy()
+# 	i = len(general_list_copy)
+# 	while i > 1:
+# 		i = i - 1
+# 		j = random.randrange(i)
+# 		general_list_copy[j], general_list_copy[i] = general_list_copy[i], general_list_copy[j]
+# 	for elt in range(len(general_list_copy)):
+# 		print(f"{general_list[elt]} - {general_list_copy[elt]}")
+
+
+
+cc = int(input())
+ll = int(input())
+def generate_password(l: int):
+	up_alpha = string.ascii_uppercase
+	low_alpha = string.ascii_lowercase
+	digits = string.digits
+	chracters_to_delet = ['l', 'I', '1', 'o', 'O', '0']
+	for elt in chracters_to_delet:
+		if elt in up_alpha:
+			up_alpha = up_alpha.replace(elt, '')
+		if elt in low_alpha:
+			low_alpha = low_alpha.replace(elt, '')
+		if elt in digits:
+			digits = digits.replace(elt, '')
+
+	password = list(random.choice(up_alpha) + ''.join(random.sample(low_alpha, l-2)) + random.choice(digits))
+	random.shuffle(password)
+	password = ''.join(password)
+	return password
+
+def generate_passwords(count, length):
+	arr = [generate_password(length) for _ in range(count)]
+	for x in arr:
+		print(x)
+#
+generate_passwords(cc, ll)
 
