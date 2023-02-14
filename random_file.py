@@ -193,20 +193,16 @@ from math import factorial
 
 
 a1 = ["arp", "live", "strong"]
-
 a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+
 # a1 = ["tarp", "mice", "bull"]
-
 # a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
-
 
 def in_array(array1, array2):
     temp = []
-    count = 0
     for elt in range(len(array1)):
         for jet in range(len(array2)):
             if array1[elt] in array2[jet] and array1[elt] not in temp:
-                count += 1
                 temp.append(array1[elt])
     temp.sort()
     return temp
