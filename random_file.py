@@ -1,6 +1,6 @@
 import random
 import string
-
+import itertools
 
 # ticket = int(input())
 #
@@ -207,4 +207,35 @@ def in_array(array1, array2):
     temp.sort()
     return temp
 
-print(in_array(a1, a2))
+# print(in_array(a1, a2))
+n = 7
+k = 3
+arr = [int(x) for x in range(1, n +1)]
+count = 1
+temp = []
+j = 0
+
+while len(temp) != 6:
+    if count == k:
+        temp.append(arr[j])
+        arr.remove(arr[j])
+        arr = arr + arr
+        print(temp)
+    print(temp)
+    count += 1
+    j += 1
+# def josephus_survivor(n,k):
+#     my_iter = [int(x) for x in range(1, n+1)]
+#     temp = []
+#     test_arr = my_iter *len(my_iter)
+#     digit = 0
+#     count = 1
+#     for elt in range(0, len(test_arr),):
+#         if count == k:
+#             for _ in range(len(test_arr)):
+#                 test_arr.remove(arr[elt])
+#                 print(arr[elt])
+#         count += 1
+#     return digit, temp
+#
+# print(josephus_survivor(n, k))
