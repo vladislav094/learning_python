@@ -1,6 +1,7 @@
 import random
 import string
 import itertools
+import math
 
 # ticket = int(input())
 #
@@ -239,26 +240,57 @@ from math import factorial
 
 
 
-def josephus_survivor(n,k):
-    '''
-    Basically you have to assume that n people are put into a circle and that they are eliminated in steps of k elements,
-    like this:
-    josephus_survivor(7,3) => means 7 people in a circle;
-    one every 3 is eliminated until one remains
-    [1,2,3,4,5,6,7] - initial sequence
-    [1,2,4,5,6,7] => 3 is counted out
-    [1,2,4,5,7] => 6 is counted out
-    [1,4,5,7] => 2 is counted out
-    [1,4,5] => 7 is counted out
-    [1,4] => 5 is counted out
-    [4] => 1 counted out, 4 is the last element - the survivor!
-    :param n:
-    :param k:
-    :return:
-    '''
-    my_iter = [int(x) for x in range(1, n+1)]
-    while len(my_iter) > 1:
-        x = (k -1) % (len(my_iter))
-        my_iter = my_iter[x+1:] + my_iter[:x]
-    return my_iter[0]
-print(josephus_survivor(11, 19))
+# def josephus_survivor(n,k):
+#     '''
+#     Basically you have to assume that n people are put into a circle and that they are eliminated in steps of k elements,
+#     like this:
+#     josephus_survivor(7,3) => means 7 people in a circle;
+#     one every 3 is eliminated until one remains
+#     [1,2,3,4,5,6,7] - initial sequence
+#     [1,2,4,5,6,7] => 3 is counted out
+#     [1,2,4,5,7] => 6 is counted out
+#     [1,4,5,7] => 2 is counted out
+#     [1,4,5] => 7 is counted out
+#     [1,4] => 5 is counted out
+#     [4] => 1 counted out, 4 is the last element - the survivor!
+#     :param n:
+#     :param k:
+#     :return:
+#     '''
+#     my_iter = [int(x) for x in range(1, n+1)]
+#     while len(my_iter) > 1:
+#         x = (k -1) % (len(my_iter))
+#         my_iter = my_iter[x+1:] + my_iter[:x]
+#     return my_iter[0]
+# print(josephus_survivor(11, 19))
+
+#
+# def line_up(hints):
+#     w = 'white'
+#     b = 'black'
+#     r = 'red'
+#     g = 'green'
+
+
+
+# color = ["white has black on his left",
+#          "red has green on his right",
+#          "black has green on his left"]
+#
+# temp = ['white', 'black', 'red', 'green']
+# a = color[0].split()
+# b = color[0].split()
+# c = color[0].split()
+# print(a, type(a))
+
+
+def strong_num(number):
+    arr = str(number)
+    total = 0
+    for elt in arr:
+        total += math.factorial(int(elt))
+    if total == int(number):
+        return 'STRONG!!!!'
+    else:
+        return 'Not Strong !!'
+print(strong_num(185))
