@@ -284,13 +284,25 @@ from math import factorial
 # print(a, type(a))
 
 
-def strong_num(number):
-    arr = str(number)
-    total = 0
-    for elt in arr:
-        total += math.factorial(int(elt))
-    if total == int(number):
-        return 'STRONG!!!!'
-    else:
-        return 'Not Strong !!'
-print(strong_num(185))
+# def strong_num(number):
+#     arr = str(number)
+#     total = 0
+#     for elt in arr:
+#         total += math.factorial(int(elt))
+#     if total == int(number):
+#         return 'STRONG!!!!'
+#     else:
+#         return 'Not Strong !!'
+# print(strong_num(185))
+
+
+def give_change(money: int):
+    arr = []
+    for i in [100, 50, 20, 10, 5, 1]:
+        arr = [money // i] + arr
+        money -= arr[0] * i
+    return tuple(arr)
+
+print(give_change(365))
+
+
