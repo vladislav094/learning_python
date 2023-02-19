@@ -192,50 +192,73 @@ from math import factorial
 # print(*answer, sep='\n')
 
 
-a1 = ["arp", "live", "strong"]
-a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
-
-# a1 = ["tarp", "mice", "bull"]
+# a1 = ["arp", "live", "strong"]
 # a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
-
-def in_array(array1, array2):
-    temp = []
-    for elt in range(len(array1)):
-        for jet in range(len(array2)):
-            if array1[elt] in array2[jet] and array1[elt] not in temp:
-                temp.append(array1[elt])
-    temp.sort()
-    return temp
+#
+# # a1 = ["tarp", "mice", "bull"]
+# # a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+#
+# def in_array(array1, array2):
+#     temp = []
+#     for elt in range(len(array1)):
+#         for jet in range(len(array2)):
+#             if array1[elt] in array2[jet] and array1[elt] not in temp:
+#                 temp.append(array1[elt])
+#     temp.sort()
+#     return temp
 
 # print(in_array(a1, a2))
-n = 7
-k = 3
-arr = [int(x) for x in range(1, n +1)]
-count = 1
-temp = []
-j = 0
 
-while len(temp) != 6:
-    if count == k:
-        temp.append(arr[j])
-        arr.remove(arr[j])
-        arr = arr + arr
-        print(temp)
-    print(temp)
-    count += 1
-    j += 1
-# def josephus_survivor(n,k):
-#     my_iter = [int(x) for x in range(1, n+1)]
-#     temp = []
-#     test_arr = my_iter *len(my_iter)
-#     digit = 0
-#     count = 1
-#     for elt in range(0, len(test_arr),):
-#         if count == k:
-#             for _ in range(len(test_arr)):
-#                 test_arr.remove(arr[elt])
-#                 print(arr[elt])
-#         count += 1
-#     return digit, temp
+
+# a = [1, 1, 3, 3, 7, 2 ,2, 2, 2]
+# dig = 3
+# b = [20, 37, 20, 21]
+# digi_2 = 1
 #
-# print(josephus_survivor(n, k))
+# def delete_nth(arr, digit):
+#     temp = []
+#     for elt in arr:
+#         if temp.count(elt) < digit:
+#             temp.append(elt)
+#     return temp
+# print(delete_nth(a, dig))
+# print(delete_nth(b, digi_2))
+
+# a = 'apple ban'
+# b = 'you will win'
+#
+# def add_length(str_):
+#     arr = str_.split()
+#     result = []
+#     for elt in arr:
+#         t_str = str(elt) + ' ' + str(len(elt))
+#         result.append(t_str)
+#     return result
+# print(add_length(a))
+
+
+
+
+def josephus_survivor(n,k):
+    '''
+    Basically you have to assume that n people are put into a circle and that they are eliminated in steps of k elements,
+    like this:
+    josephus_survivor(7,3) => means 7 people in a circle;
+    one every 3 is eliminated until one remains
+    [1,2,3,4,5,6,7] - initial sequence
+    [1,2,4,5,6,7] => 3 is counted out
+    [1,2,4,5,7] => 6 is counted out
+    [1,4,5,7] => 2 is counted out
+    [1,4,5] => 7 is counted out
+    [1,4] => 5 is counted out
+    [4] => 1 counted out, 4 is the last element - the survivor!
+    :param n:
+    :param k:
+    :return:
+    '''
+    my_iter = [int(x) for x in range(1, n+1)]
+    while len(my_iter) > 1:
+        x = (k -1) % (len(my_iter))
+        my_iter = my_iter[x+1:] + my_iter[:x]
+    return my_iter[0]
+print(josephus_survivor(11, 19))
