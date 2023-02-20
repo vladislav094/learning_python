@@ -296,13 +296,23 @@ from math import factorial
 # print(strong_num(185))
 
 
-def give_change(money: int):
-    arr = []
-    for i in [100, 50, 20, 10, 5, 1]:
-        arr = [money // i] + arr
-        money -= arr[0] * i
-    return tuple(arr)
+# def give_change(money: int):
+#     arr = []
+#     for i in [100, 50, 20, 10, 5, 1]:
+#         arr = [money // i] + arr
+#         money -= arr[0] * i
+#     return tuple(arr)
+#
+# print(give_change(365))
 
-print(give_change(365))
+def sq_sum(*args):
+    argss = 0
+    for elt in args:
+        argss += elt ** 2
+    return argss
+
+print(sq_sum(1.5, 2.5))
+
+
 
 
