@@ -311,8 +311,30 @@ def sq_sum(*args):
         argss += elt ** 2
     return argss
 
-print(sq_sum(1.5, 2.5))
+# print(sq_sum(1.5, 2.5))
+
+def mean(*args):
+    result = []
+    for elt in args:
+        if type(elt) is int or type(elt) is float:
+            result.append(elt)
+    if len(result) == 0:
+        return 0.0
+    else:
+        return sum(result) / len(result)
+# print(mean())
+# print(mean(7))
+# print(mean(1.5, True, ['stepik'], 'beegeek', 2.5, (1, 2)))
+# print(mean(True, ['stepik'], 'beegeek', (1, 2)))
+# print(mean(-1, 2, 3, 10, ('5')))
+# print(mean(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 
 
+def greet(*args):
+    name_arr = list(args)
+    if len(name_arr) == 1:
+        return f"Hello, {args}!"
 
+print(greet("Timur"))
+print(greet('Timur', 'Roman'))
 
