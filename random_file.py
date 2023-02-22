@@ -329,15 +329,49 @@ def mean(*args):
 # print(mean(-1, 2, 3, 10, ('5')))
 # print(mean(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 
+#
+# def greet(name, *args):
+#     result = f'Hello, {name}!'
+#     if len(args) == 0:
+#         return result
+#     else:
+#         return f"{result[:-1]} and {' and '.join(args)}!"
+#
+# print(greet(name="Timur"))
+# print(greet('Timur', 'Roman'))
+# print(greet('Timur', 'Roman', 'Ruslan'))
 
-def greet(name, *args):
-    result = f'Hello, {name}!'
-    if len(args) == 0:
-        return result
+
+def print_products(*args):
+    products = ['Бананы', 'Яблоки', 'Макароны']
+    result = []
+    for elt in args:
+        if type(elt) is str:
+            result.append(elt)
+    counter = 1
+    for _ in result:
+        if len(_) == 0:
+            result.remove(_)
+    if len(result) > 0:
+        for elt in result:
+            if elt in products:
+                print(f"{str(counter)}) {elt}")
+                counter += 1
     else:
-        return f"{result[:-1]} and {' and '.join(args)}!"
+        print("Нет продуктов")
 
-print(greet(name="Timur"))
-print(greet('Timur', 'Roman'))
-print(greet('Timur', 'Roman', 'Ruslan'))
+# print_products('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
+# print_products([4], {}, 1, 2, {'Beegeek'}, '')
 
+def print_products_2(*args):
+    counter = 1
+    flag = False
+    for elt in args:
+        if type(elt) is str and len(elt) > 0:
+            print(f"{counter}) {elt}")
+            flag = True
+            counter +=1
+    if flag == False:
+        print(f"Нет продуктов")
+print_products_2('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
+print_products_2([4], {}, 1, 2, {'Beegeek'}, '')
