@@ -342,36 +342,43 @@ def mean(*args):
 # print(greet('Timur', 'Roman', 'Ruslan'))
 
 
-def print_products(*args):
-    products = ['Бананы', 'Яблоки', 'Макароны']
-    result = []
-    for elt in args:
-        if type(elt) is str:
-            result.append(elt)
-    counter = 1
-    for _ in result:
-        if len(_) == 0:
-            result.remove(_)
-    if len(result) > 0:
-        for elt in result:
-            if elt in products:
-                print(f"{str(counter)}) {elt}")
-                counter += 1
-    else:
-        print("Нет продуктов")
+# def print_products(*args):
+#     products = ['Бананы', 'Яблоки', 'Макароны']
+#     result = []
+#     for elt in args:
+#         if type(elt) is str:
+#             result.append(elt)
+#     counter = 1
+#     for _ in result:
+#         if len(_) == 0:
+#             result.remove(_)
+#     if len(result) > 0:
+#         for elt in result:
+#             if elt in products:
+#                 print(f"{str(counter)}) {elt}")
+#                 counter += 1
+#     else:
+#         print("Нет продуктов")
+#
+# # print_products('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
+# # print_products([4], {}, 1, 2, {'Beegeek'}, '')
+#
+# def print_products_2(*args):
+#     counter = 1
+#     flag = False
+#     for elt in args:
+#         if type(elt) is str and len(elt) > 0:
+#             print(f"{counter}) {elt}")
+#             flag = True
+#             counter +=1
+#     if flag == False:
+#         print(f"Нет продуктов")
+# print_products_2('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
+# print_products_2([4], {}, 1, 2, {'Beegeek'}, '')
 
-# print_products('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
-# print_products([4], {}, 1, 2, {'Beegeek'}, '')
 
-def print_products_2(*args):
-    counter = 1
-    flag = False
-    for elt in args:
-        if type(elt) is str and len(elt) > 0:
-            print(f"{counter}) {elt}")
-            flag = True
-            counter +=1
-    if flag == False:
-        print(f"Нет продуктов")
-print_products_2('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
-print_products_2([4], {}, 1, 2, {'Beegeek'}, '')
+def info_kwargs(**kwargs):
+    for k,v in sorted(kwargs.items()):
+        print(f"{k}: {v}")
+
+info_kwargs(first_name='Timur', last_name='Guev', age=28, job='teacher')
