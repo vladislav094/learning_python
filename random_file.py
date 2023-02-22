@@ -330,11 +330,14 @@ def mean(*args):
 # print(mean(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 
 
-def greet(*args):
-    name_arr = list(args)
-    if len(name_arr) == 1:
-        return f"Hello, {args}!"
+def greet(name, *args):
+    result = f'Hello, {name}!'
+    if len(args) == 0:
+        return result
+    else:
+        return f"{result[:-1]} and {' and '.join(args)}!"
 
-print(greet("Timur"))
+print(greet(name="Timur"))
 print(greet('Timur', 'Roman'))
+print(greet('Timur', 'Roman', 'Ruslan'))
 
