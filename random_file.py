@@ -427,15 +427,37 @@ def mean(*args):
 # print(numbers)
 
 
-athletes = [('Дима', 10, 130, 35), ('Тимур', 11, 135, 39), ('Руслан', 9, 140, 33), ('Рустам', 10, 128, 30),
-            ('Амир', 16, 170, 70), ('Рома', 16, 188, 100), ('Матвей', 17, 168, 68), ('Петя', 15, 190, 90)]
+# athletes = [('Дима', 10, 130, 35), ('Тимур', 11, 135, 39), ('Руслан', 9, 140, 33), ('Рустам', 10, 128, 30),
+#             ('Амир', 16, 170, 70), ('Рома', 16, 188, 100), ('Матвей', 17, 168, 68), ('Петя', 15, 190, 90)]
+#
+# digit = 3
+#
+# def comparator(x):
+#     return x[digit-1]
+#
+# for elt in sorted(athletes, key=comparator):
+#     print(*elt)
 
-# digit = int(input())
-digit = 3
 
-def comparator(x):
-    return x[digit-1]
+def f1(x):
+    return x ** 2
 
-for elt in sorted(athletes, key=comparator):
-    print(*elt)
+def f2(x):
+    return x ** 3
+
+def f3(x):
+    return x ** 0.5
+
+def f4(x):
+    return abs(x)
+
+def f5(x):
+    return math.sin(x)
+
+my_dict = {"квадрат": f1, "куб": f2, "корень": f3, "модуль": f4, "синус": f5}
+digit = int(input())
+word = str(input())
+list_functions = [f1, f2, f3, f4, f5]
+print(my_dict.get(word)(digit))
+
 
