@@ -439,25 +439,36 @@ def mean(*args):
 #     print(*elt)
 
 
-def f1(x):
-    return x ** 2
+# def f1(x):
+#     return x ** 2
+#
+# def f2(x):
+#     return x ** 3
+#
+# def f3(x):
+#     return x ** 0.5
+#
+# def f4(x):
+#     return abs(x)
+#
+# def f5(x):
+#     return math.sin(x)
+#
+# my_dict = {"квадрат": f1, "куб": f2, "корень": f3, "модуль": f4, "синус": f5}
+# digit = int(input())
+# word = str(input())
+# list_functions = [f1, f2, f3, f4, f5]
+# print(my_dict.get(word)(digit))
 
-def f2(x):
-    return x ** 3
 
-def f3(x):
-    return x ** 0.5
+# inpt = str(input()).split()
+# print(inpt)
 
-def f4(x):
-    return abs(x)
+my_list = ['12', '14', '79', '7', '4', '123', '45', '90', '111']
+def comparator(x):
+    s = 0
+    for elt in x:
+        s += int(elt)
+    return s
 
-def f5(x):
-    return math.sin(x)
-
-my_dict = {"квадрат": f1, "куб": f2, "корень": f3, "модуль": f4, "синус": f5}
-digit = int(input())
-word = str(input())
-list_functions = [f1, f2, f3, f4, f5]
-print(my_dict.get(word)(digit))
-
-
+print(*sorted(my_list, key=comparator))
