@@ -410,11 +410,32 @@ def mean(*args):
 #
 # print(min(numbers, key=comparator))
 # print(max(numbers, key=comparator))
+#
+# points = [(-1, 1), (5, 6), (12, 0), (4, 3), (0, 1), (-3, 2), (0, 0), (-1, 3), (2, 0), (3, 0), (-9, 1), (3, 6), (8, 8)]
+#
+# def comparator(x):
+#     return ((x[0] ** 2) + (x[1] ** 2)) ** 0.5
+#
+# print(sorted(points, key=comparator))
 
-points = [(-1, 1), (5, 6), (12, 0), (4, 3), (0, 1), (-3, 2), (0, 0), (-1, 3), (2, 0), (3, 0), (-9, 1), (3, 6), (8, 8)]
+# numbers = [(10, 10, 10), (30, 45, 56), (81, 80, 39), (1, 2, 3), (12, 45, 67), (-2, -4, 100), (1, 2, 99), (89, 90, 34), (10, 20, 30), (50, 40, 50), (34, 78, 65), (-5, 90, -1)]
+#
+# def comparator(x):
+#     return max(x) +min(x)
+#
+# numbers.sort(key=comparator)
+# print(numbers)
+
+
+athletes = [('Дима', 10, 130, 35), ('Тимур', 11, 135, 39), ('Руслан', 9, 140, 33), ('Рустам', 10, 128, 30),
+            ('Амир', 16, 170, 70), ('Рома', 16, 188, 100), ('Матвей', 17, 168, 68), ('Петя', 15, 190, 90)]
+
+# digit = int(input())
+digit = 3
 
 def comparator(x):
-    return ((x[0] ** 2) + (x[1] ** 2)) ** 0.5
+    return x[digit-1]
 
-print(sorted(points, key=comparator))
+for elt in sorted(athletes, key=comparator):
+    print(*elt)
 
