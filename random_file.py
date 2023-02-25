@@ -375,10 +375,39 @@ def mean(*args):
 #         print(f"Нет продуктов")
 # print_products_2('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
 # print_products_2([4], {}, 1, 2, {'Beegeek'}, '')
+#
+#
+# def info_kwargs(**kwargs):
+#     for k,v in sorted(kwargs.items()):
+#         print(f"{k}: {v}")
+#
+# info_kwargs(first_name='Timur', last_name='Guev', age=28, job='teacher')
 
 
-def info_kwargs(**kwargs):
-    for k,v in sorted(kwargs.items()):
-        print(f"{k}: {v}")
+# def generator_square_polynom(a, b, c):
+#     def square_polynom(x):
+#         return a*x**2 + b*x + c
+#     return square_polynom
+#
+# f = generator_square_polynom(a=1, b=2, c=1)
+# print(f(1))
+# print(input)
 
-info_kwargs(first_name='Timur', last_name='Guev', age=28, job='teacher')
+# def comparator(pair):
+#     return pair[0] + pair[1]
+#
+#
+# pairs = [(5, 4), (3, 2), (1, 7), (8, 2)]
+# pairs.sort(key=comparator, reverse=True)
+# print(pairs)
+
+
+numbers = [(10, 10, 10), (30, 45, 56), (81, 39), (1, 2, 3), (12,), (-2, -4, 100), (1, 2, 99), (89, 9, 34),
+           (10, 20, 30, -2), (50, 40, 50), (34, 78, 65), (-5, 90, -1, -5), (1, 2, 3, 4, 5, 6), (-9, 8, 4), (90, 1, -45, -21)]
+
+def comparator(x):
+    return sum(x) / len(x)
+
+print(min(numbers, key=comparator))
+print(max(numbers, key=comparator))
+
