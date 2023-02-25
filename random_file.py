@@ -463,8 +463,9 @@ def mean(*args):
 
 # inpt = str(input()).split()
 # print(inpt)
-
-my_list = ['12', '14', '79', '7', '4', '123', '45', '90', '111']
+# my_list = ['12', '14', '79', '7', '4', '123', '45', '90', '111']
+my_list = ['111', '14', '79', '7', '4', '123', '90', '45', '12', '171']
+my_list = sorted(my_list, key=int)
 def comparator(x):
     s = 0
     for elt in x:
