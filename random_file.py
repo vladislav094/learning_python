@@ -485,24 +485,55 @@ def mean(*args):
 #     new_list.append(new_item)
 # print(new_list)
 
-def map(functions, items):
-    result = []
-    for item in items:
-        new_item = functions(item)
-        result.append(new_item)
-    return result
+# def map(functions, items):
+#     result = []
+#     for item in items:
+#         new_item = functions(item)
+#         result.append(new_item)
+#     return result
+#
+# def square(x):
+#     return x**2
+#
+# def cube(x):
+#     return x**3
+#
+# numbers = [1, 2, -3, 4, -5, 6, -9, 0]
+# strings = map(cube, numbers)
+# print(strings)
+#
+#
+# numbers = ['-1', '20', '3', '-94', '65', '6', '-970', '8']
+# new_numbers = map(abs, map(int, numbers))
+# print(new_numbers)
 
-def square(x):
-    return x**2
+#
+# def filter(function, items):
+#     result = []
+#     for item in items:
+#         if function(item):
+#             result.append(item)
+#     return result
+#
+# def is_greater10(num):
+#     return num > 10
+#
+# numbers = [12, 2, -30, 48, 51, -60, 19, 10, 13]
+#
+# print(filter(is_greater10, numbers))
+#
+# def is_odd(num):
+#     return num % 2
+#
+# def is_word_long(word):
+#     return len(word) > 6
+#
+# numbers = list(range(15))
+# words = ['В', 'новом', 'списке', 'останутся', 'только', 'длинные', 'слова']
+#
+# odd_numbers = filter(is_odd, numbers)
+# large_words = filter(is_word_long, words)
+#
+# print(odd_numbers)
+# print(large_words)
 
-def cube(x):
-    return x**3
-
-numbers = [1, 2, -3, 4, -5, 6, -9, 0]
-strings = map(cube, numbers)
-print(strings)
-
-
-numbers = ['-1', '20', '3', '-94', '65', '6', '-970', '8']
-new_numbers = map(abs, map(int, numbers))
-print(new_numbers)
