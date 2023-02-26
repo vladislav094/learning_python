@@ -2,7 +2,8 @@ import random
 import string
 import itertools
 import math
-
+from operator import *
+from functools import reduce
 # ticket = int(input())
 #
 # result = []
@@ -691,23 +692,45 @@ def mean(*args):
 # new_numbers = filter(get_sep_7, new_numbers)
 # print(sum(map(square, new_numbers)))
 
+# def add3(x):
+#     return x + 3
+#
+#
+# def mul7(x):
+#     return x * 7
+#
+# def func_apply(operation, items):
+#     result = []
+#     for item in items:
+#         x = operation(item)
+#         result.append(x)
+#     return result
+#
+# print(func_apply(mul7, [1, 2, 3, 4, 5, 6]))
+# print(func_apply(add3, [1, 2, 3, 4, 5, 6]))
+# print(func_apply(str, [1, 2, 3, 4, 5, 6]))
 
-
-
-def add3(x):
-    return x + 3
-
-
-def mul7(x):
-    return x * 7
-
-def func_apply(operation, items):
+def gcdi(x,y):
+    return math.gcd(abs(x), abs(y))
+def lcmu(a, b):
+    return math.lcm(abs(a), abs(b))
+def som(a, b):
+    return a + b
+def maxi(a, b):
+    return max(a, b)
+def mini(a, b):
+    return min(a, b)
+def oper_array(fct, arr, init):
     result = []
-    for item in items:
-        x = operation(item)
-        result.append(x)
+    inc = init
+    for item in arr:
+        inc = fct(inc, item)
+        result.append(inc)
     return result
+a = [18, 69, -90, -78, 65, 40]
 
-print(func_apply(mul7, [1, 2, 3, 4, 5, 6]))
-print(func_apply(add3, [1, 2, 3, 4, 5, 6]))
-print(func_apply(str, [1, 2, 3, 4, 5, 6]))
+print(oper_array(gcdi, a, a[0]))
+print(oper_array(lcmu, a, a[0]))
+print(oper_array(som, a, 0))
+print(oper_array(mini, a, a[0]))
+print(oper_array(maxi, a, a[0]))
