@@ -537,3 +537,67 @@ def mean(*args):
 # print(odd_numbers)
 # print(large_words)
 
+# numbers = [1, 2, 3, 4, 5]
+#
+# total = 0
+# product = 1
+# for num in numbers:
+#     total += num
+#     product *= num
+#
+# print(total)
+# print(product)
+
+# def reduce(operation, items, initials_value):
+#     acc = initials_value
+#     for item in items:
+#         acc = operation(acc, item)
+#     return acc
+#
+# def add(x, y):
+#     return x+y
+#
+#
+# def mult(x, y):
+#     return x*y
+#
+#
+# numbers = [1, 2, 3, 4, 5]
+# print(reduce(add, numbers, 1))
+
+#
+# def high_order_function(func):
+#     return func(10)
+#
+#
+# def square(x):
+#     return x**2
+#
+#
+# def minus_one(x):
+#     return x - 1
+#
+#
+# num1 = high_order_function(square)
+# num2 = high_order_function(minus_one)
+#
+# print(num1*num2)
+
+
+def map(function, items):
+    result = []
+    for item in items:
+        result.append(function(item))
+    return result
+
+def f(x):
+    return round(x, 2)
+
+numbers = [3.56773, 5.57668, 4.00914, 56.24241, 9.01344, 32.12013, 23.22222, 90.09873, 45.45, 314.1528, 2.71828, 1.41546]
+
+new_numbers = map(f, numbers)
+for _ in new_numbers:
+    print(_)
+
+
+
