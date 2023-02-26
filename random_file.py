@@ -464,12 +464,41 @@ def mean(*args):
 # inpt = str(input()).split()
 # print(inpt)
 # my_list = ['12', '14', '79', '7', '4', '123', '45', '90', '111']
-my_list = ['111', '14', '79', '7', '4', '123', '90', '45', '12', '171']
-my_list = sorted(my_list, key=int)
-def comparator(x):
-    s = 0
-    for elt in x:
-        s += int(elt)
-    return s
+# my_list = ['111', '14', '79', '7', '4', '123', '90', '45', '12', '171']
+# my_list = sorted(my_list, key=int)
+# def comparator(x):
+#     s = 0
+#     for elt in x:
+#         s += int(elt)
+#     return s
+#
+# print(*sorted(my_list, key=comparator))
 
-print(*sorted(my_list, key=comparator))
+
+# def f(x):
+#     return str(x)
+#
+# old_list = [1, 2, 4, 9, 10, 25]
+# new_list = []
+# for item in old_list:
+#     new_item = f(item)
+#     new_list.append(new_item)
+# print(new_list)
+
+def map(functions, items):
+    result = []
+    for item in items:
+        new_item = functions(item)
+        result.append(new_item)
+    return result
+
+def square(x):
+    return x**2
+
+
+def cube(x):
+    return x**3
+
+numbers = [1, 2, -3, 4, -5, 6, -9, 0]
+strings = map(cube, numbers)
+print(strings)
