@@ -495,10 +495,14 @@ def map(functions, items):
 def square(x):
     return x**2
 
-
 def cube(x):
     return x**3
 
 numbers = [1, 2, -3, 4, -5, 6, -9, 0]
 strings = map(cube, numbers)
 print(strings)
+
+
+numbers = ['-1', '20', '3', '-94', '65', '6', '-970', '8']
+new_numbers = map(abs, map(int, numbers))
+print(new_numbers)
