@@ -736,6 +736,47 @@ def mean(*args):
 # print(oper_array(maxi, a, a[0]))
 
 
-lambda_function = lambda x, y, z: x * y + z
+# lambda_function = lambda x, y, z: x * y + z
+# print(lambda_function(12, 2, 3))
 
-print(lambda_function(12, 2, 3))
+
+# def compare_by_second(point):
+#     return point[1]
+#
+#
+# def compare_by_sum(point):
+#     return point[0] + point[1]
+#
+#
+# points = [(1, -1), (2, 3), (-10, 15), (10, 9), (7, 18), (1, 5), (2, -4)]
+#
+# print(sorted(points, key=lambda point: point[1] + point[0]))
+
+#
+# numbers = [-2, 0, 1, 2, 17, 4, 5, 6]
+#
+# new_numbers = list(map(lambda x: 'even' if x % 2 == 0 else 'add', numbers))
+# print(new_numbers)
+
+
+# numbers = range(10)
+# obj = map(lambda x: x + 1, numbers)
+# obj = list(filter(lambda x: x % 2 == 1, obj))
+# print(obj)
+
+
+
+from functools import reduce
+
+floats = [4.35, 6.09, 3.25, 9.77, 2.16, 8.88, 4.59, 34.23, 12.12, 4.67, 2.45, 9.32]
+words = ['racecar', 'akinremi', 'deed', 'temidayo', 'omoseun', 'civic', 'TATTARRATTAT', 'malayalam', 'nun']
+numbers = [4, 6, 9, 23, 5]
+
+# Исправьте этот код
+map_result = list(map(lambda num: round(num**3, 1), floats))
+filter_result = list(filter(lambda name: name if name == name[::-1] and len(name) > 4 else None, words))
+reduce_result = reduce(lambda num1, num2: num1 * num2, numbers, 1)
+
+print(map_result)
+print(filter_result)
+print(reduce_result)
