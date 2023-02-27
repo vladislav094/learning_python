@@ -780,33 +780,37 @@ def mean(*args):
 # print(reduce_result)
 
 
-from functools import reduce
+# from functools import reduce
+#
+# data = [['Tokyo', 35676000, 'primary'],
+#         ['New York', 19354922, 'nan'],
+#         ['Mexico City', 19028000, 'primary'],
+#         ['Mumbai', 18978000, 'admin'],
+#         ['Sao Paulo', 18845000, 'admin'],
+#         ['Delhi', 15926000, 'admin'],
+#         ['Shanghai', 14987000, 'admin'],
+#         ['Kolkata', 14787000, 'admin'],
+#         ['Los Angeles', 12815475, 'nan'],
+#         ['Dhaka', 12797394, 'primary'],
+#         ['Buenos Aires', 12795000, 'primary'],
+#         ['Karachi', 12130000, 'admin'],
+#         ['Cairo', 11893000, 'primary'],
+#         ['Rio de Janeiro', 11748000, 'admin'],
+#         ['Osaka', 11294000, 'admin'],
+#         ['Beijing', 11106000, 'primary'],
+#         ['Manila', 11100000, 'primary'],
+#         ['Moscow', 10452000, 'primary'],
+#         ['Istanbul', 10061000, 'admin'],
+#         ['Paris', 9904000, 'primary']]
+#
+#
+# new_data = list(filter(lambda x: x if x[1] > 10000000 and x[2] == 'primary' else None, data))
+# new_data = list(map(lambda x: x[0], new_data))
+# another_one_data = sorted(new_data)
+# another_one_data_1 = list(reduce(lambda x, y: x+', '+ y, another_one_data[1:], 'Cities: ' + another_one_data[0]))
+#
+# print(''.join(another_one_data_1))
 
-data = [['Tokyo', 35676000, 'primary'],
-        ['New York', 19354922, 'nan'],
-        ['Mexico City', 19028000, 'primary'],
-        ['Mumbai', 18978000, 'admin'],
-        ['Sao Paulo', 18845000, 'admin'],
-        ['Delhi', 15926000, 'admin'],
-        ['Shanghai', 14987000, 'admin'],
-        ['Kolkata', 14787000, 'admin'],
-        ['Los Angeles', 12815475, 'nan'],
-        ['Dhaka', 12797394, 'primary'],
-        ['Buenos Aires', 12795000, 'primary'],
-        ['Karachi', 12130000, 'admin'],
-        ['Cairo', 11893000, 'primary'],
-        ['Rio de Janeiro', 11748000, 'admin'],
-        ['Osaka', 11294000, 'admin'],
-        ['Beijing', 11106000, 'primary'],
-        ['Manila', 11100000, 'primary'],
-        ['Moscow', 10452000, 'primary'],
-        ['Istanbul', 10061000, 'admin'],
-        ['Paris', 9904000, 'primary']]
 
-
-new_data = list(filter(lambda x: x if x[1] > 10000000 and x[2] == 'primary' else None, data))
-new_data = list(map(lambda x: x[0], new_data))
-another_one_data = sorted(new_data)
-another_one_data_1 = list(reduce(lambda x, y: x+', '+ y, another_one_data[1:], 'Cities: ' + another_one_data[0]))
-
-print(''.join(another_one_data_1))
+func = lambda x: True if x % 13 ==0 or x % 19 == 0 else False
+print(func(20))
