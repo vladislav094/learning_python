@@ -812,5 +812,16 @@ def mean(*args):
 # print(''.join(another_one_data_1))
 
 
-func = lambda x: True if x % 13 ==0 or x % 19 == 0 else False
-print(func(20))
+# func = lambda x: True if x % 13 ==0 or x % 19 == 0 else False
+# func = lambda x: True if str(x[0]).lower() == 'a' and str(x[-1]).lower() == 'a' else False
+my_set = {"-", ".", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
+is_non_negative_num = lambda x: True if x.replace('.', '', 1).isdigit() else False
+print(is_non_negative_num('10.45'))
+print(is_non_negative_num('-18'))
+print(is_non_negative_num('-34.67'))
+print(is_non_negative_num('987'))
+print(is_non_negative_num('abcd'))
+print(is_non_negative_num('123.122.12'))
+print(is_non_negative_num('123.122'))
+
+
