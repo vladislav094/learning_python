@@ -896,9 +896,29 @@ def mean(*args):
 # print(new_list)
 # print(new_list_str)
 # print(*new_list + new_list_str)
-
 # three_colors = str(input()).split()
 # print(three_colors)
-color = ['244', '11', '120']
-new_colors = list(map(lambda x: 255 - int(x), color))
-print(new_colors)
+# color = ['244', '11', '120']
+# new_colors = list(map(lambda x: 255 - int(x), color))
+# print(new_colors)
+
+# arr = [2, 4, 3]
+# cof = 10
+
+arr = list(map(int,str(input()).split()))
+cof = int(input())
+
+def evaluate(coefficients, x):
+    def add(x, y):
+        return x + y
+    ind = list(range(len(coefficients) - 1, -1, -1))
+    my_list = list(map(lambda a, b: a * (x ** b), coefficients, ind))
+    my_list = reduce(add, my_list)
+    return my_list
+
+print(evaluate(arr, cof))
+
+
+
+
+
