@@ -849,10 +849,33 @@ def mean(*args):
 #
 # print(*new_numbers)
 
-data = [(19542209, 'New York'), (4887871, 'Alabama'), (1420491, 'Hawaii'), (626299, 'Vermont'), (1805832, 'West Virginia'),
-        (39865590, 'California'), (11799448, 'Ohio'), (10711908, 'Georgia'), (10077331, 'Michigan'), (10439388, 'Virginia'),
-        (7705281, 'Washington'), (7151502, 'Arizona'), (7029917, 'Massachusetts'), (6910840, 'Tennessee')]
+# data = [(19542209, 'New York'), (4887871, 'Alabama'), (1420491, 'Hawaii'), (626299, 'Vermont'), (1805832, 'West Virginia'),
+#         (39865590, 'California'), (11799448, 'Ohio'), (10711908, 'Georgia'), (10077331, 'Michigan'), (10439388, 'Virginia'),
+#         (7705281, 'Washington'), (7151502, 'Arizona'), (7029917, 'Massachusetts'), (6910840, 'Tennessee')]
+# data = list(sorted(data, key=lambda x: x[1][-1], reverse=True))
+# print(*list(map(lambda x: f"{x[1]}: {x[0]}", data)),sep='\n')
 
 
-data = list(sorted(data, key=lambda x: x[1][-1], reverse=True))
-print(*list(map(lambda x: f"{x[1]}: {x[0]}", data)),sep='\n')
+# data = ['год', 'человек', 'время', 'дело', 'жизнь', 'день', 'рука', 'раз', 'работа', 'слово', 'место', 'лицо', 'друг',
+#         'глаз', 'вопрос', 'дом', 'сторона', 'страна', 'мир', 'случай', 'голова', 'ребенок', 'сила', 'конец', 'вид',
+#         'система', 'часть', 'город', 'отношение', 'женщина', 'деньги']
+#
+# new_data = sorted(data, key= lambda x: (len(x),x))
+# print(*new_data)
+
+
+
+mixed_list = ['tuesday', 'abroad', 'abuse', 'beside', 'monday', 'abate', 'accessory', 'absorb', 1384878, 'sunday',
+              'about', 454805, 'saturday', 'abort', 2121919, 2552839, 977970, 1772933, 1564063, 'abduct', 901271,
+              2680434, 'bicycle', 'accelerate', 1109147, 942908, 'berry', 433507, 'bias', 'bestow', 1875665, 'besides',
+              'bewilder', 1586517, 375290, 1503450, 2713047, 'abnormal', 2286106, 242192, 701049, 2866491, 'benevolent',
+              'bigot', 'abuse', 'abrupt', 343772, 'able', 2135748, 690280, 686008, 'beyond', 2415643, 'aboard', 'bet',
+              859105, 'accident', 2223166, 894187, 146564, 1251748, 2851543, 1619426, 2263113, 1618068, 'berth', 'abolish',
+              'beware', 2618492, 1555062, 'access', 'absent', 'abundant', 2950603, 'betray', 'beverage', 'abide', 'abandon',
+              2284251, 'wednesday', 2709698, 'thursday', 810387, 'friday', 2576799, 2213552, 1599022, 'accept', 'abuse',
+              'abound', 1352953, 'bid', 1805326, 1499197, 2241159, 605320, 2347441]
+# new_list = list(filter(lambda x: type(x) == int, mixed_list))
+# new_list.sort()
+# print(new_list[-1])
+new_list = max(mixed_list, key=lambda x: (isinstance(x, int), x))
+print(new_list)
