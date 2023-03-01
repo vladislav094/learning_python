@@ -971,9 +971,9 @@ def mean(*args):
 # print(my_munction('10.1.1.260'))
 
 
-# a, b = int(input()), int(input())
-#
-# print(*filter(lambda n: all(map(lambda x: x != 0 and n % x == 0, map(int, str(n)))), range(a, b+1)))
+a, b = int(input()), int(input())
+
+print(*filter(lambda n: all(map(lambda x: x != 0 and n % x == 0, map(int, str(n)))), range(a, b+1)))
 
 
 password = ' '.join('DFSDFSDFSDsdfjsdfnsm').split()
