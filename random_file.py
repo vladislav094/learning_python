@@ -971,6 +971,11 @@ def mean(*args):
 # print(my_munction('10.1.1.260'))
 
 
-a, b = int(input()), int(input())
+# a, b = int(input()), int(input())
+#
+# print(*filter(lambda n: all(map(lambda x: x != 0 and n % x == 0, map(int, str(n)))), range(a, b+1)))
 
-print(*filter(lambda n: all(map(lambda x: x != 0 and n % x == 0, map(int, str(n)))), range(a, b+1)))
+
+password = ' '.join('DFSDFSDFSDsdfjsdfnsm').split()
+print("YES" if all([any(map(lambda x: x.isdigit(), password)), any(map(lambda x: x.islower(), password)),
+                    any(map(lambda x: x.isupper(), password)), len(password) > 6]) else 'NO')
