@@ -923,14 +923,22 @@ def mean(*args):
 # result = all(map(lambda x: x > 10, numbers))
 # print(result)
 
-def ignore_command(command):
-    comnd = ''.join(command)
-    ignore = ['alias', 'configuration', 'ip', 'sql', 'select', 'update', 'exec', 'del', 'truncate']
+# def ignore_command(command):
+#     comnd = ''.join(command)
+#     ignore = ['alias', 'configuration', 'ip', 'sql', 'select', 'update', 'exec', 'del', 'truncate']
+#
+#     result = any(map(lambda x: x in comnd, ignore))
+#     return result
+#
+# print(ignore_command('get ip'))
+# print(ignore_command('select all'))
+# print(ignore_command('delete'))
+# print(ignore_command('trancate'))
 
-    result = any(map(lambda x: x in comnd, ignore))
-    return result
 
-print(ignore_command('get ip'))
-print(ignore_command('select all'))
-print(ignore_command('delete'))
-print(ignore_command('trancate'))
+countries = ['Russia', 'USA', 'UK', 'Germany', 'France', 'India']
+capitals = ['Moscow', 'Washington', 'London', 'Berlin', 'Paris', 'Delhi']
+population = [145_934_462, 331_002_651, 80_345_321, 67_886_011, 65_273_511, 1_380_004_385]
+
+for cap, coun, popul in zip(capitals, countries, population):
+    print(f"{cap} is the capital of {coun}, population equal {popul} people.")
