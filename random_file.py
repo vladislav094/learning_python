@@ -936,9 +936,36 @@ def mean(*args):
 # print(ignore_command('trancate'))
 
 
-countries = ['Russia', 'USA', 'UK', 'Germany', 'France', 'India']
-capitals = ['Moscow', 'Washington', 'London', 'Berlin', 'Paris', 'Delhi']
-population = [145_934_462, 331_002_651, 80_345_321, 67_886_011, 65_273_511, 1_380_004_385]
+# countries = ['Russia', 'USA', 'UK', 'Germany', 'France', 'India']
+# capitals = ['Moscow', 'Washington', 'London', 'Berlin', 'Paris', 'Delhi']
+# population = [145_934_462, 331_002_651, 80_345_321, 67_886_011, 65_273_511, 1_380_004_385]
+#
+# for cap, coun, popul in zip(capitals, countries, population):
+#     print(f"{cap} is the capital of {coun}, population equal {popul} people.")
 
-for cap, coun, popul in zip(capitals, countries, population):
-    print(f"{cap} is the capital of {coun}, population equal {popul} people.")
+
+# abscissas = [float(i) for i in input().split()]
+# ordinates = [float(i) for i in input().split()]
+# applicates = [float(i) for i in input().split()]
+#
+# print(all(map(lambda x: x[0]**2 + x[1]**2 + x[2]**2 <= 4, zip(abscissas, ordinates, applicates))))
+
+# a = '10.0.1.1'.split('.')
+# # b = '10.0023.0123.0000015'.split('.')
+# c = '10.1.1.a'.split('.')
+# # a = list(map(int, a))
+# # b = list(map(int, c))
+# c = all(map(lambda x: x.isdigit(), c))
+# a = all(map(lambda x: x.isdigit(), a))
+# # print(a)
+# # print(b)
+# print(c)
+# print(a)
+
+
+def my_munction(text):
+    text = text.split('.')
+    result = all(map(lambda x: x.isdigit() and int(x) <= 255 and int(x) >= 0, text))
+    return result
+
+print(my_munction('10.1.1.260'))
