@@ -963,9 +963,14 @@ def mean(*args):
 # print(a)
 
 
-def my_munction(text):
-    text = text.split('.')
-    result = all(map(lambda x: x.isdigit() and int(x) <= 255 and int(x) >= 0, text))
-    return result
+# def my_munction(text):
+#     text = text.split('.')
+#     result = all(map(lambda x: x.isdigit() and int(x) <= 255 and int(x) >= 0, text))
+#     return result
+#
+# print(my_munction('10.1.1.260'))
 
-print(my_munction('10.1.1.260'))
+
+a, b = int(input()), int(input())
+
+print(*filter(lambda n: all(map(lambda x: x != 0 and n % x == 0, map(int, str(n)))), range(a, b+1)))
