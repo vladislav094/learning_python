@@ -905,20 +905,32 @@ def mean(*args):
 # arr = [2, 4, 3]
 # cof = 10
 
-arr = list(map(int,str(input()).split()))
-cof = int(input())
-
-def evaluate(coefficients, x):
-    def add(x, y):
-        return x + y
-    ind = list(range(len(coefficients) - 1, -1, -1))
-    my_list = list(map(lambda a, b: a * (x ** b), coefficients, ind))
-    my_list = reduce(add, my_list)
-    return my_list
-
-print(evaluate(arr, cof))
-
-
+# arr = list(map(int,str(input()).split()))
+# cof = int(input())
+#
+# def evaluate(coefficients, x):
+#     def add(x, y):
+#         return x + y
+#     ind = list(range(len(coefficients) - 1, -1, -1))
+#     my_list = list(map(lambda a, b: a * (x ** b), coefficients, ind))
+#     my_list = reduce(add, my_list)
+#     return my_list
+#
+# print(evaluate(arr, cof))
 
 
+# numbers = [17, 90, 78, 56, 231, 45, 51, 89, 91, 11, 19, 2]
+# result = all(map(lambda x: x > 10, numbers))
+# print(result)
 
+def ignore_command(command):
+    comnd = ''.join(command)
+    ignore = ['alias', 'configuration', 'ip', 'sql', 'select', 'update', 'exec', 'del', 'truncate']
+
+    result = any(map(lambda x: x in comnd, ignore))
+    return result
+
+print(ignore_command('get ip'))
+print(ignore_command('select all'))
+print(ignore_command('delete'))
+print(ignore_command('trancate'))
