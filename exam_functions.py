@@ -1,4 +1,6 @@
+import operator
 from functools import reduce
+from operator import *
 #1
 # def generate_letter(mail, name, date, time, place, teacher='Тимур Гуев', number=17):
 #     return f"""To: {mail}
@@ -95,3 +97,17 @@ from functools import reduce
 # print(compose(mul7, str)(3))
 # print(compose(str, mul7)(5))
 
+#10
+# def arithmetic_operation(operation):
+# 	if operation == '+':
+# 		return lambda x, y: operator.add(x, y)
+# 	if operation == '/':
+# 		return lambda x, y: operator.truediv(x, y)
+# 	if operation == '-':
+# 		return lambda x, y: operator.sub(x, y)
+# 	if operation == '*':
+# 		return lambda x, y: operator.mul(x, y)
+# add = arithmetic_operation('+')
+# div = arithmetic_operation('/')
+# print(add(10, 20))
+# print(div(20, 5))
