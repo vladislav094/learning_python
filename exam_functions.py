@@ -36,3 +36,11 @@ from functools import reduce
 # print(concat('hello', 'python', sep='()()()'))
 # print(concat('hello', sep='()'))
 # print(concat(1, 2, 3, 4, 5, 6, 7, 8, 9, sep='$$'))
+
+#4
+def product_of_odds(data):
+	result = list(filter(lambda x: x % 2 == 1, data))
+	result = reduce(lambda x,y: x*y, result, 1)
+	return result
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(product_of_odds(arr))
