@@ -111,3 +111,7 @@ from operator import *
 # div = arithmetic_operation('/')
 # print(add(10, 20))
 # print(div(20, 5))
+
+#11
+stroka = 'cate Frog cat FROGs bee CATERS mouse cATwalk dolphin mOus Cats CatAlo'.split()
+print(*sorted(stroka, key=lambda x: x.lower()))
