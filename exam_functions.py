@@ -62,19 +62,36 @@ from functools import reduce
 # print(sorted_numbers)
 
 #8
-def mul7(x):
-    return x * 7
+# def mul7(x):
+#     return x * 7
+#
+# def add2(x, y):
+#     return x + y
+#
+# def add3(x, y, z):
+#     return x + y + z
+#
+# def call(func, *value):
+#     return func(*value)
+#
+# print(call(mul7, 10))
+# print(call(add2, 2, 7))
+# print(call(add3, 10, 30, 40))
+# print(call(bool, 0))
 
-def add2(x, y):
-    return x + y
 
-def add3(x, y, z):
-    return x + y + z
+#9
+# def add3(x):
+#     return x + 3
+#
+# def mul7(x):
+#     return x * 7
+#
+# def compose(func_1, func_2):
+#     return lambda x: func_1(func_2(x))
+#
+# print(compose(mul7, add3)(1))
+# print(compose(add3, mul7)(2))
+# print(compose(mul7, str)(3))
+# print(compose(str, mul7)(5))
 
-def call(func, *value):
-    return func(*value)
-
-print(call(mul7, 10))
-print(call(add2, 2, 7))
-print(call(add3, 10, 30, 40))
-print(call(bool, 0))
