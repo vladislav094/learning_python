@@ -113,5 +113,11 @@ from operator import *
 # print(div(20, 5))
 
 #11
-stroka = 'cate Frog cat FROGs bee CATERS mouse cATwalk dolphin mOus Cats CatAlo'.split()
-print(*sorted(stroka, key=lambda x: x.lower()))
+# stroka = 'cate Frog cat FROGs bee CATERS mouse cATwalk dolphin mOus Cats CatAlo'.split()
+# print(*sorted(stroka, key=lambda x: x.lower()))
+
+#12
+def gemValue(word):
+    return sum(map(lambda l: ord(l.upper()) - ord('A'), word)), word
+words = [input() for _ in range(int(input()))]
+print(*sorted(words, key=gemValue), sep='\n')
