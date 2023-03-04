@@ -38,9 +38,15 @@ from functools import reduce
 # print(concat(1, 2, 3, 4, 5, 6, 7, 8, 9, sep='$$'))
 
 #4
-def product_of_odds(data):
-	result = list(filter(lambda x: x % 2 == 1, data))
-	result = reduce(lambda x,y: x*y, result, 1)
-	return result
-arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print(product_of_odds(arr))
+# def product_of_odds(data):
+# 	result = list(filter(lambda x: x % 2 == 1, data))
+# 	result = reduce(lambda x,y: x*y, result, 1)
+#
+# 	# return reduce(lambda x, y: x * y, filter(lambda x: x % 2, data), 1)  # another example of solution
+# 	return result
+# arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# print(product_of_odds(arr))
+
+#5
+words = 'the world is mine take a look what you have started'.split()
+print(*list(map(lambda x: '"'+ x + '"', words)))
