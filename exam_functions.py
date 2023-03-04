@@ -117,7 +117,16 @@ from operator import *
 # print(*sorted(stroka, key=lambda x: x.lower()))
 
 #12
-def gemValue(word):
-    return sum(map(lambda l: ord(l.upper()) - ord('A'), word)), word
-words = [input() for _ in range(int(input()))]
-print(*sorted(words, key=gemValue), sep='\n')
+# def gemValue(word):
+#     return sum(map(lambda l: ord(l.upper()) - ord('A'), word)), word
+# words = [input() for _ in range(int(input()))]
+# print(*sorted(words, key=gemValue), sep='\n')
+
+#13
+# result = [input() for x in range(int(input('count')))]
+# result = ['128.199.44.24', '128.199.201.245', '143.198.168.95', '172.67.181.62', '172.67.222.111', '172.67.10.90',
+# 		  '45.8.106.59', '203.13.32.156', '172.67.181.194']
+# k = lambda x: list(map(int, x.split('.')))
+# arr = sorted(result, key=k, reverse=False)
+# for _ in arr:
+# 	print(_)
