@@ -1016,13 +1016,30 @@ def mean(*args):
 #     for line in file.readlines():
 #         print(sum([int(elem) for elem in line.split()]))
 
-with open('nums.txt', 'r', encoding='utf-8') as file:
-    stroka = ''
-    arr = file.readlines()
-    for _ in arr:
-        for j in _:
-            if j.isdigit():
-                stroka += j
-            else:
-                stroka += ' '
-    print(sum([int(x) for x in stroka.split()]))
+# with open('students.txt', 'r', encoding='utf-8') as file:
+#     arr = file.readlines()
+#     arr = [x.strip() for x in arr]
+#     count_letter = 0
+#     count_words = 0
+#     for elt in arr:
+#         count_words += len(elt.split())
+#         for j in elt:
+#             if j.isalpha():
+#                 count_letter += 1
+#     print(f"""Input file contains:
+# {count_letter} letters
+# {count_words} words
+# {len(arr)} lines""")
+
+
+linesNum = 0
+wordsNum = 0
+lettersNum = 0
+
+with open('file.txt') as file:
+    for line in file.readlines():
+        linesNum += 1
+        wordsNum += len(line.split())
+        lettersNum += len([elem for elem in line if elem.isalpha()])
+
+print("Input file contains:\n" + str(lettersNum) + " letters\n" + str(wordsNum) + " words\n" + str(linesNum) + " lines")
