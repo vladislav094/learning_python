@@ -1031,15 +1031,30 @@ def mean(*args):
 # {count_words} words
 # {len(arr)} lines""")
 
+# linesNum = 0
+# wordsNum = 0
+# lettersNum = 0
+#
+# with open('file.txt') as file:
+#     for line in file.readlines():
+#         linesNum += 1
+#         wordsNum += len(line.split())
+#         lettersNum += len([elem for elem in line if elem.isalpha()])
+#
+# print("Input file contains:\n" + str(lettersNum) + " letters\n" + str(wordsNum) + " words\n" + str(linesNum) + " lines")
+#
+# with open('first_name.txt', encoding='utf-8') as first, open('last_name.txt', encoding='utf-8') as last:
+#     f1 = first.readlines()
+#     l1 = last.readlines()
+#     f1 = [x.strip() for x in f1]
+#     l1 = [x.strip() for x in l1]
+#     for elt in range(3):
+#         print(f1[random.randint(0, len(f1))].strip() + ' ' + l1[random.randint(0, len(l1))].strip())
 
-linesNum = 0
-wordsNum = 0
-lettersNum = 0
 
-with open('file.txt') as file:
-    for line in file.readlines():
-        linesNum += 1
-        wordsNum += len(line.split())
-        lettersNum += len([elem for elem in line if elem.isalpha()])
-
-print("Input file contains:\n" + str(lettersNum) + " letters\n" + str(wordsNum) + " words\n" + str(linesNum) + " lines")
+with open('population.txt', encoding='utf-8') as file:
+    arr = file.readlines()
+    for a in arr:
+        _ = a.split()
+        if _[0][0] == 'G' and int(_[-1]) > 500000:
+            print(_[0])
