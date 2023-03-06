@@ -1004,6 +1004,14 @@ def mean(*args):
 # file = open('prices.txt')
 # summa = 0
 
-with open('students.txt', encoding='utf-8') as file:
-    line1 = file.readlines()
-    print(line1[0][::-1])
+# with open('students.txt') as file:
+#     arr = file.readlines()
+#     for _ in arr:
+#         a = _.split()
+#         a = [int(x) for x in a]
+#         print(sum(a))
+
+
+with open('students.txt') as file:
+    for line in file.readlines():
+        print(sum([int(elem) for elem in line.split()]))
