@@ -1012,6 +1012,17 @@ def mean(*args):
 #         print(sum(a))
 
 
-with open('students.txt') as file:
-    for line in file.readlines():
-        print(sum([int(elem) for elem in line.split()]))
+# with open('students.txt') as file:
+#     for line in file.readlines():
+#         print(sum([int(elem) for elem in line.split()]))
+
+with open('nums.txt', 'r', encoding='utf-8') as file:
+    stroka = ''
+    arr = file.readlines()
+    for _ in arr:
+        for j in _:
+            if j.isdigit():
+                stroka += j
+            else:
+                stroka += ' '
+    print(sum([int(x) for x in stroka.split()]))
