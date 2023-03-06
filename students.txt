@@ -1,3 +1,1 @@
-1. Ivanov Ivan
-2. Pavel Pavlov
-3. Denis Denisov
+Read secret_message.txt and print out the first letter of each line.

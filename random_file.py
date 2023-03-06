@@ -1001,12 +1001,9 @@ def mean(*args):
 #                       'Часова 23, корпус 2', 'Василь Ярошевич', 23))
 
 
-file = open('prices.txt')
-summa = 0
+# file = open('prices.txt')
+# summa = 0
 
-for line in file.readlines():
-    arr = line.split()
-    summa += int(arr[1]) * int(arr[2])
-
-print(summa)
-file.close()
+with open('students.txt', encoding='utf-8') as file:
+    line1 = file.readlines()
+    print(line1[0][::-1])
