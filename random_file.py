@@ -1074,7 +1074,9 @@ def mean(*args):
 # print(read_csv())
 
 
-with open('students.txt', 'w') as f:
-    for _ in range(25):
-        print(random.randrange(111, 778), file=f)
+with open('students.txt', 'r') as students, open('output.txt', 'w', encoding='utf-8') as output:
+    arr = students.readlines()
+    for elt in range(len(arr)):
+        output.write(f"{elt+1}) {arr[elt]}")
+
 
