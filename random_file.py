@@ -1052,6 +1052,14 @@ def mean(*args):
 #         print(f1[random.randint(0, len(f1))].strip() + ' ' + l1[random.randint(0, len(l1))].strip())
 
 def read_csv():
+    '''
+    Вам доступен CSV-файл data.csv, содержащий информацию в csv формате. Напишите функцию read_csv для чтения данных
+    из этого файла. Она должна возвращать список словарей, интерпретируя первую строку как имена ключей, а
+    каждую последующую строку как значения этих ключей.
+
+    :return:
+    [{'name': 'George', 'address': '4312 Abbey Road', 'age': '22'}, {'name': 'John', 'address': '54 Love Ave', 'age': '21'}]
+    '''
     with open('data.csv', encoding='utf-8') as file:
         arr = file.readlines()
         keys = arr[0].split(',')
