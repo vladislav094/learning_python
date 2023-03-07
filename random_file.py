@@ -1074,9 +1074,18 @@ def mean(*args):
 # print(read_csv())
 
 
-with open('students.txt', 'r') as students, open('output.txt', 'w', encoding='utf-8') as output:
+# with open('students.txt', 'r') as students, open('output.txt', 'w', encoding='utf-8') as output:
+#     arr = students.readlines()
+#     for elt in range(len(arr)):
+#         output.write(f"{elt+1}) {arr[elt]}")
+
+with open('students.txt', 'r') as students, open('new_scores.txt', 'w', encoding='utf-8') as output:
     arr = students.readlines()
-    for elt in range(len(arr)):
-        output.write(f"{elt+1}) {arr[elt]}")
+    for elt in arr:
+        if int(elt.split()[1]) < 96:
+            print(elt.split()[0], int(elt.split()[1]) + 5, file=output)
+        else:
+            print(elt.split()[0], 100, file=output)
+
 
 
