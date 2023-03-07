@@ -1051,10 +1051,16 @@ def mean(*args):
 #     for elt in range(3):
 #         print(f1[random.randint(0, len(f1))].strip() + ' ' + l1[random.randint(0, len(l1))].strip())
 
-
-with open('population.txt', encoding='utf-8') as file:
-    arr = file.readlines()
-    for a in arr:
-        _ = a.split()
-        if _[0][0] == 'G' and int(_[-1]) > 500000:
-            print(_[0])
+def read_csv():
+    with open('data.csv', encoding='utf-8') as file:
+        arr = file.readlines()
+        keys = arr[0].split(',')
+        keys = [x.strip() for x in keys]
+        my_values = []
+        result = []
+        for elt in arr[1:]:
+            my_values.append(elt.strip().split(','))
+        for _ in range(len(my_values)):
+            result.append(dict(zip(keys, my_values[_])))
+    return result
+print(read_csv())
