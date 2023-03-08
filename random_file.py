@@ -1088,29 +1088,28 @@ def mean(*args):
 #             print(elt.split()[0], 100, file=output)
 
 
-with open('goats.txt', 'r', encoding='utf-8') as goats, open('answer.txt', 'w', encoding='utf-8') as answer:
-    arr = goats.readlines()
-    color_arr = []
-    total_count = 0
-    for _ in arr:
-        c = _.split()
-        if c[0] not in color_arr:
-            color_arr.append(c[0])
-        elif c[0] in color_arr:
-            total_count += 1
-    color_arr = color_arr[1:-1]
-    total_arr = []
-    my_dict = dict.fromkeys(color_arr, 0)
-    for elt in range(len(arr)):
-        if elt >= 8:
-            a = arr[elt].split()[0]
-            my_dict[a] += 1
-    for k, v in my_dict.items():
-        if round(v / total_count * 100) > 7.0:
-            total_arr.append(k)
-    total_arr.sort()
-    for elt in total_arr:
-        print(f"{elt} goat", end='\n', file=answer)
+# with open('goats.txt', 'r', encoding='utf-8') as goats, open('answer.txt', 'w', encoding='utf-8') as answer:
+#     arr = goats.readlines()
+#     color_arr = []
+#     total_arr = []
+#     total_count = 0
+#     for _ in arr:
+#         c = _.split()
+#         if c[0] not in color_arr:
+#             color_arr.append(c[0])
+#         elif c[0] in color_arr:
+#             total_count += 1
+#     color_arr = color_arr[1:-1]
+#     my_dict = dict.fromkeys(color_arr, 0)
+#     for elt in range(len(arr)):
+#         if elt >= 8:
+#             a = arr[elt].split()[0]
+#             my_dict[a] += 1
+#     for k, v in my_dict.items():
+#         if round(v / total_count * 100) > 7.0:
+#             total_arr.append(k)
+#     for elt in sorted(total_arr):
+#         print(f"{elt} goat", end='\n', file=answer)
 
 # with open('goats.txt', 'r', encoding='utf-8') as file, open('answer.txt', 'w', encoding='utf-8') as answer:
 #     lst = []
@@ -1120,3 +1119,11 @@ with open('goats.txt', 'r', encoding='utf-8') as goats, open('answer.txt', 'w', 
 #         if lst[1].count(c) > len(lst[1]) * 0.07:
 #             print(f'{c} goat', file=answer)
 
+
+# name_files = [input() for _ in range(int(input()))]
+# digital = int(input())
+name_files = ['students.txt', 'answer.txt', 'new_scores.txt']
+for elt in name_files:
+    with open(elt, 'r', encoding='utf-8') as file, open('output.txt', 'a', encoding='utf-8') as output:
+        arr = file.readlines()
+        out = output.writelines(arr)
