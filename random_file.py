@@ -1106,11 +1106,17 @@ with open('goats.txt', 'r', encoding='utf-8') as goats, open('answer.txt', 'w', 
             a = arr[elt].split()[0]
             my_dict[a] += 1
     for k, v in my_dict.items():
-        if v / total_count * 100 > 7:
+        if round(v / total_count * 100) > 7.0:
             total_arr.append(k)
     total_arr.sort()
     for elt in total_arr:
         print(f"{elt} goat", end='\n', file=answer)
 
-
+# with open('goats.txt', 'r', encoding='utf-8') as file, open('answer.txt', 'w', encoding='utf-8') as answer:
+#     lst = []
+#     for string in file.read().split('GOATS'):
+#         lst.append(string.strip('COLOURS').strip('\n').strip(' goat ').split(' goat\n'))
+#     for c in lst[0]:
+#         if lst[1].count(c) > len(lst[1]) * 0.07:
+#             print(f'{c} goat', file=answer)
 
