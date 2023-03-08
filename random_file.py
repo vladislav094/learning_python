@@ -1079,13 +1079,38 @@ def mean(*args):
 #     for elt in range(len(arr)):
 #         output.write(f"{elt+1}) {arr[elt]}")
 
-with open('students.txt', 'r') as students, open('new_scores.txt', 'w', encoding='utf-8') as output:
-    arr = students.readlines()
-    for elt in arr:
-        if int(elt.split()[1]) < 96:
-            print(elt.split()[0], int(elt.split()[1]) + 5, file=output)
-        else:
-            print(elt.split()[0], 100, file=output)
+# with open('students.txt', 'r') as students, open('new_scores.txt', 'w', encoding='utf-8') as output:
+#     arr = students.readlines()
+#     for elt in arr:
+#         if int(elt.split()[1]) < 96:
+#             print(elt.split()[0], int(elt.split()[1]) + 5, file=output)
+#         else:
+#             print(elt.split()[0], 100, file=output)
+
+
+with open('goats.txt', 'r', encoding='utf-8') as goats, open('answer.txt', 'w', encoding='utf-8') as answer:
+    arr = goats.readlines()
+    color_arr = []
+    total_count = 0
+    for _ in arr:
+        c = _.split()
+        if c[0] not in color_arr:
+            color_arr.append(c[0])
+        elif c[0] in color_arr:
+            total_count += 1
+    color_arr = color_arr[1:-1]
+    total_arr = []
+    my_dict = dict.fromkeys(color_arr, 0)
+    for elt in range(len(arr)):
+        if elt >= 8:
+            a = arr[elt].split()[0]
+            my_dict[a] += 1
+    for k, v in my_dict.items():
+        if v / total_count * 100 > 7:
+            total_arr.append(k)
+    total_arr.sort()
+    for elt in total_arr:
+        print(f"{elt} goat", end='\n', file=answer)
 
 
 
