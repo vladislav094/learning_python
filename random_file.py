@@ -1143,16 +1143,20 @@ def mean(*args):
 
 
 
-def outer(func):
-    def inner(*args, **kwargs):
-        start_time = datetime.now()
-        result = func(*args)
-        stop_time = datetime.now()
-        time_result = stop_time - start_time
-        return time_result
-    return inner
-@outer
-def funct(a, b):
-    return a + b
-print(funct(2, 5))
+# def outer(func):
+#     def inner(*args, **kwargs):
+#         start_time = datetime.now()
+#         result = func(*args)
+#         stop_time = datetime.now()
+#         time_result = stop_time - start_time
+#         return time_result
+#     return inner
+#
+# @outer
+# def funct(a, b):
+#     return a + b
+# print(funct(2, 5))
 
+with open('students.txt', 'r', encoding='utf-8') as file:
+    arr = file.readlines()
+    print(len(arr))
