@@ -23,9 +23,20 @@
 
 
 #4
+# with open('students.txt', 'r', encoding='utf-8') as file:
+# 	arr = file.read()
+# 	len_max = max([len(x) for x in arr.split()])
+# 	for elt in arr.split():
+# 		if len(elt) == len_max:
+# 			print(elt)
+
+#5
 with open('students.txt', 'r', encoding='utf-8') as file:
-	arr = file.read()
-	len_max = max([len(x) for x in arr.split()])
-	for elt in arr.split():
-		if len(elt) == len_max:
-			print(elt)
+	arr = file.readlines()
+	start = len(arr) - 10
+	if len(arr) < 10:
+		for elt in arr:
+			print(elt, end='')
+	else:
+		for elt in range(start, len(arr)):
+			print(arr[elt], end='')
