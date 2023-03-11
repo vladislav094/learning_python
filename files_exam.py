@@ -31,12 +31,21 @@
 # 			print(elt)
 
 #5
-with open('students.txt', 'r', encoding='utf-8') as file:
-	arr = file.readlines()
-	start = len(arr) - 10
-	if len(arr) < 10:
-		for elt in arr:
-			print(elt, end='')
-	else:
-		for elt in range(start, len(arr)):
-			print(arr[elt], end='')
+# with open('students.txt', 'r', encoding='utf-8') as file:
+# 	arr = file.readlines()
+# 	start = len(arr) - 10
+# 	if len(arr) < 10:
+# 		for elt in arr:
+# 			print(elt, end='')
+# 	else:
+# 		for elt in range(start, len(arr)):
+# 			print(arr[elt], end='')
+
+#6
+with open('forbidden_words.txt') as forbidden_words, open(input()) as to_change:
+	pattern, text = forbidden_words.read().split(), to_change.read()
+text_lower = text.lower()
+for word in pattern:
+	text_lower = text_lower.replace(word, '*' * len(word))
+result = ''.join((y, x)[x == '*'] for x, y in zip(text_lower, text))
+print(result)
