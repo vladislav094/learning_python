@@ -4,6 +4,7 @@ import itertools
 import math
 from operator import *
 from functools import reduce
+from datetime import datetime
 # ticket = int(input())
 #
 # result = []
@@ -1129,13 +1130,29 @@ def mean(*args):
 #         out = output.writelines(arr)
 
 
-with open('logfile.txt', 'r', encoding='utf-8') as log, open('output.txt', 'w', encoding='utf-8') as out:
-    log_arr = log.readlines()
-    log_arr = [x.split() for x in log_arr]
-    for elt in range(len(log_arr)):
-        time_start = log_arr[elt][2].replace(',','').split(':')
-        time_stop = log_arr[elt][3].split(':')
-        int_time_start = [int(x) for x in time_start]
-        int_time_stop = [int(x) for x in time_stop]
-        if (int_time_stop[0] * 60 + int_time_stop[1]) - (int_time_start[0] * 60 + int_time_start[1]) >= 60:
-            print(str(log_arr[elt][0]) + ' ' +str(log_arr[elt][1].replace(',','')), end='\n', file=out)
+# with open('logfile.txt', 'r', encoding='utf-8') as log, open('output.txt', 'w', encoding='utf-8') as out:
+#     log_arr = log.readlines()
+#     log_arr = [x.split() for x in log_arr]
+#     for elt in range(len(log_arr)):
+#         time_start = log_arr[elt][2].replace(',','').split(':')
+#         time_stop = log_arr[elt][3].split(':')
+#         int_time_start = [int(x) for x in time_start]
+#         int_time_stop = [int(x) for x in time_stop]
+#         if (int_time_stop[0] * 60 + int_time_stop[1]) - (int_time_start[0] * 60 + int_time_start[1]) >= 60:
+#             print(str(log_arr[elt][0]) + ' ' +str(log_arr[elt][1].replace(',','')), end='\n', file=out)
+
+
+
+def outer(func):
+    def inner(*args, **kwargs):
+        start_time = datetime.now()
+        result = func(*args)
+        stop_time = datetime.now()
+        time_result = stop_time - start_time
+        return time_result
+    return inner
+@outer
+def funct(a, b):
+    return a + b
+print(funct(2, 5))
+
