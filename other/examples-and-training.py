@@ -1,6 +1,6 @@
 from datetime import datetime
-arr_1 = [1, 2, 3, 4, 5]
-arr_2 = [1, [2, [3, [4, [5]]]], 6,[[4]]]
+arr_1 = [1, 2, 3, 4, 5, 1]
+arr_2 = [1, [2, [3, [4, [5,[1, 1]]]]], 6,[[4, 1]], 1]
 
 def my_recursion_for_sum(l: list):
 	if len(l) == 0:
@@ -40,4 +40,28 @@ def my_rec(func, arr: list):
 	print(func(arr))
 
 
-my_rec(my_recursion_for_all_inner_lists, arr_2)
+# my_rec(my_recursion_for_all_inner_lists, arr_2)
+
+
+def check_recursion(l):
+	total = 0
+	arr = list(l)
+	while arr:
+		front = arr.pop(0)
+		if not isinstance(front, list):
+			total += front
+		else:
+			arr.extend(front)
+	return total
+# print(check_recursion(arr_2))
+
+def my_recursion_find_count_of_number(l: list, digit: int):
+	count = 0
+	for x in l:
+		if not isinstance(x, list):
+			if x == digit:
+				count += 1
+		else:
+			count += my_recursion_find_count_of_number(x, digit)
+	return count
+print(my_recursion_find_count_of_number(arr_2, 1))
