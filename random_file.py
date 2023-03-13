@@ -1200,7 +1200,7 @@ def mean(*args):
 
 
 
-F = {'c':{
+F = {'C':{
         'Python3': ['python.exe', 'python.ini'],
         'Program Files': {
             'Java':['README.txt', 'Welcome.html', 'Java.exe'],
@@ -1212,11 +1212,15 @@ F = {'c':{
     }
 }
 
-def my_rec(my_dict: dict):
+def my_rec(my_dict: dict, depth=0):
     for k, v in my_dict.items():
+        print(' '*depth, k)
         if isinstance(v, list):
             print(v)
         else:
-            my_rec(v)
+            my_rec(v, depth+1)
 
-my_rec(F)
+# my_rec(F)
+
+arr = [line.strip() for line in open('logfile.txt', 'r', encoding='utf-8').readlines()]
+print(arr)
