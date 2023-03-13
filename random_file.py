@@ -1178,23 +1178,45 @@ def mean(*args):
 # result = list(map((lambda x: x * 10), l1))
 # print(result)
 
-class SequnceIterations:
-    def __init__(self, sequnce):
-        self._sequnce = sequnce
-        self._index = 0
+# class SequnceIterations:
+#     def __init__(self, sequnce):
+#         self._sequnce = sequnce
+#         self._index = 0
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         if self._index < len(self._sequnce):
+#             item = self._sequnce[self._index]
+#             self._index += 1
+#             return item
+#         else:
+#             raise StopIteration
+#
+#
+# l1 = [11, 22, 33, 44, 55]
+# a = SequnceIterations(l1)
 
-    def __iter__(self):
-        return self
 
-    def __next__(self):
-        if self._index < len(self._sequnce):
-            item = self._sequnce[self._index]
-            self._index += 1
-            return item
+
+F = {'c':{
+        'Python3': ['python.exe', 'python.ini'],
+        'Program Files': {
+            'Java':['README.txt', 'Welcome.html', 'Java.exe'],
+            'MATLAB': ['mathalab.bat', 'matlab.exe', 'mcc.bat']
+        },
+        'Windows': {
+            'System32': ['acledit.dll', 'aclui.dll', 'zipfldr.dll']
+        }
+    }
+}
+
+def my_rec(my_dict: dict):
+    for k, v in my_dict.items():
+        if isinstance(v, list):
+            print(v)
         else:
-            raise StopIteration
+            my_rec(v)
 
-
-l1 = [11, 22, 33, 44, 55]
-a = SequnceIterations(l1)
-
+my_rec(F)
