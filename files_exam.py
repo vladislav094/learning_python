@@ -42,10 +42,28 @@
 # 			print(arr[elt], end='')
 
 #6
-with open('forbidden_words.txt') as forbidden_words, open(input()) as to_change:
-	pattern, text = forbidden_words.read().split(), to_change.read()
-text_lower = text.lower()
-for word in pattern:
-	text_lower = text_lower.replace(word, '*' * len(word))
-result = ''.join((y, x)[x == '*'] for x, y in zip(text_lower, text))
-print(result)
+# with open('forbidden_words.txt') as forbidden_words, open(input()) as to_change:
+# 	pattern, text = forbidden_words.read().split(), to_change.read()
+# text_lower = text.lower()
+# for word in pattern:
+# 	text_lower = text_lower.replace(word, '*' * len(word))
+# result = ''.join((y, x)[x == '*'] for x, y in zip(text_lower, text))
+# print(result)
+
+#7
+# d = {
+#     'а': 'a', 'к': 'k', 'х': 'h', 'б': 'b', 'л': 'l', 'ц': 'c', 'в': 'v', 'м': 'm', 'ч': 'ch',
+#     'г': 'g', 'н': 'n', 'ш': 'sh', 'д': 'd', 'о': 'o', 'щ': 'shh', 'е': 'e', 'п': 'p', 'ъ': '*',
+#     'ё': 'jo', 'р': 'r', 'ы': 'y', 'ж': 'zh', 'с': 's', 'ь': "'", 'з': 'z', 'т': 't', 'э': 'je',
+#     'и': 'i', 'у': 'u', 'ю': 'ju', 'й': 'j', 'ф': 'f', 'я': 'ya'
+#     }
+# with open('students.txt', 'r', encoding='utf-8') as file:
+# 	arr = file.readlines()
+# 	new_text = ''
+# 	result = ''
+# 	for elt in arr:
+# 		new_text += elt
+# 	for elt in new_text:
+# 		result += d.get(elt, ' ')
+# 	print(new_text)
+# print(result)

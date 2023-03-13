@@ -1156,7 +1156,45 @@ def mean(*args):
 # def funct(a, b):
 #     return a + b
 # print(funct(2, 5))
+#
+# with open('students.txt', 'r', encoding='utf-8') as file:
+#     arr = file.readlines()
+#     print(len(arr))
 
-with open('students.txt', 'r', encoding='utf-8') as file:
-    arr = file.readlines()
-    print(len(arr))
+# def text_pring(message: str):
+#     print(message)
+#
+#
+# def recover_func(funct, my_arg):
+#     funct(my_arg)
+#
+# shedule = [(text_pring, 'Test-1'), (text_pring, 'Test-2')]
+#
+# for (func, arg) in shedule:
+#     func(arg)
+#
+# l1 = [1, 2, 3, 4, 5, 6]
+#
+# result = list(map((lambda x: x * 10), l1))
+# print(result)
+
+class SequnceIterations:
+    def __init__(self, sequnce):
+        self._sequnce = sequnce
+        self._index = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self._index < len(self._sequnce):
+            item = self._sequnce[self._index]
+            self._index += 1
+            return item
+        else:
+            raise StopIteration
+
+
+l1 = [11, 22, 33, 44, 55]
+a = SequnceIterations(l1)
+
