@@ -50,3 +50,9 @@ l = [1, 2, 3, 4, 5]
 print(permute(l))
 
 
+def my_map_with_yield(func, sequence):
+	return (func(elt) for elt in sequence)
+
+l = '12345'
+b = my_map_with_yield(str, l)
+print(list(b))

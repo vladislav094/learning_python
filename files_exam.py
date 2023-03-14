@@ -69,8 +69,8 @@
 # print(result)
 
 
-def fact(x):
-	if x == 1:
-		return 1
-	return fact(x - 1) * x
-print(fact(5))
+def my_map(func, seq):
+	return (func(elt) for elt in seq)
+l = '12345'
+b = my_map(str, l)
+print(list(b))
