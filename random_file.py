@@ -1221,6 +1221,3 @@ def my_rec(my_dict: dict, depth=0):
             my_rec(v, depth+1)
 
 # my_rec(F)
-
-arr = [line.strip() for line in open('logfile.txt', 'r', encoding='utf-8').readlines()]
-print(arr)

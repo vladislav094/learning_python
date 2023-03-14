@@ -65,3 +65,11 @@ def my_recursion_find_count_of_number(l: list, digit: int):
 			count += my_recursion_find_count_of_number(x, digit)
 	return count
 print(my_recursion_find_count_of_number(arr_2, 1))
+
+
+
+def factorial(n):
+	if n == 1:
+		return 1
+	return factorial(n-1) * n
+print(factorial(5))
