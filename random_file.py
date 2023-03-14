@@ -5,6 +5,7 @@ import math
 from operator import *
 from functools import reduce
 from datetime import datetime
+import time
 # ticket = int(input())
 #
 # result = []
@@ -1212,12 +1213,55 @@ F = {'C':{
     }
 }
 
-def my_rec(my_dict: dict, depth=0):
-    for k, v in my_dict.items():
-        print(' '*depth, k)
-        if isinstance(v, list):
-            print(v)
-        else:
-            my_rec(v, depth+1)
+# def my_rec(my_dict: dict, depth=0):
+#     for k, v in my_dict.items():
+#         print(' '*depth, k)
+#         if isinstance(v, list):
+#             print(v)
+#         else:
+#             my_rec(v, depth+1)
+#
+# # my_rec(F)
+arr_2 = [1, [2, [3, [4, [5,[1, 1]]]]], 6,[[4, 1]], 1]
+def factorial(n):
+    if n == 1:
+        return 1
+    return factorial(n-1) * n
 
-# my_rec(F)
+def my_recursion_for_all_inner_lists(l: list):
+    total = 0
+    for x in l:
+        if not isinstance(x, list):
+            total += x
+        else:
+            total += my_recursion_for_all_inner_lists(x)
+    return total
+
+
+def outer(func):
+    def inner(*args):
+        start = datetime.now()
+        _ = func(*args)
+        stop = datetime.now()
+        print(stop -start)
+    return inner
+
+@outer
+def my_factorial(func, arr):
+    print(func(arr))
+
+
+my_factorial(factorial, 5)
+my_factorial(my_recursion_for_all_inner_lists, arr_2)
+print()
+
+def timer(func, *args):
+    start = datetime.now()
+    a = func(*args)
+    print(a)
+    stop = datetime.now()
+    return stop - start
+
+print(timer(factorial, 5))
+print(timer(my_recursion_for_all_inner_lists, arr_2))
+print(timer(factorial, 5))

@@ -38,8 +38,6 @@ def outer(func):
 @outer
 def my_rec(func, arr: list):
 	print(func(arr))
-
-
 # my_rec(my_recursion_for_all_inner_lists, arr_2)
 
 
@@ -55,6 +53,7 @@ def check_recursion(l):
 	return total
 # print(check_recursion(arr_2))
 
+
 def my_recursion_find_count_of_number(l: list, digit: int):
 	count = 0
 	for x in l:
@@ -67,9 +66,20 @@ def my_recursion_find_count_of_number(l: list, digit: int):
 print(my_recursion_find_count_of_number(arr_2, 1))
 
 
-
 def factorial(n):
 	if n == 1:
 		return 1
 	return factorial(n-1) * n
+
+
+def timer(func, *args):
+	start = datetime.now()
+	a = func(*args)
+	print(a)
+	stop = datetime.now()
+	return stop - start
+
+print(timer(factorial, 5))
+
+
 print(factorial(5))
