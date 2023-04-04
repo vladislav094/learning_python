@@ -1,3 +1,4 @@
+import functools
 #1
 # with open(input(), 'r', encoding='utf-8') as file:
 #     arr = file.readlines()
@@ -69,8 +70,12 @@
 # print(result)
 
 
-def my_map(func, seq):
-	return (func(elt) for elt in seq)
-l = '12345'
-b = my_map(str, l)
-print(list(b))
+def countdown(x):
+	if x > 0:
+		print(x)
+		countdown(x-1)
+countdown(6)
+
+a = [1, 2, 3, 4, 5, 6]
+new_a = functools.reduce((lambda x, y: x * y), a)
+print(new_a)
