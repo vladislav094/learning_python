@@ -27,17 +27,27 @@ class Manager:
 	def __repr__(self):
 		return str(self.person)
 
+class Department:
+	def __init__(self, *args):
+		self.members = list(args)
+
+	def add_member(self, person):
+		self.members.append(person)
+
+	def give_raise(self, percent):
+		for person in self.members:
+			person.give_raise(percent)
+
+	def show_all(self):
+		for person in self.members:
+			print(person)
 
 if __name__ == "__main__":
 	bob = Person("Boby Smith")
 	sue = Person("Sue Jones", job='dev', pay=100000)
-	print(bob)
-	print(sue)
-	print(bob.last_name())
-	print(sue.last_name())
-	sue.give_raise(.10)
-	print(sue)
 	tom = Manager("Tom Jones", 50000)
-	tom.give_raise(.10)
-	print(tom)
-
+	development = Department(bob, sue)
+	development.add_member(tom)
+	development.give_raise(.10)
+	development.show_all()
+	print(development.members)
