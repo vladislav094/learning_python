@@ -15,6 +15,9 @@ class Person:
 
 
 class Manager(Person):
+	def __init__(self, name, pay):
+		Person.__init__(self, name, 'mgr', pay)
+
 	def give_raise(self, percent, bonus=.10):
 		Person.give_raise(self, percent + bonus)
 
@@ -29,7 +32,7 @@ if __name__ == "__main__":
 	print(sue.last_name())
 	sue.give_raise(.10)
 	print(sue)
-	tom = Manager("Tom Jones", "mgr", 50000)
+	tom = Manager("Tom Jones", 50000)
 	tom.give_raise(.10)
 	print(tom)
 
