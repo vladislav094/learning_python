@@ -1,4 +1,6 @@
-class Person:
+from calsstools import AttrDisplay
+
+class Person(AttrDisplay):
 	def __init__(self, name: str, job=None, pay=0):
 		self.name = name
 		self.job = job
