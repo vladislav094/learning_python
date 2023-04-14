@@ -25,12 +25,32 @@ class SubClass(Testing):
     ...
 
 
-a = Testing('Bob', 25)
-b = Testing("jack", 40)
-c = Testing('Ola', 22)
+# a = Testing('Bob', 25)
+# b = Testing("jack", 40)
+# c = Testing('Ola', 22)
+#
+# Testing.print_arr_with_name()
+# Testing.get_total_age()
+#
+# d = SubClass('Ivan', 10)
+# d.print_total_age()
 
-Testing.print_arr_with_name()
-Testing.get_total_age()
 
-d = SubClass('Ivan', 10)
-d.print_total_age()
+class tracer:
+    def __init__(self, func):
+        self.calls = 0
+        self.func = func
+
+    def __call__(self, *args):
+        self.calls += 1
+        print(f"call {self.calls} to {self.func.__name__}")
+        return self.func(*args)
+
+
+@tracer
+def spam(a, b, c):
+    return a + b + c
+
+
+print(spam(1, 2, 3))
+print(spam('a', 'b', 'c'))

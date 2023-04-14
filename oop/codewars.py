@@ -32,16 +32,42 @@
 
 # 2
 
-class Class:
-    value = 1
-    @staticmethod
-    def get_number():
-        result = Class.value
-        Class.value *= 2
-        return result
+# class Class:
+#     value = 1
+#     @staticmethod
+#     def get_number():
+#         result = Class.value
+#         Class.value *= 2
+#         return result
+#
+#
+# print(Class.get_number())
+# print(Class.get_number())
+# print(Class.get_number())
+# print(Class.get_number())
+
+# 3
+class Quark:
+    def __init__(self, color, up):
+        self.color = color
+        self.up = up
+        self.baryon = 1
+
+    @property
+    def baryon_number(self):
+        return self.baryon / 3
+
+    def interact(self, second_self):
+        self.color, second_self.color = second_self.color, self.color
 
 
-print(Class.get_number())
-print(Class.get_number())
-print(Class.get_number())
-print(Class.get_number())
+q1 = Quark('red', 'up')
+print(q1.color)
+print(q1.baryon_number)
+q2 = Quark('blue', 'strange')
+print(q2.color)
+print(q2.baryon_number)
+q1.interact(q2)
+print(q1.color)
+print(q2.color)
+
