@@ -47,27 +47,54 @@
 # print(Class.get_number())
 
 # 3
-class Quark:
-    def __init__(self, color, up):
-        self.color = color
-        self.up = up
-        self.baryon = 1
+# class Quark:
+#     def __init__(self, color, up):
+#         self.color = color
+#         self.up = up
+#         self.baryon = 1
+#
+#     @property
+#     def baryon_number(self):
+#         return self.baryon / 3
+#
+#     def interact(self, second_self):
+#         self.color, second_self.color = second_self.color, self.color
+#
+#
+# q1 = Quark('red', 'up')
+# print(q1.color)
+# print(q1.baryon_number)
+# q2 = Quark('blue', 'strange')
+# print(q2.color)
+# print(q2.baryon_number)
+# q1.interact(q2)
+# print(q1.color)
+# print(q2.color)
 
-    @property
-    def baryon_number(self):
-        return self.baryon / 3
+# 4
+# class Person:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def greet(self, your_name):
+#         return f"Hello {your_name}, my name is {self.name}"
+#
+# jack = Person("Jack")
+# jill = Person("Jill")
+#
+# print(jack.greet('Jill'))
 
-    def interact(self, second_self):
-        self.color, second_self.color = second_self.color, self.color
+# 5
+# def make_class(*args):
+#     class MyClass:
+#         def __init__(self, *vals):
+#             self.__dict__ = {x:y for x,y in zip(args, vals)}
+#     return MyClass
+#
+# Animel = make_class("name", "species", "age", "health", "weight", "color")
 
 
-q1 = Quark('red', 'up')
-print(q1.color)
-print(q1.baryon_number)
-q2 = Quark('blue', 'strange')
-print(q2.color)
-print(q2.baryon_number)
-q1.interact(q2)
-print(q1.color)
-print(q2.color)
+# 6
+
+
 
