@@ -7,19 +7,26 @@
 # print(hide_card(card))
 
 #2
+# arr = [6, 0, 67, -7, 10, -20]
+# def same_parity(numbers):
+# 	result = []
+# 	if len(numbers) == 0:
+# 		return []
+# 	else:
+# 		x = numbers[0]
+# 		for elt in numbers:
+# 			if elt % 2 == x % 2:
+# 				result.append(elt)
+# 	return result
+#
+# print(same_parity(arr))
 
-arr = [6, 0, 67, -7, 10, -20]
-def same_parity(numbers):
-	result = []
-	if len(numbers) == 0:
-		return []
+#3
+pin_code = '43 67'
+def is_valid(pin):
+	if len(pin) >=4 and len(pin) <= 6 and pin.isdigit():
+		return True
 	else:
-		x = numbers[0]
-		for elt in numbers:
-			if elt % 2 == x % 2:
-				result.append(elt)
-	return result
+		return False
 
-print(same_parity(arr))
-
-
+print(is_valid(pin_code))
