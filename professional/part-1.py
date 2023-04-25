@@ -43,19 +43,39 @@
 
 
 #5
-def convert(string: str)-> str:
-	low_letter = 0
-	up_letter = 0
-	for elt in string:
-		if elt.isupper():
-			up_letter += 1
-		if elt.islower():
-			low_letter += 1
-	if low_letter >= up_letter:
-		return string.lower()
-	else:
-		return string.upper()
+# def convert(string: str)-> str:
+# 	low_letter = 0
+# 	up_letter = 0
+# 	for elt in string:
+# 		if elt.isupper():
+# 			up_letter += 1
+# 		if elt.islower():
+# 			low_letter += 1
+# 	if low_letter >= up_letter:
+# 		return string.lower()
+# 	else:
+# 		return string.upper()
+#
+# print(convert('BEEgeek'))
+# print(convert('pi31415!'))
+# print(convert('pyTHON'))
 
-print(convert('BEEgeek'))
-print(convert('pi31415!'))
-print(convert('pyTHON'))
+
+#6
+def filter_anagrams(word: str, words: list)-> list:
+	my_dict = {}
+	result = []
+	for elt in word:
+		my_dict[elt] = my_dict.get(elt, 0) + 1
+
+	for elt in words:
+		tempt_dict = {}
+		for letter in elt:
+			tempt_dict[letter] = tempt_dict.get(letter, 0) + 1
+		if tempt_dict == my_dict:
+			result.append(elt)
+	return result
+
+w = 'abba'
+a = ['aabb', 'abcd', 'bbaa', 'dada']
+print(filter_anagrams(w, a))
