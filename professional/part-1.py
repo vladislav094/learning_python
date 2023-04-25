@@ -33,10 +33,29 @@
 
 
 #4
-def print_given(*args, **kwargs):
-	for elt in args:
-		print(elt, type(elt))
-	for k, v in sorted(kwargs.items()):
-		print(k, v, type(v))
+# def print_given(*args, **kwargs):
+# 	for elt in args:
+# 		print(elt, type(elt))
+# 	for k, v in sorted(kwargs.items()):
+# 		print(k, v, type(v))
+#
+# print_given(1, [1, 2, 3], 'three', two=2)
 
-print_given(1, [1, 2, 3], 'three', two=2)
+
+#5
+def convert(string: str)-> str:
+	low_letter = 0
+	up_letter = 0
+	for elt in string:
+		if elt.isupper():
+			up_letter += 1
+		if elt.islower():
+			low_letter += 1
+	if low_letter >= up_letter:
+		return string.lower()
+	else:
+		return string.upper()
+
+print(convert('BEEgeek'))
+print(convert('pi31415!'))
+print(convert('pyTHON'))
