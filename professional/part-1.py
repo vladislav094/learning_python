@@ -82,21 +82,45 @@
 
 
 #7
-def likes(names: list)-> str:
-	if len(names) == 0:
-		return "Никто не оценил данную запись"
-	if len(names) == 1:
-		return f"{names[0]} оценил(а) данную запись"
-	if len(names) == 2:
-		return f"{names[0]} и {names[1]} оценили данную запись"
-	if len(names) > 3:
-		names[2] = f"{len(names) - 2} других"
-	return f"{names[0]}, {names[1]} и {names[2]} оценили данную запись"
+# def likes(names: list)-> str:
+# 	if len(names) == 0:
+# 		return "Никто не оценил данную запись"
+# 	if len(names) == 1:
+# 		return f"{names[0]} оценил(а) данную запись"
+# 	if len(names) == 2:
+# 		return f"{names[0]} и {names[1]} оценили данную запись"
+# 	if len(names) > 3:
+# 		names[2] = f"{len(names) - 2} других"
+# 	return f"{names[0]}, {names[1]} и {names[2]} оценили данную запись"
+#
+# print(likes([]))
+# print(likes(['Тимур']))
+# print(likes(['Тимур', 'Артур']))
+# print(likes(['Тимур', 'Артур', 'Руслан']))
+# print(likes(['Тимур', 'Артур', 'Руслан', 'Анри']))
+# print(likes(['Тимур', 'Артур', 'Руслан', 'Анри', 'Дима']))
+# print(likes(['Тимур', 'Артур', 'Руслан', 'Анри', 'Дима', 'Рома', 'Гвидо', 'Марк']))
 
-print(likes([]))
-print(likes(['Тимур']))
-print(likes(['Тимур', 'Артур']))
-print(likes(['Тимур', 'Артур', 'Руслан']))
-print(likes(['Тимур', 'Артур', 'Руслан', 'Анри']))
-print(likes(['Тимур', 'Артур', 'Руслан', 'Анри', 'Дима']))
-print(likes(['Тимур', 'Артур', 'Руслан', 'Анри', 'Дима', 'Рома', 'Гвидо', 'Марк']))
+
+#8
+def index_of_nearest(numbers, number):
+	if len(numbers) == 0:
+		return -1
+	else:
+		result = []
+		my_indx = 0
+		for elt in numbers:
+			if elt > number:
+				result.append(len(range(number, elt)))
+			else:
+				result.append(len(range(elt, number)))
+		minimum = min(result)
+		for elt in range(len(result)):
+			if result[elt] == minimum:
+				my_indx = elt
+				break
+		return my_indx
+
+arr = [7, 13, 3, 5, 18]
+num = 0
+
