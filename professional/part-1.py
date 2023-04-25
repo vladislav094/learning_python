@@ -62,20 +62,41 @@
 
 
 #6
-def filter_anagrams(word: str, words: list)-> list:
-	my_dict = {}
-	result = []
-	for elt in word:
-		my_dict[elt] = my_dict.get(elt, 0) + 1
+# def filter_anagrams(word: str, words: list)-> list:
+# 	my_dict = {}
+# 	result = []
+# 	for elt in word:
+# 		my_dict[elt] = my_dict.get(elt, 0) + 1
+#
+# 	for elt in words:
+# 		tempt_dict = {}
+# 		for letter in elt:
+# 			tempt_dict[letter] = tempt_dict.get(letter, 0) + 1
+# 		if tempt_dict == my_dict:
+# 			result.append(elt)
+# 	return result
+#
+# w = 'abba'
+# a = ['aabb', 'abcd', 'bbaa', 'dada']
+# print(filter_anagrams(w, a))
 
-	for elt in words:
-		tempt_dict = {}
-		for letter in elt:
-			tempt_dict[letter] = tempt_dict.get(letter, 0) + 1
-		if tempt_dict == my_dict:
-			result.append(elt)
-	return result
 
-w = 'abba'
-a = ['aabb', 'abcd', 'bbaa', 'dada']
-print(filter_anagrams(w, a))
+#7
+def likes(names: list)-> str:
+	if len(names) == 0:
+		return "Никто не оценил данную запись"
+	if len(names) == 1:
+		return f"{names[0]} оценил(а) данную запись"
+	if len(names) == 2:
+		return f"{names[0]} и {names[1]} оценили данную запись"
+	if len(names) > 3:
+		names[2] = f"{len(names) - 2} других"
+	return f"{names[0]}, {names[1]} и {names[2]} оценили данную запись"
+
+print(likes([]))
+print(likes(['Тимур']))
+print(likes(['Тимур', 'Артур']))
+print(likes(['Тимур', 'Артур', 'Руслан']))
+print(likes(['Тимур', 'Артур', 'Руслан', 'Анри']))
+print(likes(['Тимур', 'Артур', 'Руслан', 'Анри', 'Дима']))
+print(likes(['Тимур', 'Артур', 'Руслан', 'Анри', 'Дима', 'Рома', 'Гвидо', 'Марк']))
