@@ -22,11 +22,21 @@
 # print(same_parity(arr))
 
 #3
-pin_code = '43 67'
-def is_valid(pin):
-	if len(pin) >=4 and len(pin) <= 6 and pin.isdigit():
-		return True
-	else:
-		return False
+# pin_code = '43 67'
+# def is_valid(pin):
+# 	if len(pin) >=4 and len(pin) <= 6 and pin.isdigit():
+# 		return True
+# 	else:
+# 		return False
+#
+# print(is_valid(pin_code))
 
-print(is_valid(pin_code))
+
+#4
+def print_given(*args, **kwargs):
+	for elt in args:
+		print(elt, type(elt))
+	for k, v in sorted(kwargs.items()):
+		print(k, v, type(v))
+
+print_given(1, [1, 2, 3], 'three', two=2)
