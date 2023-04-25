@@ -103,24 +103,37 @@
 
 
 #8
-def index_of_nearest(numbers, number):
-	if len(numbers) == 0:
-		return -1
-	else:
-		result = []
-		my_indx = 0
-		for elt in numbers:
-			if elt > number:
-				result.append(len(range(number, elt)))
-			else:
-				result.append(len(range(elt, number)))
-		minimum = min(result)
-		for elt in range(len(result)):
-			if result[elt] == minimum:
-				my_indx = elt
-				break
-		return my_indx
+# def index_of_nearest(numbers, number):
+# 	if len(numbers) == 0:
+# 		return -1
+# 	else:
+# 		result = []
+# 		my_indx = 0
+# 		for elt in numbers:
+# 			if elt > number:
+# 				result.append(len(range(number, elt)))
+# 			else:
+# 				result.append(len(range(elt, number)))
+# 		minimum = min(result)
+# 		for elt in range(len(result)):
+# 			if result[elt] == minimum:
+# 				my_indx = elt
+# 				break
+# 		return my_indx
+#
+# arr = [7, 13, 3, 5, 18]
+# num = 0
 
-arr = [7, 13, 3, 5, 18]
-num = 0
 
+#9
+def spell(*args):
+	my_dict = {}
+	my_set = set()
+	for elt in args:
+		my_set.add(elt[0].lower())
+	for s in my_set:
+		my_dict[s] = max([len(x) for x in args if s == x[0].lower()])
+	return my_dict
+
+w = ['россия', 'Австрия', 'австралия', 'РумыниЯ', 'Украина', 'КИТай', 'УЗБЕКИСТАН']
+print(spell(*w))
