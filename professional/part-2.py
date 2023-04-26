@@ -38,14 +38,37 @@ def revers(a, b, c, d, e):
 
 
 #4
-def more_that_one(seq: str)-> str:
-	arr_seq = [int(x) for x in seq.split()]
-	result = set(x for x in arr_seq if arr_seq.count(x) > 1)
-	my_arr = []
-	for _ in result:
-		my_arr.append(str(_))
-	my_arr.sort(key=int)
-	return ' '.join(my_arr)
+# def more_that_one(seq: str)-> str:
+# 	arr_seq = [int(x) for x in seq.split()]
+# 	result = set(x for x in arr_seq if arr_seq.count(x) > 1)
+# 	my_arr = []
+# 	for _ in result:
+# 		my_arr.append(str(_))
+# 	my_arr.sort(key=int)
+# 	return ' '.join(my_arr)
+#
+# print(more_that_one('3 1 3 2 3 11 4 3 5 3 6 3 7 3 8 3 9 3 10 3 11 3 3 12 13 1'))
 
 
-print(more_that_one('3 1 3 2 3 11 4 3 5 3 6 3 7 3 8 3 9 3 10 3 11 3 3 12 13 1'))
+#5
+def max_len_of_group(number: int)-> int:
+	# my_arr = [' '.join(str(x)) for x in my_arr]
+	my_arr = [str(x) for x in range(1, number + 1)]
+	result = []
+	print(my_arr)
+	for elt in range(len(my_arr)):
+		temp = []
+		a = ' '.join(my_arr[elt])
+		a = sum([int(x) for x in a.split()])
+		temp.append(a)
+		for jey in range(elt + 1, len(my_arr)):
+			b = ' '.join(my_arr[jey])
+			b = sum([int(x) for x in b.split()])
+			if a == b:
+				temp.append(my_arr[jey])
+				result.append(temp)
+
+	print(result)
+
+max_len_of_group(20)
+# print('11'.split())
