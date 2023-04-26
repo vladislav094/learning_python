@@ -126,14 +126,47 @@
 
 
 #9
-def spell(*args):
-	my_dict = {}
-	my_set = set()
-	for elt in args:
-		my_set.add(elt[0].lower())
-	for s in my_set:
-		my_dict[s] = max([len(x) for x in args if s == x[0].lower()])
-	return my_dict
+# def spell(*args):
+# 	my_dict = {}
+# 	my_set = set()
+# 	for elt in args:
+# 		my_set.add(elt[0].lower())
+# 	for s in my_set:
+# 		my_dict[s] = max([len(x) for x in args if s == x[0].lower()])
+# 	return my_dict
+#
+# w = ['россия', 'Австрия', 'австралия', 'РумыниЯ', 'Украина', 'КИТай', 'УЗБЕКИСТАН']
+# print(spell(*w))
 
-w = ['россия', 'Австрия', 'австралия', 'РумыниЯ', 'Украина', 'КИТай', 'УЗБЕКИСТАН']
-print(spell(*w))
+
+#10
+# def choose_plural(amount: int, declensions: tuple)-> str:
+# 	str_amount = str(amount)
+# 	if int(str_amount[-1]) == 1 and int(str_amount[-2]) != 1:
+# 		return f'{amount} {declensions[0]}'
+# 	if len(str_amount) >= 2 and int(str_amount[-2]) > 1 and int(str_amount[-1]) in [2, 3, 4] or amount in [2, 3, 4]:
+# 		return f'{amount} {declensions[1]}'
+# 	else:
+# 		return f'{amount} {declensions[2]}'
+#
+# print(choose_plural(21, ('пример', 'примера', 'примеров')))
+# print(choose_plural(92, ('гвоздь', 'гвоздя', 'гвоздей')))
+# print(choose_plural(8, ('яблоко', 'яблока', 'яблок')))
+# print(choose_plural(111223, ('копейка', 'копейки', 'копеек')))
+# print(choose_plural(512312, ('цент', 'цента', 'центов')))
+# print(choose_plural(11, ('стул', 'стула', 'стульев')))
+# print(choose_plural(2, ('пример', 'примера', 'примеров')))
+
+
+#11
+def get_biggest(numbers: list)-> int:
+	if numbers:
+		b = [str(x) for x in numbers]
+		c = len(max(b, key=len))
+		return abs(int(''.join(sorted(b, reverse=True, key=lambda x:str(x) * c))))
+	else:
+		return -1
+
+print(get_biggest([61, 228, 9, 3, 11]))
+print(get_biggest([7, 71, 72]))
+print(get_biggest([0, 0, 0, 0, 0, 0]))
