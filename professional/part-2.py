@@ -51,24 +51,31 @@ def revers(a, b, c, d, e):
 
 
 #5
-def max_len_of_group(number: int)-> int:
-	# my_arr = [' '.join(str(x)) for x in my_arr]
+def max_len_of_group(number: int) -> int:
 	my_arr = [str(x) for x in range(1, number + 1)]
 	result = []
-	print(my_arr)
+	was = []
 	for elt in range(len(my_arr)):
 		temp = []
 		a = ' '.join(my_arr[elt])
 		a = sum([int(x) for x in a.split()])
-		temp.append(a)
-		for jey in range(elt + 1, len(my_arr)):
-			b = ' '.join(my_arr[jey])
-			b = sum([int(x) for x in b.split()])
-			if a == b:
-				temp.append(my_arr[jey])
-				result.append(temp)
+		temp.append(my_arr[elt])
+		if int(my_arr[elt]) < 10:
+			for jey in range(elt + 1, len(my_arr)):
+				b = ' '.join(my_arr[jey])
+				b = sum([int(x) for x in b.split()])
+				if a == b:
+					temp.append(my_arr[jey])
+			result.append(temp)
+	for _ in result:
+		for j in _:
+			was.append(j)
+	for item in my_arr:
+		if item not in was:
+			t = [item]
+			result.append(t)
+	x = max([len(x) for x in result])
+	return x
 
-	print(result)
-
-max_len_of_group(20)
-# print('11'.split())
+print(max_len_of_group(20))
+print(max_len_of_group(1337))
