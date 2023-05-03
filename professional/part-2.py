@@ -50,25 +50,39 @@ def revers(a, b, c, d, e):
 # print(more_that_one('3 1 3 2 3 11 4 3 5 3 6 3 7 3 8 3 9 3 10 3 11 3 3 12 13 1'))
 
 
+def my_rec(digital):
+	digital = str(digital)
+	if len(digital) == 1:
+		return digital
+	a = ' '.join(digital)
+	a = sum([int(x) for x in a.split()])
+	return my_rec(a)
+
 #5
 def max_len_of_group(number: int)-> int:
-	# my_arr = [' '.join(str(x)) for x in my_arr]
 	my_arr = [str(x) for x in range(1, number + 1)]
+	my_dict = dict.fromkeys(list(range(1, 11)), [])
 	result = []
-	print(my_arr)
 	for elt in range(len(my_arr)):
-		temp = []
-		a = ' '.join(my_arr[elt])
-		a = sum([int(x) for x in a.split()])
-		temp.append(a)
-		for jey in range(elt + 1, len(my_arr)):
-			b = ' '.join(my_arr[jey])
-			b = sum([int(x) for x in b.split()])
-			if a == b:
-				temp.append(my_arr[jey])
-				result.append(temp)
+		a = int(my_rec(my_arr[elt]))
+		print(elt, my_arr[elt], a)
+		result.append(a)
+	print(result, len(result))
+	for k, v in my_dict.items():
+		my_dict[k] = result.count(k)
+		print(my_dict)
+	print(my_dict)
+	a = max(my_dict.values())
+	return a
 
-	print(result)
 
-max_len_of_group(20)
+b = '99'
+
+
+print(my_rec(b))
+
+
+# max_len_of_group(20)
+print(max_len_of_group(100))
+# max_len_of_group(1337)
 # print('11'.split())
