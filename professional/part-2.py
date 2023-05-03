@@ -60,20 +60,15 @@ def my_rec(digital):
 
 #5
 def max_len_of_group(number: int) -> int:
-
 	my_arr = [str(x) for x in range(1, number + 1)]
-	my_dict = dict.fromkeys(list(range(1, 11)), [])
+	my_dict = dict.fromkeys(list(range(1, int(my_arr[-1]))), [])
 	result = []
-
 	for elt in range(len(my_arr)):
-		a = int(my_rec(my_arr[elt]))
-		print(elt, my_arr[elt], a)
+		a = ' '.join(my_arr[elt])
+		a = sum([int(x) for x in a.split()])
 		result.append(a)
-	print(result, len(result))
 	for k, v in my_dict.items():
 		my_dict[k] = result.count(k)
-		print(my_dict)
-	print(my_dict)
 	a = max(my_dict.values())
 	return a
 
