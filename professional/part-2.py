@@ -78,6 +78,7 @@ def max_len_of_group(number: int) -> int:
 	return a
 
 # max_len_of_group(20)
-print(max_len_of_group(100))
-# max_len_of_group(1337)
+# print(max_len_of_group(100))
+print(max_len_of_group(1337))
+
 # print('11'.split())
