@@ -101,33 +101,52 @@ def revers(a, b, c, d, e):
 
 
 #7
-def similar_words(main_word, quantity_iterations):
-	all_vowels = ['а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е']
+# def similar_words(main_word, quantity_iterations):
+# 	all_vowels = ['а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е']
+#
+# 	def counter_letter(some_word, vowel):
+# 		quantity = 0
+# 		for elt in some_word:
+# 			if elt in vowel:
+# 				quantity += 1
+# 		return quantity
+#
+# 	def index_vowel_letter(another_word, vowel):
+# 		result_index = []
+# 		for elt in range(len(another_word)):
+# 			if another_word[elt] in vowel:
+# 				result_index.append(elt)
+# 		return result_index
+#
+# 	for _ in range(quantity_iterations):
+# 		a = input()
+# 		if counter_letter(main_word, all_vowels) == counter_letter(a, all_vowels):
+# 			if index_vowel_letter(main_word, all_vowels) == index_vowel_letter(a, all_vowels):
+# 				print(a)
+#
+# word = input()
+# iterations = int(input())
+#
+# similar_words(word, iterations)
 
-	def counter_letter(some_word, vowel):
-		quantity = 0
-		for elt in some_word:
-			if elt in vowel:
-				quantity += 1
-		return quantity
 
-	def index_vowel_letter(another_word, vowel):
-		result_index = []
-		for elt in range(len(another_word)):
-			if another_word[elt] in vowel:
-				result_index.append(elt)
-		return result_index
-
-	for _ in range(quantity_iterations):
-		a = input()
-		if counter_letter(main_word, all_vowels) == counter_letter(a, all_vowels):
-			if index_vowel_letter(main_word, all_vowels) == index_vowel_letter(a, all_vowels):
-				print(a)
-
-word = input()
-iterations = int(input())
-
-similar_words(word, iterations)
+#8
 
 
+# old_mail = ['ivan-petrov@beegeek.bzz', 'petr-ivanov@beegeek.bzz', 'ivan-petrov1@beegeek.bzz', 'ivan-ivanov@beegeek.bzz', 'ivan-ivanov1@beegeek.bzz', 'ivan-ivanov2@beegeek.bzz']
+# new_mail = ['ivan-ivanov', 'petr-petrov', 'petr-ivanov']
 
+old_mail = [input() for _ in range(int(input()))]
+new_mail = [input() for _ in range(int(input()))]
+
+result = []
+for _ in new_mail:
+	counter = 0
+	for elt in old_mail:
+		if _ in elt:
+			counter += 1
+	if counter:
+		result.append(f"{_}{counter}@beegeek.bzz")
+	else:
+		result.append(f"{_}@beegeek.bz")
+print(*result, sep='\n')
