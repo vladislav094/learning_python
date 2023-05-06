@@ -1,3 +1,4 @@
+import string
 #1
 # def new_course(a: int, b: int, c: int)-> int:
 # 	min_value = a + b + c
@@ -132,21 +133,25 @@ def revers(a, b, c, d, e):
 
 #8
 
+old_mail = ['ivan-petrov@beegeek.bzz', 'petr-ivanov@beegeek.bzz', 'ivan-petrov1@beegeek.bzz', 'ivan-ivanov@beegeek.bzz', 'ivan-ivanov1@beegeek.bzz', 'ivan-ivanov2@beegeek.bzz']
+new_mail = ['ivan-ivanov', 'petr-petrov', 'petr-ivanov']
 
-# old_mail = ['ivan-petrov@beegeek.bzz', 'petr-ivanov@beegeek.bzz', 'ivan-petrov1@beegeek.bzz', 'ivan-ivanov@beegeek.bzz', 'ivan-ivanov1@beegeek.bzz', 'ivan-ivanov2@beegeek.bzz']
-# new_mail = ['ivan-ivanov', 'petr-petrov', 'petr-ivanov']
+samples = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19']
 
-old_mail = [input() for _ in range(int(input()))]
-new_mail = [input() for _ in range(int(input()))]
+my_dict = {}
+
+
+# old_mail = [input() for _ in range(int(input()))]
+# new_mail = [input() for _ in range(int(input()))]
 
 result = []
 for _ in new_mail:
-	counter = 0
-	for elt in old_mail:
-		if _ in elt:
-			counter += 1
-	if counter:
-		result.append(f"{_}{counter}@beegeek.bzz")
-	else:
-		result.append(f"{_}@beegeek.bz")
-print(*result, sep='\n')
+	for indx in range(len(samples)):
+		if _ + samples[indx] + '@beegeek.bzz' not in old_mail:
+			old_mail.append(_ + samples[indx] + '@beegeek.bzz')
+
+		else:
+			continue
+print(old_mail)
+
+
