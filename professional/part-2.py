@@ -74,29 +74,60 @@ def revers(a, b, c, d, e):
 # 	 ['эсперанто', 'английский', 'русский', 'испанский', 'французский'],
 # 	 ['python', 'испанский', 'эсперанто', 'латышский', 'польский', 'французский']]
 
-a = [input().split(', ') for _ in range(int(input()))]
-result_dict = {}
-result_list = []
+# a = [input().split(', ') for _ in range(int(input()))]
+# result_dict = {}
+# result_list = []
+#
+# for elt in a:
+# 	for _ in elt:
+# 		result_dict.setdefault(_, 0)
+#
+# for k, v in result_dict.items():
+# 	for elt in a:
+# 		result_dict[k] += elt.count(k)
+#
+# for k, v in result_dict.items():
+# 	if v == len(a):
+# 		result_list.append(k)
+# result_list.sort()
+#
+# if len(result_list):
+# 	print(', '.join(result_list))
+#
+# else:
+# 	print('Сериал снять не удастся')
 
-for elt in a:
-	for _ in elt:
-		result_dict.setdefault(_, 0)
+# my_arr = ['сеть', 'машинист', 'дорога', 'урок', 'работа', 'аксиома', 'железо', 'ветеран']
 
-for k, v in result_dict.items():
-	for elt in a:
-		result_dict[k] += elt.count(k)
 
-for k, v in result_dict.items():
-	if v == len(a):
-		result_list.append(k)
-result_list.sort()
+#7
+def similar_words(main_word, quantity_iterations):
+	all_vowels = ['а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е']
 
-if len(result_list):
-	print(', '.join(result_list))
+	def counter_letter(some_word, vowel):
+		quantity = 0
+		for elt in some_word:
+			if elt in vowel:
+				quantity += 1
+		return quantity
 
-else:
-	print('Сериал снять не удастся')
+	def index_vowel_letter(another_word, vowel):
+		result_index = []
+		for elt in range(len(another_word)):
+			if another_word[elt] in vowel:
+				result_index.append(elt)
+		return result_index
 
+	for _ in range(quantity_iterations):
+		a = input()
+		if counter_letter(main_word, all_vowels) == counter_letter(a, all_vowels):
+			if index_vowel_letter(main_word, all_vowels) == index_vowel_letter(a, all_vowels):
+				print(a)
+
+word = input()
+iterations = int(input())
+
+similar_words(word, iterations)
 
 
 
