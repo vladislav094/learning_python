@@ -50,14 +50,6 @@ def revers(a, b, c, d, e):
 # print(more_that_one('3 1 3 2 3 11 4 3 5 3 6 3 7 3 8 3 9 3 10 3 11 3 3 12 13 1'))
 
 
-def my_rec(digital):
-	digital = str(digital)
-	if len(digital) == 1:
-		return digital
-	a = ' '.join(digital)
-	a = sum([int(x) for x in a.split()])
-	return my_rec(a)
-
 #5
 def max_len_of_group(number: int) -> int:
 	my_arr = [str(x) for x in range(1, number + 1)]
@@ -72,8 +64,5 @@ def max_len_of_group(number: int) -> int:
 	a = max(my_dict.values())
 	return a
 
-# max_len_of_group(20)
-# print(max_len_of_group(100))
 print(max_len_of_group(1337))
 
-# print('11'.split())
