@@ -51,18 +51,52 @@ def revers(a, b, c, d, e):
 
 
 #5
-def max_len_of_group(number: int) -> int:
-	my_arr = [str(x) for x in range(1, number + 1)]
-	my_dict = dict.fromkeys(list(range(1, int(my_arr[-1]))), [])
-	result = []
-	for elt in range(len(my_arr)):
-		a = ' '.join(my_arr[elt])
-		a = sum([int(x) for x in a.split()])
-		result.append(a)
-	for k, v in my_dict.items():
-		my_dict[k] = result.count(k)
-	a = max(my_dict.values())
-	return a
+# def max_len_of_group(number: int) -> int:
+# 	my_arr = [str(x) for x in range(1, number + 1)]
+# 	my_dict = dict.fromkeys(list(range(1, int(my_arr[-1]))), [])
+# 	result = []
+# 	for elt in range(len(my_arr)):
+# 		a = ' '.join(my_arr[elt])
+# 		a = sum([int(x) for x in a.split()])
+# 		result.append(a)
+# 	for k, v in my_dict.items():
+# 		my_dict[k] = result.count(k)
+# 	a = max(my_dict.values())
+# 	return a
+#
+# print(max_len_of_group(1337))
 
-print(max_len_of_group(1337))
+#6
+# a = [['испанский', 'португальский', 'эсперанто', 'французский'],
+# 	 ['французский', 'испанский', 'эсперанто'],
+# 	 ['португальский', 'эсперанто', 'французский', 'испанский'],
+# 	 ['французский', 'английский', 'болгарский', 'испанский', 'эсперанто'],
+# 	 ['эсперанто', 'английский', 'русский', 'испанский', 'французский'],
+# 	 ['python', 'испанский', 'эсперанто', 'латышский', 'польский', 'французский']]
+
+a = [input().split(', ') for _ in range(int(input()))]
+result_dict = {}
+result_list = []
+
+for elt in a:
+	for _ in elt:
+		result_dict.setdefault(_, 0)
+
+for k, v in result_dict.items():
+	for elt in a:
+		result_dict[k] += elt.count(k)
+
+for k, v in result_dict.items():
+	if v == len(a):
+		result_list.append(k)
+result_list.sort()
+
+if len(result_list):
+	print(', '.join(result_list))
+
+else:
+	print('Сериал снять не удастся')
+
+
+
 
