@@ -132,26 +132,34 @@ def revers(a, b, c, d, e):
 
 
 #8
+# old_mail = [input() for _ in range(int(input()))]
+# new_mail = [input() for _ in range(int(input()))]
 
 old_mail = ['ivan-petrov@beegeek.bzz', 'petr-ivanov@beegeek.bzz', 'ivan-petrov1@beegeek.bzz', 'ivan-ivanov@beegeek.bzz', 'ivan-ivanov1@beegeek.bzz', 'ivan-ivanov2@beegeek.bzz']
 new_mail = ['ivan-ivanov', 'petr-petrov', 'petr-ivanov']
 
-samples = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19']
-
-my_dict = {}
-
-
-# old_mail = [input() for _ in range(int(input()))]
-# new_mail = [input() for _ in range(int(input()))]
+# old_mail = ['timyr-guev2@beegeek.bzz', 'anri-tabuev@beegeek.bzz']
+# new_mail = ['timyr-guev', 'timyr-guev', 'anri-tabuev']
 
 result = []
-for _ in new_mail:
-	for indx in range(len(samples)):
-		if _ + samples[indx] + '@beegeek.bzz' not in old_mail:
-			old_mail.append(_ + samples[indx] + '@beegeek.bzz')
+end_path = '@beegeek.bzz'
+for elt in old_mail:
+	result.append(elt.split('@')[0])
 
-		else:
+for a in new_mail:
+	counter = 0
+	while a in result:
+		counter += 1
+		if a + str(counter) in result:
 			continue
-print(old_mail)
+		else:
+			result.append(a + str(counter))
+			print(a + str(counter) + end_path)
+			break
+	else:
+		print(a + end_path)
+		result.append(a)
+
+
 
 
